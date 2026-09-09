@@ -152,7 +152,7 @@ if os.environ.get("GITHUB_REF", "") == "refs/heads/main":
         (
             "https://plausible.io/js/script.js",
             {
-                "data-domain": f"learn.mimer-ai.eu/{github_repo_name or detected_repo_name}",
+                "data-domain": f"learn.swedenaifactory.se/{github_repo_name or detected_repo_name}",
                 "defer": "defer",
             },
         ),
