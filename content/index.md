@@ -57,9 +57,9 @@ By the end of this module, learners should:
 :::{admonition} Credit
 :class: warning
 
-This workshop was developed by Mimer AI Factory for life science researchers and practitioners.
+This workshop was developed by Sweden AI Factory for life science researchers and practitioners.
 
-Don't forget to check out additional course materials from the Mimer AI Factory GitHub repository and our online documentation.
+Don't forget to check out additional course materials from the Sweden AI Factory GitHub repository and our online documentation.
 
 :::
 
@@ -69,7 +69,7 @@ Don't forget to check out additional course materials from the Mimer AI Factory 
 :::{admonition} CC BY-SA for media and pedagogical material
 :class: attention dropdown
 
-Copyright © 2026 Mimer AI Factory. This material is released by Mimer AI Factory under the Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
+Copyright © 2026 Sweden AI Factory. This material is released by Sweden AI Factory under the Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
 
 **Canonical URL**: <https://creativecommons.org/licenses/by-sa/4.0/>
 
@@ -102,7 +102,7 @@ This deed highlights only some of the key features and terms of the actual licen
 
 MIT License
 
-Copyright (c) 2026, Mimer AI Factory project, {{ author }}
+Copyright (c) 2026, Sweden AI Factory project, {{ author }}
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
