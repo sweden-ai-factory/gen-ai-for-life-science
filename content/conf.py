@@ -93,8 +93,8 @@ github_repo_url = (
     f"https://github.com/{github_user}/{github_repo_name or detected_repo_name}"
 )
 html_theme_options = {
-    "light_logo": "Sweden_logo_light.png",
-    "dark_logo": "Sweden_logo_dark.png",
+    "light_logo": "SEAIF_favicon_black.png",
+    "dark_logo": "SEAIF_favicon_white.png",
     "source_repository": github_repo_url,
     "source_branch": github_version,
     "source_directory": conf_py_path,
@@ -123,6 +123,9 @@ html_context = {
     "github_version": github_version,
     "conf_py_path": conf_py_path,
 }
+
+# sphinx-evita
+evita_eu_funding_badge = "co-funded"
 
 # FIXME: modify intersphinx mapping to link to external content
 
