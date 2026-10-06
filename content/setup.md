@@ -20,7 +20,7 @@ You have different options:
 - Use [Miniforge](#miniforge) / [pixi](#pixi) and conda environments: Recommended for Windows users, 
   and users who don't have tools like a Python interpreter, `git` in their devices.
 
-Once you have done either, proceed to getting the [notebooks](#nobteooks). Finally download the [datasets](#datasets)
+Once you have done either, proceed to getting the [notebooks](#notebooks). Finally download the [datasets](#datasets)
 :::
 
 (pip)=
