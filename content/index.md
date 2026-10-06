@@ -33,6 +33,7 @@ episodes/intro-to-dl
 episodes/interpretable-autoencoder
 episodes/protein-language-models
 episodes/drug-discovery-codon-prediction
+episodes/concluding-remarks
 ```
 
 ```{toctree}
