@@ -29,10 +29,10 @@ setup
 :caption: The lesson
 :maxdepth: 1
 
-intro
-cell_fate_autoencoders
-protein_lm_structure_prediction
-medical_imaging_vlm
+episodes/intro-to-dl
+episodes/interpretable-autoencoder
+episodes/protein-language-models
+episodes/drug-discovery-codon-prediction
 ```
 
 ```{toctree}
