@@ -1,2 +1,19 @@
-# This CITATION.cff file was generated with cffinit.
-# Visit https://bit.ly/cffinit to generate yours today!
+cff-version: 1.2.0
+message: If you use this work, please cite it as follows.
+title: Generative AI for Life Science
+authors:
+  - given-names: Luca
+    family-names: Panconi
+    affiliation: Sweden AI Factory
+  - given-names: Ashwin
+    family-names: Mohanan
+    affiliation: Sweden AI Factory
+  - given-names: Fatemeh
+    family-names: Rahimian
+    affiliation: Sweden AI Factory
+  - given-names: António
+    family-names: Brito
+    affiliation: Sweden AI Factory
+year: 2026
+version: main
+repository-code: https://github.com/sweden-ai-factory/gen-ai-for-life-science

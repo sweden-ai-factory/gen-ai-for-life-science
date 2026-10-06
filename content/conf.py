@@ -14,7 +14,12 @@
 # -- Project information -----------------------------------------------------
 
 project = "Generative AI for Life Science"
-author = "Luca Panconi, ..."
+author = "\
+Luca Panconi, \
+Ashwin Mohanan, \
+Fatemeh Rahimian, \
+António Brito. \
+"
 copyright = f"2026, Sweden AI Factory, {author}"
 
 github_user = "sweden-ai-factory"
@@ -50,7 +55,7 @@ nb_execution_mode = "cache"
 
 # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html
 myst_enable_extensions = ["colon_fence", "attrs_inline", "substitution"]
-myst_substitutions = {"author": author}
+myst_substitutions = {"author": author, "copyright": copyright}
 
 # Settings for sphinx-copybutton
 copybutton_exclude = ".linenos, .gp"
