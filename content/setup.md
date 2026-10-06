@@ -10,6 +10,7 @@ If you encounter problems with the installation procedure, attend the pre-worksh
 (local-installation)=
 ## Local installation
 
+:::{important}
 You have different options:
 
 - Use [pip](#pip) and virtual environments: If you have `git` in your terminal and are
@@ -20,6 +21,7 @@ You have different options:
   and users who don't have tools like a Python interpreter, `git` in their devices.
 
 Once you have done either, proceed to getting the [notebooks](#nobteooks). Finally download the [datasets](#datasets)
+:::
 
 (pip)=
 ### Using pip
