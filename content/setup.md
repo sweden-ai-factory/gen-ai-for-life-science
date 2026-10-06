@@ -173,8 +173,10 @@ pixi add python git pip
 
 3. Install the required packages:
 
+Download requirements file from <https://raw.githubusercontent.com/sweden-ai-factory/gen-ai-for-life-science/refs/heads/main/requirements.txt>
+
 ```shell
-pixi run pip install -r requirements.txt
+pixi import --feature=default requirements.txt
 ```
 
 Use `pixi shell` to enter the environment, or prefix commands with `pixi run`.
@@ -193,8 +195,22 @@ which will also contain the notebooks. If you want to get the latest copy,
 you update this repository by using
 
 ```shell
+cd gen-ai-for-life-science
 git pull
 ```
+
+### Launch JupyterLab
+
+From within your virtual environment (using `activate` script) or conda
+environment (using `conda activate workshop` / `pixi shell`) navigate to the
+notebooks directory and launch JupyterLab
+
+```shell
+cd gen-ai-for-life-science/notebooks
+jupyter-lab
+```
+
+which should also open JupyterLab.
 
 (colab-fallback)=
 ## Fallback option: Google colab
