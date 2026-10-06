@@ -139,24 +139,18 @@ better to disable the auto activation with:
 conda config --set auto_activate_base false
 ```
 
-2. Create an environment called `workshop`:
+2. Download <https://raw.githubusercontent.com/sweden-ai-factory/gen-ai-for-life-science/refs/heads/main/environment.yaml>
+
+3. Create an environment called `workshop`:
 
 ```shell
-conda create -n workshop python git pip -y
+conda env create --yes -f environment.yaml
 ```
 
 3. Activate the environment:
 
 ```shell
 conda activate workshop
-```
-
-4. Install the required packages:
-
-Download requirements file from <https://raw.githubusercontent.com/sweden-ai-factory/gen-ai-for-life-science/refs/heads/main/requirements.txt>
-
-```shell
-pip install -r requirements.txt
 ```
 
 (pixi)=
@@ -173,11 +167,13 @@ pixi add python git pip
 
 3. Install the required packages:
 
-Download requirements file from <https://raw.githubusercontent.com/sweden-ai-factory/gen-ai-for-life-science/refs/heads/main/requirements.txt>
+Download <https://raw.githubusercontent.com/sweden-ai-factory/gen-ai-for-life-science/refs/heads/main/environment.yaml>
 
 ```shell
-pixi import --feature=default requirements.txt
+pixi import --feature=default environment.yaml
 ```
+
+<!--pixi import --feature=default requirements.txt-->
 
 Use `pixi shell` to enter the environment, or prefix commands with `pixi run`.
 
