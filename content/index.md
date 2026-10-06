@@ -9,14 +9,8 @@ In this workshop, we will demonstrate how GenAI is applied across key life scien
 - Basic understanding of Python programming
 - Familiarity with machine learning concepts
 - Interest in life science applications
-  :::
+:::
 
-```{csv-table}
-:delim: ;
-:widths: auto
-
-20 min ; {doc}`filename`
-```
 
 ```{toctree}
 :caption: Setup
