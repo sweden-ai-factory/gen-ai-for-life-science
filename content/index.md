@@ -1,6 +1,8 @@
 # Generative AI for Life Science
 
-Intro
+Generative AI has become both highly prevalent and highly divisive. While public opinion varies, rapid advancement in GenAI is transforming the life sciences, enabling new approaches to understand biological systems, predict molecular structures and advance clinical diagnostics.
+
+In this workshop, we will demonstrate how GenAI is applied across key life science domains through four interactive sessions. Participants will train models, explore biological datasets and generate real outputs such as synthetic cell images, protein structure predictions, and mRNA sequences for vaccines. By the end of the workshop, you will have hands-on experience in developing GenAI techniques and applying them to solve real-world life science problems.
 
 :::{prereq}
 
@@ -47,10 +49,22 @@ This material is for researchers and practitioners in life sciences who want to 
 
 By the end of this module, learners should:
 
-- Understand the basics of generative AI models
-- Learn about applications of generative AI in life sciences
-- Gain hands-on experience with generative AI tools for biological data
-- Develop skills to implement generative AI solutions for life science problems
+- Understand what generative AI is and how generative models (autoencoders, transformers and multimodal systems) are applied to biological data.
+    
+- Hands-on experience training and using models for:
+    
+    - Image analysis and reconstruction (autoencoders).
+        
+    - Protein feature extraction and structure prediction (protein language models).
+        
+    - Drug discovery (codon prediction).
+        
+- Understand key concepts such as latent space representations, intermediate embeddings and attention mechanisms.
+    
+- Experience with real biomedical datasets including X-ray images and protein sequences.
+    
+- Methods for evaluating models with practical metrics, visualisations and interpretability tools (e.g. saliency maps).
+
 
 ## See also
 
@@ -59,7 +73,7 @@ By the end of this module, learners should:
 
 This workshop was developed by Sweden AI Factory for life science researchers and practitioners.
 
-Don't forget to check out additional course materials from the Sweden AI Factory GitHub repository and our online documentation.
+Don't forget to check out additional course materials from the [Sweden AI Factory lesson library](https://learn.swedenaifactory.se/lessons/).
 
 :::
 
