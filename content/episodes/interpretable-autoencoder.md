@@ -141,10 +141,10 @@ For these images, you can think of this as comparing every pixel in the original
 Example original X-rays and their autoencoder reconstructions. This lets us compare the model's pixel-level reconstruction quality with the structure visible in the original images.
 :::
 
-::::{note} Question
+::::{exercise}
 Take a $2 \times 2$ "image" with true pixel values $[[1.0, 0.0], [0.0, 1.0]]$ and a reconstruction $[[0.8, 0.1], [0.2, 0.9]]$. What is the MSE?
 
-:::{dropdown} Solution
+:::{solution}
 Errors for each pixel are 0.2, 0.1, 0.2, 0.1. Squared they are 0.04, 0.01, 0.04, 0.01, summing to 0.10. Dividing by $n=4$ pixels gives MSE = 0.025.
 :::
 ::::
@@ -210,10 +210,10 @@ This tells us what the probability of the latent vector belonging to each class 
 
 Since the classifier MLP is also a neural network, it requires its own loss term. For this, we use cross-entropy loss. This loss is minimised when the MLP correctly predicts the true class of every latent vector with 100% certainty.
 
-::::{note} Question
+::::{discussion}
 Why do we train the latent classifier after the autoencoder has finished training rather than at the same time?
 
-:::{dropdown} Solution
+:::{solution}
 The classifier learns a mapping from the latent space, so that space needs to be fixed. If it were still moving (as it does during training), the classifier would be chasing a moving target.
 :::
 ::::
@@ -229,10 +229,10 @@ However, since biological datasets can be imbalanced, accuracy alone can be misl
 A confusion matrix for classification from latent vectors, showing true positives, false positives, true negatives and false negatives.
 :::
 
-::::{note} Question
+::::{discussion}
 A test set has 900 normal and 100 pneumonia X-rays. A trained model always predicts "normal" for every image. Why might this happen? What is this model's accuracy?
 
-:::{dropdown} Solution
+:::{solution}
 Why might this happen? - It could be because the training set was heavily imbalanced, with very few pneumonia cases. The model learns that the easiest way to ensure high accuracy is to treat all images as "normal".
 
 What is this model's accuracy? - 90%. It misses every single pneumonia case while looking great on accuracy. A confusion matrix helps to expose this issue.

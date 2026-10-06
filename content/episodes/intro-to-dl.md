@@ -109,10 +109,10 @@ $$
 
 That may not look impressive. It is just multiply, add, transform. But now imagine doing that not once, but millions or billions of times. Suddenly the network can learn very complex relationships.
 
-::::{note} Question
+::::{exercise}
 A neuron with weights $w_1=0.5$, $w_2=1.0$ and bias $b=1$ receives inputs $x_1=2$, $x_2=3$. The neuron's activation function is $f(x) = x$. What is the neuron's output?
 
-:::{dropdown} Solution
+:::{solution}
 First, we calculate the weighted sum inside the neuron $0.5 * 2 + 1.0 * 3 + 1 = 5$. Passing this through the activation function gives us the output $f(5) = 5$.
 :::
 ::::
@@ -149,10 +149,10 @@ MLPs are usually made up of **fully-connected layers** - this means every neuron
 A simple multilayer perceptron with an input layer, hidden layers and an output layer. [Image source](https://cs231n.github.io/neural-networks-1/).
 :::
 
-::::{note} Question
+::::{exercise}
 In an MLP, a fully-connected layer maps 3 inputs to 4 neurons. How many trainable parameters does that layer have?
 
-:::{dropdown} Solution
+:::{solution}
 There are $3 * 4 = 12$ weights (one for each channel) and $4$ biases (one for each neuron). This gives $16$ parameters altogether.
 :::
 ::::
@@ -232,7 +232,7 @@ A **batch** is a small group of training data processed together. Instead of cal
 The basic neural network training loop: take a batch, run a forward pass, calculate the loss, backpropagate gradients, update weights with an optimiser such as Adam, then repeat. You'll notice there's a seventh step, "Evaluate" - we'll discuss that in the next section.
 :::
 
-::::{note} Question
+::::{exercise}
 Which of these do we learn during training and which do we choose ourselves?
 1. Number of channels.
 2. Channel weights.
@@ -241,7 +241,7 @@ Which of these do we learn during training and which do we choose ourselves?
 5. Batch size.
 6. Number of layers.
 
-:::{dropdown} Solution
+:::{solution}
 We choose the number of channels, learning rate, batch size and number of layers ourselves. The only learnable parameters are the weights and biases.
 :::
 ::::
@@ -258,10 +258,10 @@ To mitigate this, we split our data into the following subsets:
 
 If the training loss keeps decreasing but the validation loss increases, the model may be overfitting. It has learned the training examples too specifically and is no longer generalising well.
 
-::::{note} Question
+::::{discussion}
 Why do we use a test set if we already have a validation set that the model never trains on?
 
-:::{dropdown} Solution
+:::{solution}
 We use the validation loss to make decisions (when to stop training, which architecture to use), so the validation set can bias our choices. That means validation loss becomes an optimistic estimate of model performance on unseen data. The untouched test set gives the honest estimate of performance on genuinely unseen data.
 :::
 ::::

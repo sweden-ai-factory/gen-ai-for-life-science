@@ -163,10 +163,10 @@ In practice, we provide the amino acid embedding from ESM-2, a custom codon embe
 An architecture diagram showing amino acid sequence input, ESM2 per-residue features, codon mask embeddings, positional embeddings, a transformer encoder, and output logits over the codon vocabulary at each position.
 :::
 
-::::{note} Question
+::::{discussion}
 In Session 3 we mean-pooled ESM2's embeddings, but here we keep them per amino acid. Why the difference?
 
-:::{dropdown} Solution
+:::{solution}
 In Session 3, we predicted one label for the whole protein, so one vector per protein was enough. Here the output is one codon per amino acid, so we need a distinct feature vector at every position, and pooling would destroy exactly the information we need.
 :::
 ::::
@@ -221,10 +221,10 @@ class SinusoidalPosEnc(nn.Module):
     def forward(self, x): return x + self.pe[:, : x.size(1)]
 ```
 
-::::{note} Question
+::::{discussion}
 Why use sinusoidal embeddings rather than simply numbering the positions 1, 2, 3, ...?
 
-:::{dropdown} Solution
+:::{solution}
 Integers are unbounded, so position 1000 would dominate the token representation numerically, and the scale would differ wildly between short and long sequences. Sine and cosine values stay bounded in $[-1, 1]$, give every position a unique smooth pattern, are continuous and easily differentiable, and extend naturally to positions longer than those seen in training.
 :::
 ::::

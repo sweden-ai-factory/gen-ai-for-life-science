@@ -182,10 +182,10 @@ First residue's embedding: tensor([-0.4646, -0.0841, -0.4610,  1.0782,  0.0641, 
          0.4103,  0.7095, -0.4415,  0.3491, -0.4087, -0.1106,  0.1180, -0.4492])
 ```
 
-::::{note} Question
+::::{discussion}
 Why do we use embeddings if tokenisation has already converted our sequence into numeric format?
 
-:::{dropdown} Solution
+:::{solution}
 Token IDs are arbitrary labels with no meaningful numerical relationships between them. Embeddings map those IDs to learned vectors that capture biochemical properties and sequence context.
 :::
 ::::
@@ -194,10 +194,10 @@ ESM2 produces **per-residue embeddings**, meaning each amino acid in the protein
 
 An easy way to do this is to average across all residues to get one 480-dimensional vector per protein. To do this, we use an operation called **mean pooling**, which just averages each position in each embedding. Since we're just averaging the information, all protein sequences end up exactly the same size.
 
-::::{note} Question
+::::{exercise}
 ESM2 returns per-residue embeddings for a 350-residue protein. What is the shape of that output and what shape does mean pooling produce?
 
-:::{dropdown} Solution
+:::{solution}
 $(350, 480)$ before pooling, $(480,)$ after.
 :::
 ::::
@@ -241,10 +241,10 @@ As we'll see in the notebook, we're able to use the embeddings to train our mode
 Validation curves for the solubility classifier. Left: training and validation loss (cross entropy). Right: training and validation accuracy (percentage of correctly classified sequences).
 :::
 
-::::{note} Question
+::::{discussion}
 Why is it computationally-efficient to extract embeddings from ESM, then train an MLP on those embeddings?
 
-:::{dropdown} Solution
+:::{solution}
 Sequences pass through ESM2 exactly once with no backpropagation. Only the tiny MLP needs to be trained. Since the embeddings never change, you can compute them once and save them, after which every training run is near-instant.
 :::
 ::::
