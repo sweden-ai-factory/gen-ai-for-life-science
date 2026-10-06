@@ -1,29 +1,8 @@
-# Protein Language Models for Structure Prediction
+# 3. Protein Language Models
 
 :::{objectives}
-- Learn about protein language models and their applications
-- Understand tokenization and embedding of amino acid sequences
-- Explore protein structure prediction techniques
-:::
-
-## Protein Language Models
-
-:::{discussion}
-:::
-
-## Tokenization and Embedding
-
-:::{discussion}
-:::
-
-## Protein Structure Prediction
-
-:::{discussion}
-:::
-
-:::{keypoints}
-- Protein language models use transformer architectures for sequence analysis
-- Tokenization and embedding convert amino acid sequences to numerical representations
-- Structure prediction models can predict atomic coordinates and contact maps
-- Applications include drug discovery and protein engineering
+- Explain how transformers and attention mechanisms process amino acid sequences as biological language
+- Tokenise protein sequences and extract per-residue ESM2 embeddings for downstream tasks
+- Train a classifier on pooled protein embeddings to predict solubility of *E. coli* proteins
+- Visualise high-dimensional embeddings with t-SNE to reveal class structure
 :::

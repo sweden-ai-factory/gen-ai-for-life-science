@@ -1,29 +1,8 @@
-# Vision Language Models for Medical Imaging
+# 4. Drug Discovery Application - Translating Proteins Back to DNA
 
 :::{objectives}
-- Understand vision language models and their medical applications
-- Learn about model architectures for image-text data
-- Explore fine-tuning techniques for medical imaging
-:::
-
-## Vision Language Models
-
-:::{discussion}
-:::
-
-## Medical Imaging Applications
-
-:::{discussion}
-:::
-
-## Fine-tuning and Evaluation
-
-:::{discussion}
-:::
-
-:::{keypoints}
-- Vision language models combine image and text processing capabilities
-- Applications include automated radiology report generation
-- Fine-tuning on domain-specific data improves performance
-- Saliency maps help interpret model decisions on medical images
+- Explain how sequence-to-sequence models and codon degeneracy motivate protein-to-DNA prediction for mRNA vaccine design
+- Build a transformer prediction head with positional embeddings on top of frozen ESM2 features
+- Apply codon validity constraints so predicted DNA sequences encode the correct amino acids
+- Evaluate the codon predictor against a highest-frequency-codon baseline
 :::
