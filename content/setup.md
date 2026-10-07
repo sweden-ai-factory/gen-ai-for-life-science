@@ -141,6 +141,11 @@ conda config --set auto_activate_base false
 
 2. Download <https://raw.githubusercontent.com/sweden-ai-factory/gen-ai-for-life-science/refs/heads/main/environment.yaml>
 
+:::{tip}
+If you have a GPU, you might want to comment `pytorch` and uncomment `pytorch-gpu` in the 
+`environment.yaml` file.
+:::
+
 3. Create an environment called `workshop`:
 
 ```shell
@@ -158,24 +163,24 @@ conda activate workshop
 
 1. Install Pixi by following the [installation instructions](https://pixi.sh/latest/#installation).
 
-2. From an empty directory, initialize a Pixi project and add Python:
+<!--2. From an empty directory, initialize a Pixi project and add Python:
 
 ```shell
 pixi init
-pixi add python git pip
-```
+```-->
 
-3. Install the required packages:
-
-Download <https://raw.githubusercontent.com/sweden-ai-factory/gen-ai-for-life-science/refs/heads/main/environment.yaml>
+2.  Download <https://raw.githubusercontent.com/sweden-ai-factory/gen-ai-for-life-science/refs/heads/main/pixi.toml>, and use one the below commands
 
 ```shell
-pixi import --feature=default environment.yaml
+pixi shell         # If you don't have a GPU
+pixi shell -e gpu  # If you have a GPU
 ```
 
+<!--pixi import --feature=default environment.yaml-->
 <!--pixi import --feature=default requirements.txt-->
 
-Use `pixi shell` to enter the environment, or prefix commands with `pixi run`.
+Use either `pixi shell` to enter the environment,
+or prefix commands with `pixi run`.
 
 (notebooks)=
 ### Getting the Notebooks

@@ -5,6 +5,7 @@ channels:
 dependencies:
 - python>=3.10
 - pytorch>=2.1
+#- pytorch-gpu>=2.1
 - torchvision>=0.16
 - transformers>=4.45
 - accelerate>=0.34
@@ -29,6 +30,7 @@ dependencies:
 - jupyter>=1.0
 - ipykernel>=6.29
 - nbformat>=5.10
+- git
 - pip
 - pip:
   - medmnist>=3.0.2
