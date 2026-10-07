@@ -62,6 +62,7 @@ jupyter = ">=1.0"
 ipykernel = ">=6.29"
 nbformat = ">=5.10"
 pip = "*"
+git = ">=2.56.0,<3"
 
 [pypi-dependencies]
 medmnist = ">=3.0.2"
