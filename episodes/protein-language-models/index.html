@@ -1,0 +1,601 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../genindex/"><link rel="search" title="Search" href="../../search/"><link rel="next" title="4. Drug Discovery Application - Translating Proteins Back to DNA" href="../drug-discovery-codon-prediction/"><link rel="prev" title="2. Interpretable Autoencoders for Image Classification" href="../interpretable-autoencoder/">
+        <link rel="prefetch" href="../../_static/SEAIF_favicon_black.png" as="image">
+        <link rel="prefetch" href="../../_static/SEAIF_favicon_white.png" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.png"><!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
+        <title>3. Protein Language Models - Generative AI for Life Science</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_lesson.css?v=e9df6548" />
+    <link rel="stylesheet" type="text/css" href="../../_static/term_role_formatting.css?v=4194e21c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/furo_ext_lesson.css?v=6c0cde2e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/EN_Co-funded.css?v=bf081b0b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/overrides.css?v=1c72d2de" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../"><div class="brand">Generative AI for Life Science</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../../_static/SEAIF_favicon_black.png" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../../_static/SEAIF_favicon_white.png" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Generative AI for Life Science</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search/" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Setup</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../setup/">Setup</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">The lesson</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro-to-dl/">1. The Foundations of Deep Learning and Generative AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../interpretable-autoencoder/">2. Interpretable Autoencoders for Image Classification</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">3. Protein Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drug-discovery-codon-prediction/">4. Drug Discovery Application - Translating Proteins Back to DNA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concluding-remarks/">5. Concluding Remarks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick-reference/">Quick Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/">Instructor’s guide</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/sweden-ai-factory/gen-ai-for-life-science/blob/main//content/episodes/protein-language-models.md?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/sweden-ai-factory/gen-ai-for-life-science/edit/main//content/episodes/protein-language-models.md" rel="edit" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section class="tex2jax_ignore mathjax_ignore" id="protein-language-models">
+<h1>3. Protein Language Models<a class="headerlink" href="#protein-language-models" title="Link to this heading">¶</a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Explain how transformers and attention mechanisms process amino acid sequences as biological language</p></li>
+<li><p>Tokenise protein sequences and extract per-residue ESM2 embeddings for downstream tasks</p></li>
+<li><p>Train a classifier on pooled protein embeddings to predict solubility of <em>E. coli</em> proteins</p></li>
+<li><p>Visualise high-dimensional embeddings with t-SNE to reveal class structure</p></li>
+</ul>
+</div>
+<p>These notes support <code class="docutils literal notranslate"><span class="pre">Session3_Protein_Language_Models_Workshop.ipynb</span></code>.</p>
+<section id="recap-of-session-2">
+<h2>Recap of Session 2<a class="headerlink" href="#recap-of-session-2" title="Link to this heading">¶</a></h2>
+<p>In the previous session, we built a plain autoencoder for encoding and decoding image data. The encoder compressed each image into a <strong>2-dimensional latent representation</strong>, and the decoder then tried to reconstruct the original image from those two numbers alone.</p>
+<p>Once the decoder has learned to map latent coordinates back to images, we can sample a fake latent representation, pass it through the decoder and generate a synthetic image. This is a primitive version of how many image-generation models work: learn a useful latent or noise space, then decode points from that space into plausible data.</p>
+<p>By performing a latent space traversal, we could identify which image features may correspond with pneumonia. The key idea was that generative models are not only for making synthetic examples. They can also help us learn compact, interpretable representations for prediction and hypothesis generation.</p>
+</section>
+<section id="from-image-data-to-sequence-data">
+<h2>From Image Data to Sequence Data<a class="headerlink" href="#from-image-data-to-sequence-data" title="Link to this heading">¶</a></h2>
+<p>So far, we have only worked with toy data and images, but commercial generative AI relies on a very different data type: <strong>sequences</strong> - specifically, sequences of text. Models like ChatGPT and Claude are designed to take in sequences of text data and output more text data as an answer, typically in such a way that provides a realistic response to the input.</p>
+<p>In this session, we’ll also move to sequence data - but we’ll see examples which are more biologically-relevant: <strong>proteins</strong>. A protein is made up of a chain of amino acids, and we can treat that chain as a kind of biological language.</p>
+<p>Sequence data is first broken into <strong>tokens</strong> - these are small pieces of the data. In text, a model receives tokens such as words, subwords or characters. In proteins, each amino acid might be a token.</p>
+<p>We’ll use a model called <strong>Evolutionary Scale Modelling-2</strong> (ESM2), a pre-trained protein language model which converts amino acid sequences into numerical representations called <strong>embeddings</strong> - kind of like how our autoencoder converts images into a latent representation. We then train a small classifier to predict a whether or not the given amino acid sequence is <strong>soluble</strong>.</p>
+</section>
+<section id="proteins-as-biological-language">
+<h2>Proteins as Biological Language<a class="headerlink" href="#proteins-as-biological-language" title="Link to this heading">¶</a></h2>
+<p>There are 20 standard amino acids, commonly represented with one-letter codes such as <code class="docutils literal notranslate"><span class="pre">A</span></code> for alanine, <code class="docutils literal notranslate"><span class="pre">G</span></code> for glycine and <code class="docutils literal notranslate"><span class="pre">W</span></code> for tryptophan. Since each amino acid can be represented by a letter, a protein sequence can be represented as a string:</p>
+<p><code class="docutils literal notranslate"><span class="pre">MKPVTLYDVAEYAGVSYQTVSRVVNQHISENKASRA…</span></code></p>
+<p>The same deep-learning ideas used for text can be adapted to biological sequences. This applies beyond proteins too. Similar logic appears in genomics, transcriptomics and any domain where biological information is stored in ordered strings.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../../_images/session3_protein_aa_chain.png"><img alt="../../_images/session3_protein_aa_chain.png" src="../../_images/session3_protein_aa_chain.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><em>E. coli</em> lac repressor protein. Proteins are usually visualised through ribbon diagrams (left). Each protein is composed of amino acid chains (top right), which are sequences of amino acid molecules. These sequences can be recorded in string or text format (bottom right).</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="transformers">
+<h2>Transformers<a class="headerlink" href="#transformers" title="Link to this heading">¶</a></h2>
+<p>ESM2 is a transformer-based model. A <strong>transformer</strong> is a type of neural network designed to process sequences.</p>
+<p>Traditional sequence models, such as recurrent neural networks, processed tokens one after another. This made it harder for the model to preserve information across long sequences. Transformers overcome this problem with <strong>attention mechanisms</strong>, which lets the model compare between all positions in the sequence in a way that is computationally-efficient.</p>
+<p>Fundamentally, attention is just another form of matrix multiplication which is very effective at recognising both local and global relationships between elements in the sequence. In a sentence, attention can connect a pronoun to the noun it refers to. For a protein, attention can connect amino acids that are far apart in sequence but important for the same structure or function.</p>
+<p>A transformer first converts each token into an embedding and adds information about its position in the sequence. The attention layers then calculate how strongly each token “relates” to every other token and combine information from the most relevant positions. If you’d like to learn more about attention mechanisms in transformers, I would recommend <a class="reference external" href="https://www.youtube.com/watch?v=eMlx5fFNoYc">this video</a>.</p>
+</section>
+<section id="what-are-protein-language-models">
+<h2>What are Protein Language Models?<a class="headerlink" href="#what-are-protein-language-models" title="Link to this heading">¶</a></h2>
+<p>Protein language models adapt transformer ideas from natural language processing to amino acid sequences. The details differ between models, but they usually learn by predicting masked amino acids or predicting the next amino acid in an incomplete sequence.</p>
+<p>Protein language models are typically used for:</p>
+<ul class="simple">
+<li><p><strong>Regression of protein properties:</strong> Predict continuous properties such as stability or binding affinity.</p></li>
+<li><p><strong>Classification:</strong> Predict discrete labels such as functional class or subcellular localisation.</p></li>
+<li><p><strong>Protein design:</strong> Generate or rank candidate sequences with desired biochemical properties.</p></li>
+<li><p><strong>Protein structure prediction:</strong> Use sequence representations to help infer sequence context and ultimately generate 3D structure.</p></li>
+</ul>
+<p>Clinical applications include drug discovery, antibody design, enzyme optimisation, and prioritising candidate proteins for experimental screening.</p>
+<p>ESM2 is a <strong>pre-trained</strong> protein language model - this means it was already trained on many protein sequences, with the task of predicting missing or masked amino acids in a given sequence. In order to do this, the model has to learn contextual embeddings for each amino acid. These embeddings can then be used for downstream tasks through feature extraction.</p>
+<p>In machine learning, the term for re-using a pre-trained model on a separate task is called <strong>transfer learning</strong>. In our case, we’re using a specific form of transfer learning called <strong>feature extraction</strong>, where we take the output of one network (ESM2) as input to another.</p>
+</section>
+<section id="fasta-and-biological-identifiers">
+<h2>FASTA and Biological Identifiers<a class="headerlink" href="#fasta-and-biological-identifiers" title="Link to this heading">¶</a></h2>
+<p>Protein sequences are commonly accessed through databases such as <strong>UniProt</strong>, which provides curated protein sequences, annotations, identifiers, organism information, functional descriptions and links to other biological resources.</p>
+<p>Protein sequence data is often stored in <strong>FASTA</strong> format. A FASTA file has a header line, starting with <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, followed by sequence metadata, with the sequence itself just underneath. For example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;sp|P0A7V8|RS4_ECOLI 30S ribosomal protein S4 OS=Escherichia coli
+MARIAGINIPDHKHPIIVVNDTLTERLKK...
+</pre></div>
+</div>
+<p>In the next notebook, we’ll be classifying proteins from the bacterium <em>E. coli</em> into one of two classes: soluble or insoluble. We’ll download the sequence data directly from UniProt in FASTA format.</p>
+</section>
+<section id="tokenisation">
+<h2>Tokenisation<a class="headerlink" href="#tokenisation" title="Link to this heading">¶</a></h2>
+<p>For a protein language model, <strong>tokens</strong> are usually amino acid letters plus special tokens for padding, sequence start, sequence end or masking. Tokenised data is usually represented as a sequence of numbers, for example, I may assign the integers 1, 2 and 3 to the amino acids <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code> and <code class="docutils literal notranslate"><span class="pre">W</span></code>. This would convert the amino acid sequence <code class="docutils literal notranslate"><span class="pre">AWGWAG</span></code> into the sequence of numbers <span class="math notranslate nohighlight">\([1, 3, 2, 3, 1, 2]\)</span>.</p>
+<p>The input layer of a neural network is of fixed size, which means that each model has a maximum input size. We usually make this much larger than necessary and fill in the empty space with special <strong>pad</strong> tokens. Padding is important because batches need tensors with consistent shapes. If one protein has 80 residues and another has 500, we pad the shorter one so the batch can be stacked.</p>
+<p>ESM2 also has a maximum context length of 1024 - this means we can only process proteins with at most 1022 amino acids (excluding start and stop tokens). In the notebook, sequences which are longer than the context length are truncated - this is fine for the purpose of demonstration, but in practice we’d use a model with a larger context window.</p>
+<p>In the plot below, you can see how the class distribution varies with sequence length and amino acid frequency over our <em>E. coli</em> data. The red line marks the context window of ESM-2, so any amino acid beyond this point is truncated.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../../_images/session3_sequence_lengths.png"><img alt="../../_images/session3_sequence_lengths.png" src="../../_images/session3_sequence_lengths.png" style="width: 85%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Sequence length distributions for the protein dataset, including the ESM2 context limit. This shows how many proteins fit directly into the model and where truncation begins to matter.</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>In the notebook, we’ll use ESM2’s built-in tokeniser. Here’s an example of what tokenising the gene <code class="docutils literal notranslate"><span class="pre">yaaX</span></code> looks like.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import ESM</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">esm</span>
+
+<span class="c1"># Grab the sequence of yaaX - here, "gene_to_sequence" is a mapping from the gene name to its amino acid sequence</span>
+<span class="n">test_seq</span> <span class="o">=</span> <span class="n">gene_to_sequence</span><span class="p">[</span><span class="s1">'yaaX'</span><span class="p">]</span>
+<span class="c1"># Here, alphabet is ESM's built-in tokeniser - it converts amino acids to numbers</span>
+<span class="n">model</span><span class="p">,</span> <span class="n">alphabet</span> <span class="o">=</span> <span class="n">esm</span><span class="o">.</span><span class="n">pretrained</span><span class="o">.</span><span class="n">esm2_t12_35M_UR50D</span><span class="p">()</span>
+<span class="c1"># Get our tokens out: get_batch_converter() returns a callable, which we then call with the batch</span>
+<span class="n">batch_converter</span> <span class="o">=</span> <span class="n">alphabet</span><span class="o">.</span><span class="n">get_batch_converter</span><span class="p">()</span>
+<span class="c1"># Convert our test sequence into a tensor of numeric tokens (we include the string "test" here because batch_converter expects a label)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">tokens</span> <span class="o">=</span> <span class="n">batch_converter</span><span class="p">([(</span><span class="s1">'test'</span><span class="p">,</span> <span class="n">test_seq</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Shape of token vector: </span><span class="si">{</span><span class="n">tokens</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Tokens: </span><span class="si">{</span><span class="n">tokens</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># Print the tokens - there are 98 residues in this sequence, so we get 98 tokens + 2 for start and end tokens</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Shape of token vector: torch.Size([1, 100])
+Tokens: tensor([[ 0, 20, 15, 15, 20, 16,  8, 12,  7,  4,  5,  4,  8,  4,  7,  4,  7,  5,
+         14, 20,  5,  5, 16,  5,  5,  9, 12, 11,  4,  7, 14,  8,  7, 15,  4, 16,
+         12,  6, 13, 10, 13, 17, 10,  6, 19, 19, 22, 13,  6,  6, 21, 22, 10, 13,
+         21,  6, 22, 22, 15, 16, 21, 19,  9, 22, 10,  6, 17, 10, 22, 21,  4, 21,
+          6, 14, 14, 14, 14, 14, 10, 21, 21, 15, 15,  5, 14, 21, 13, 21, 21,  6,
+          6, 21,  6, 14,  6, 15, 21, 21, 10,  2]])
+</pre></div>
+</div>
+<p>After tokenisation, the model also needs a way to know where each amino acid appears in the sequence. Transformer models therefore add positional information. Some models use learned <strong>positional embeddings</strong>, where each position also gets its own embedding. In the notebook, ESM-2 takes account of this automatically. We’ll learn more about positional embeddings in Session 4.</p>
+</section>
+<section id="embeddings">
+<h2>Embeddings<a class="headerlink" href="#embeddings" title="Link to this heading">¶</a></h2>
+<p>An <strong>embedding</strong> is a numerical representation of a token or sequence which is <strong>learned by the model</strong>. For protein language models, each amino acid token becomes a vector. Instead of representing alanine as just <code class="docutils literal notranslate"><span class="pre">A</span></code> or a single integer, the model represents it as hundreds of numbers that encode what it has learned about alanine in the sequence context.</p>
+<p>The values in the embedding depend on the <strong>token itself</strong>, its <strong>position</strong> in the sequence, and its learned <strong>relationship</strong> with other tokens in the sequence.</p>
+<p>Let’s take our example of the gene <code class="docutils literal notranslate"><span class="pre">yaaX</span></code> and embed it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import PyTorch to use the model</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="c1"># Set device, we'll use CPU for simplicity</span>
+<span class="n">device</span> <span class="o">=</span> <span class="s2">"cpu"</span>
+
+<span class="c1"># Let's put the model in evaluation mode, since we aren't training</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="c1"># Turn off autograd</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="c1"># Run ESM2 and ask it to return the activations from the final layer (layer 12)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">tokens</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">repr_layers</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">])</span>
+<span class="c1"># Slice out the per-residue features, ignoring the start/end tokens</span>
+<span class="n">per_residue</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s1">'representations'</span><span class="p">][</span><span class="mi">12</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">test_seq</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># Print the shape of the embedding - 98 residues, 480 dimensions</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Shape of embedding vector: </span><span class="si">{</span><span class="n">per_residue</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># Print the first residue's embedding - total nonsense to you and me, but very informative to a computer</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"First residue's embedding: </span><span class="si">{</span><span class="n">per_residue</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Shape of embedding vector: torch.Size([98, 480])
+First residue's embedding: tensor([-0.4646, -0.0841, -0.4610,  1.0782,  0.0641,  0.6295, -0.6128, -0.2486,
+         0.1890,  0.0380,  0.0659, -0.2056,  0.6324,  0.3972,  0.0196,  0.2712,
+         0.3757, -0.1252, -0.2027,  0.3060,  0.5739,  0.1633,  0.4924,  0.2532,
+         0.1815,  0.0940,  0.2281,  0.0185,  0.0910, -0.0648, -0.1777, -0.1487,
+        -0.1957, -0.1399,  0.1900, -0.1346,  0.2999,  0.5514,  0.0151, -0.2056,
+         0.0989, -0.1515,  0.2039, -0.0189, -0.0779, -0.2880,  3.2604, -0.0529,
+         0.0190, -0.1259, -0.1437,  0.1137, -0.2329, -0.2209,  0.7912, -0.0659,
+        -0.4655,  0.4740, -0.1308,  0.0656, -0.2505,  0.3856,  0.1642, -0.1358,
+        -0.4534, -0.0281,  0.0931,  1.3549, -0.1039, -0.2717, -0.3297,  0.4221,
+         0.5507, -0.1143, -0.0274,  0.2313, -0.2394, -0.3397, -0.0679,  0.0518,
+        -0.4177,  0.1395, -0.0789, -0.5254, -0.4698,  0.3896, -0.0812, -0.1291,
+         0.0917,  0.4713,  0.4210,  0.1720, -0.3084, -0.0209, -0.1416, -0.1696,
+        -0.4613,  0.3837,  0.1994,  0.2933,  0.0112, -0.2773, -0.3507, -0.2033,
+         0.0896,  0.0306,  0.8030,  0.5707, -0.1570,  0.2573, -0.3110,  0.1959,
+         0.0894, -0.0173, -0.1128, -0.4319, -0.1277, -0.0948,  0.1615, -0.1806,
+         0.3106,  0.0556,  0.6020,  0.2232, -0.5044,  0.2405, -0.1008,  0.1601,
+         0.6195,  0.0818, -0.7296, -0.1366,  0.5512,  0.2645, -0.5792,  0.4861,
+...
+         0.2016,  0.0941, -0.2674,  0.5243,  0.1993,  0.4398,  0.0228, -0.3249,
+        -0.3815, -0.1317, -0.3887, -0.3381,  0.2735,  0.3801,  0.1457, -0.2235,
+         0.4011, -0.4918,  0.2274,  0.1585,  0.2206,  0.4126,  0.0261,  0.5850,
+         0.4103,  0.7095, -0.4415,  0.3491, -0.4087, -0.1106,  0.1180, -0.4492])
+</pre></div>
+</div>
+<div class="admonition-discussion discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discussion</p>
+<p>Why do we use embeddings if tokenisation has already converted our sequence into numeric format?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<p>Token IDs are arbitrary labels with no meaningful numerical relationships between them. Embeddings map those IDs to learned vectors that capture biochemical properties and sequence context.</p>
+</div>
+</div>
+<p>ESM2 produces <strong>per-residue embeddings</strong>, meaning each amino acid in the protein gets its own vector. Each vector is of length 480 (but this differs between models). We may then want to summarise these vectors to extract meaningful information - in our notebook, we’ll be converting the entire sequence into one value: the probability of being soluble.</p>
+<p>An easy way to do this is to average across all residues to get one 480-dimensional vector per protein. To do this, we use an operation called <strong>mean pooling</strong>, which just averages each position in each embedding. Since we’re just averaging the information, all protein sequences end up exactly the same size.</p>
+<div class="admonition-exercise exercise important admonition" id="exercise-0">
+<p class="admonition-title">Exercise</p>
+<p>ESM2 returns per-residue embeddings for a 350-residue protein. What is the shape of that output and what shape does mean pooling produce?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Solution</p>
+<p><span class="math notranslate nohighlight">\((350, 480)\)</span> before pooling, <span class="math notranslate nohighlight">\((480,)\)</span> after.</p>
+</div>
+</div>
+<p>A diagram of the full embedding workflow is given here.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../../_images/session3_embedding.png"><img alt="../../_images/session3_embedding.png" src="../../_images/session3_embedding.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A diagram showing an amino acid sequence being tokenised, passed through ESM2, converted into per-residue embedding vectors, and averaged into one protein-level embedding.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="visualising-embeddings">
+<h2>Visualising Embeddings<a class="headerlink" href="#visualising-embeddings" title="Link to this heading">¶</a></h2>
+<p>Each embedding is a vector of 480 numbers. This can make them quite difficult to visualise, but by using dimensionality reduction techniques like <strong>t-SNE</strong>, we can compress each vector into 2D while trying to preserve local neighbourhoods. This means that points that are close in high-dimensional space should remain close in the 2D visualisation.</p>
+<p>In the plot below, we can see the result of applying t-SNE to the embeddings of our <em>E. coli</em> proteome, coloured by protein solubility class. Obviously we lose a lot of information when we compress our data, but the fact that we can still see some clustering of soluble and insoluble points is encouraging.</p>
+<p>This suggests that our embedding contains enough contextual information about the protein to make an assessment on its solubility class.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../../_images/session3_tsne.png"><img alt="../../_images/session3_tsne.png" src="../../_images/session3_tsne.png" style="width: 75%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A t-SNE scatter plot of ESM2 protein embeddings, with points coloured by soluble or insoluble label. We have reduced the dimension of each data point from 480 to 2.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="the-mlp-classifier">
+<h2>The MLP Classifier<a class="headerlink" href="#the-mlp-classifier" title="Link to this heading">¶</a></h2>
+<p>After embedding, each protein is represented by 480 numbers, and the label is binary: soluble or insoluble. In the notebook, we’ll train a small MLP again using the Adam optimiser and cross-entropy loss. This is very similar to what we did in Session 2, but now our MLP takes an input of 480 numbers, rather than just 2.</p>
+<p>This is computationally very efficient because ESM2 has already done the hard work of learning general protein representations. Our MLP only has to learn the final mapping from embedding to soluble/insoluble.</p>
+<p>As we’ll see in the notebook, we’re able to use the embeddings to train our model to classify amino acid sequences to a relatively-high accuracy (~80% on validation data). We observe some slight overfitting from around epoch 15 (the training loss continues to decrease, while validation loss begins to rise), so we can stop training at around that point.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../../_images/session3_training_curves.png"><img alt="../../_images/session3_training_curves.png" src="../../_images/session3_training_curves.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Validation curves for the solubility classifier. Left: training and validation loss (cross entropy). Right: training and validation accuracy (percentage of correctly classified sequences).</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition-discussion discussion important admonition" id="discussion-1">
+<p class="admonition-title">Discussion</p>
+<p>Why is it computationally-efficient to extract embeddings from ESM, then train an MLP on those embeddings?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-2">
+<p class="admonition-title">Solution</p>
+<p>Sequences pass through ESM2 exactly once with no backpropagation. Only the tiny MLP needs to be trained. Since the embeddings never change, you can compute them once and save them, after which every training run is near-instant.</p>
+</div>
+</div>
+<p>As in Session 2, we can also plot the confusion matrix to check how well our model is assigning classes. But I’ll leave that up to you.</p>
+</section>
+<section id="overview-of-the-next-notebook">
+<h2>Overview of the Next Notebook<a class="headerlink" href="#overview-of-the-next-notebook" title="Link to this heading">¶</a></h2>
+<p>To summarise, we will set up a simple protein language model pipeline to predict a discrete property of each protein from its amino acid sequence. We’ll use ESM-2 embeddings and train a small MLP to predict whether <em>E. coli</em> proteins are soluble or insoluble.</p>
+<section id="protein-structure-prediction">
+<h3>Protein Structure Prediction<a class="headerlink" href="#protein-structure-prediction" title="Link to this heading">¶</a></h3>
+<p>Full protein structure prediction is much harder than predicting a binary property. Instead of just identifying one label per sequence, a structure model must predict the 3D coordinates of each atom in the molecule along with measures of confidence for each.</p>
+<p>Just running one of these structure prediction models locally can take hours, but we can use online tools such as <strong>ESMFold</strong> and <strong>ColabFold</strong> to predict structure without needing to train or run the model on our own devices. If you’ve finished with the practical, check out <a class="reference external" href="https://esmatlas.com/resources?action=fold">ESMFold</a>. Try predicting some of the example protein sequences they provide. Play around with the sequences and see what effect that has the output.</p>
+</section>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../drug-discovery-codon-prediction/">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">4. Drug Discovery Application - Translating Proteins Back to DNA</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../interpretable-autoencoder/">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">2. Interpretable Autoencoders for Image Classification</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2026, Sweden AI Factory, Luca Panconi, Ashwin Mohanan, Fatemeh Rahimian, António Brito. 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/sweden-ai-factory/gen-ai-for-life-science" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">3. Protein Language Models</a><ul>
+<li><a class="reference internal" href="#recap-of-session-2">Recap of Session 2</a></li>
+<li><a class="reference internal" href="#from-image-data-to-sequence-data">From Image Data to Sequence Data</a></li>
+<li><a class="reference internal" href="#proteins-as-biological-language">Proteins as Biological Language</a></li>
+<li><a class="reference internal" href="#transformers">Transformers</a></li>
+<li><a class="reference internal" href="#what-are-protein-language-models">What are Protein Language Models?</a></li>
+<li><a class="reference internal" href="#fasta-and-biological-identifiers">FASTA and Biological Identifiers</a></li>
+<li><a class="reference internal" href="#tokenisation">Tokenisation</a></li>
+<li><a class="reference internal" href="#embeddings">Embeddings</a></li>
+<li><a class="reference internal" href="#visualising-embeddings">Visualising Embeddings</a></li>
+<li><a class="reference internal" href="#the-mlp-classifier">The MLP Classifier</a></li>
+<li><a class="reference internal" href="#overview-of-the-next-notebook">Overview of the Next Notebook</a><ul>
+<li><a class="reference internal" href="#protein-structure-prediction">Protein Structure Prediction</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=187304be"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=35a8b989"></script>
+    <script src="../../_static/minipres.js?v=a0d29692"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script data-domain="learn.swedenaifactory.se/gen-ai-for-life-science" defer="defer" src="https://plausible.io/js/script.js"></script>
+    </body>
+</html>

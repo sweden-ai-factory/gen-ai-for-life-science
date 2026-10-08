@@ -1,0 +1,629 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="../../">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="../../genindex/"><link rel="search" title="Search" href="../../search/"><link rel="next" title="3. Protein Language Models" href="../protein-language-models/"><link rel="prev" title="1. The Foundations of Deep Learning and Generative AI" href="../intro-to-dl/">
+        <link rel="prefetch" href="../../_static/SEAIF_favicon_black.png" as="image">
+        <link rel="prefetch" href="../../_static/SEAIF_favicon_white.png" as="image">
+
+    <link rel="shortcut icon" href="../../_static/favicon.png"><!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
+        <title>2. Interpretable Autoencoders for Image Classification - Generative AI for Life Science</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx_lesson.css?v=e9df6548" />
+    <link rel="stylesheet" type="text/css" href="../../_static/term_role_formatting.css?v=4194e21c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/furo_ext_lesson.css?v=6c0cde2e" />
+    <link rel="stylesheet" type="text/css" href="../../_static/EN_Co-funded.css?v=bf081b0b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/overrides.css?v=1c72d2de" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="../../"><div class="brand">Generative AI for Life Science</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="../../">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="../../_static/SEAIF_favicon_black.png" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="../../_static/SEAIF_favicon_white.png" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Generative AI for Life Science</span>
+  
+</a><form class="sidebar-search-container" method="get" action="../../search/" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Setup</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../setup/">Setup</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">The lesson</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro-to-dl/">1. The Foundations of Deep Learning and Generative AI</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">2. Interpretable Autoencoders for Image Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../protein-language-models/">3. Protein Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drug-discovery-codon-prediction/">4. Drug Discovery Application - Translating Proteins Back to DNA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concluding-remarks/">5. Concluding Remarks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../quick-reference/">Quick Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guide/">Instructor’s guide</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="view-this-page">
+  <a class="muted-link" href="https://github.com/sweden-ai-factory/gen-ai-for-life-science/blob/main//content/episodes/interpretable-autoencoder.md?plain=true" title="View this page">
+    <svg><use href="#svg-eye"></use></svg>
+    <span class="visually-hidden">View this page</span>
+  </a>
+</div><div class="edit-this-page">
+  <a class="muted-link" href="https://github.com/sweden-ai-factory/gen-ai-for-life-science/edit/main//content/episodes/interpretable-autoencoder.md" rel="edit" title="Edit this page">
+    <svg><use href="#svg-pencil"></use></svg>
+    <span class="visually-hidden">Edit this page</span>
+  </a>
+</div><div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section class="tex2jax_ignore mathjax_ignore" id="interpretable-autoencoders-for-image-classification">
+<h1>2. Interpretable Autoencoders for Image Classification<a class="headerlink" href="#interpretable-autoencoders-for-image-classification" title="Link to this heading">¶</a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Describe autoencoder architecture and how it compresses images into latent representations</p></li>
+<li><p>Train an autoencoder on the PneumoniaMNIST dataset to reconstruct and generate synthetic X-rays</p></li>
+<li><p>Classify images directly from their latent vectors, assessing performance with accuracy and confusion matrices</p></li>
+<li><p>Interpret the latent space to connect model representations to meaningful image features</p></li>
+</ul>
+</div>
+<p>The following notes support <code class="docutils literal notranslate"><span class="pre">Session2_Autoencoder_PneumoniaMNIST_Workshop.ipynb</span></code>.</p>
+<section id="a-clinical-application">
+<h2>A Clinical Application<a class="headerlink" href="#a-clinical-application" title="Link to this heading">¶</a></h2>
+<p>In Session 1, we explored some of the fundamental concepts behind deep learning and generative AI. In this session, we’ll put those ideas towards a simple clinical application and build our first generative model.</p>
+<p>We’re going to be using the an X-ray image dataset called PneumoniaMNIST, which contains images from two classes:</p>
+<ul class="simple">
+<li><p><strong>Class 1:</strong> healthy patients.</p></li>
+<li><p><strong>Class 2:</strong> patients with pneumonia.</p></li>
+</ul>
+<p>Our aim is to create an autoencoder, which we will then use to:</p>
+<ol class="arabic simple">
+<li><p>Generate new images.</p></li>
+<li><p>Predict whether a given image represents a healthy or diseased patient.</p></li>
+<li><p>Identify which visual or morphological features change between healthy patients and patients with disease.</p></li>
+</ol>
+</section>
+<section id="images-as-tensors">
+<h2>Images as Tensors<a class="headerlink" href="#images-as-tensors" title="Link to this heading">¶</a></h2>
+<p>Image data is one of the most common and easily-accessible data types in the life sciences.</p>
+<p>An image, fundamentally, is just a grid of numbers (usually a matrix, or a stack of matrices). In a greyscale image, each number represents pixel brightness. In a colour image, we usually have three grids stacked together: red, green and blue <strong>channels</strong>.</p>
+<p>We can represent images as tensors. For example, a 256 by 256 pixel greyscale image can be represented as a 2D tensor of 256 by 256 numbers, with each number defined between 0 and 1 (where 0 is total darkness and 1 is absolute brightness).</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="../../_images/session1_image_tensor_channels.png"><img alt="../../_images/session1_image_tensor_channels.png" src="../../_images/session1_image_tensor_channels.png" style="width: 90%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Images represented as arrays and tensors. A greyscale image can be represented as a matrix or tensor of numbers, with pixel brightness intensities defined between 0 and 1. In this figure, we extract a <span class="math notranslate nohighlight">\(4 \times 4\)</span> pixel segment of the image and view its matrix representation (to 1 decimal place).</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p><strong>PneumoniaMNIST</strong> is part of the <a class="reference external" href="https://medmnist.com/">MedMNIST</a> dataset and contains images of chest X-rays on patients with and without pneumonia. In PneumoniaMNIST, each image is 28 by 28 pixels with one greyscale channel.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="../../_images/session1_pneumoniamnist_examples.png"><img alt="../../_images/session1_pneumoniamnist_examples.png" src="../../_images/session1_pneumoniamnist_examples.png" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A 2 by 6 grid of example PneumoniaMNIST X-rays. The top row shows healthy patients (classified here as “Normal”) and the bottom row shows patients with pneumonia (classified here as “Pneumonia”). In X-rays, pneumonia manifests as cloudier white patches.</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Always look at the data
+Before training anything, it’s best practice to visualise your data. In PneumoniaMNIST, normal lungs tend to appear darker and clearer, while pneumonia often appears as hazier or whiter regions. The model will only learn from the pixel patterns it sees, so we need to know what those patterns look like.</p>
+</div>
+</section>
+<section id="what-is-an-autoencoder">
+<h2>What is an Autoencoder?<a class="headerlink" href="#what-is-an-autoencoder" title="Link to this heading">¶</a></h2>
+<p>As we discussed in the last session, an <strong>autoencoder</strong> (AE) is a type of neural network that learns to compress an input into a smaller representation and then reconstruct the original input. This forces the network to learn only the most important features of the data. The compressed representation is called the <strong>latent representation</strong>, and the space of all possible latent representations is the <strong>latent space</strong>.</p>
+<p>In practice, an AE is made up of two halves:</p>
+<ul class="simple">
+<li><p>An <strong>encoder</strong> - which compresses the input into a latent representation.</p></li>
+<li><p>A <strong>decoder</strong> - which reconstructs the input from that representation.</p></li>
+</ul>
+<p>In the next notebook, we’ll learn to compress our PneumoniaMNIST images into the latent space and then reconstruct them. The input image has <span class="math notranslate nohighlight">\(28 \times 28 = 784\)</span> pixel values, while the latent representation has only 2 values. This means the model is forced to squeeze the image through a tiny bottleneck, then reconstruct it. If it succeeds, those two numbers must carry useful information about the original X-ray.</p>
+<p>In this case, our encoder and decoder will be built from fully-connected layers.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="../../_images/session2_autoencoder.png"><img alt="../../_images/session2_autoencoder.png" src="../../_images/session2_autoencoder.png" style="width: 85%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A diagram of an autoencoder. On the left, a 28 by 2 pixel X-ray enters the encoder. In the middle, it is compressed into a 2D latent vector. On the right, the decoder reconstructs the X-ray.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>This is what our autoencoder looks like in PyTorch:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here's where we define the autoencoder using PyTorch</span>
+<span class="c1"># We use the subclass nn.Module to let Python know we're defining a new neural network</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SimpleAutoencoder</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""One-block fully-connected autoencoder with a 2D latent space."""</span>
+
+    <span class="c1"># These scary lines of code basically just set some important default numbers the network needs to remember,</span>
+    <span class="c1"># e.g. the size of the input image, the size of the hidden layer, and the size of the latent space.</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="n">latent_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="c1"># Store the size of our input image. Our network requires a vector input, so instead of passing an entire</span>
+        <span class="c1"># 28 by 28 pixel image, we pass a flattened vector of 28*28 pixels.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_dim</span> <span class="o">=</span> <span class="n">input_dim</span>
+        <span class="c1"># Here we define the encoder layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="c1"># Project the flattened image down to the hidden width</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">),</span>
+            <span class="c1"># Use a ReLU activation function between layers (we set inplace=True to save memory)</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="c1"># Project hidden representation down to the 2D latent space</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">latent_dim</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="c1"># And here are the decoder layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="c1"># Expand the latent vector back up to the hidden width</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">latent_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">),</span>
+            <span class="c1"># Use a ReLU activation function between layers</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="c1"># Project hidden representation back up to pixel space (original image size)</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">),</span>
+            <span class="c1"># Use a sigmoid activation function to map pixels back to [0, 1] range</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Sigmoid</span><span class="p">(),</span>
+        <span class="p">)</span>
+
+    <span class="c1"># This function encodes the input image into a 2D latent space by calling the encoder layers</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="c1"># Flatten image batch from (N,1,28,28) to (N,784), then run through the encoder</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="c1"># This function decodes the latent space back into an image by calling the decoder layers</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="c1"># Run the latent through the decoder and reshape back to image dimensions</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
+
+    <span class="c1"># This function puts the encoder and decoder together and returns the encoded image and the latent space</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="c1"># Encode the input batch into a latent vector (here, z represents two numbers)</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="c1"># Decode the latent vector back into a reconstructed image (x_hat is our reconstruction)</span>
+        <span class="n">x_hat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+        <span class="c1"># Return both reconstruction and latent representation</span>
+        <span class="k">return</span> <span class="n">x_hat</span><span class="p">,</span> <span class="n">z</span>
+</pre></div>
+</div>
+<p>The model output is a reconstructed image, and the target is the original image. We need a loss term which compares how closely our output matches our input - here, we can again use the <strong>mean squared error</strong> (MSE). To calculate this, we subtract the value of each pixel in the reconstruction (<span class="math notranslate nohighlight">\(\hat{y}_i\)</span>) from the same pixel in the original image <span class="math notranslate nohighlight">\(y_i\)</span>, square it (multiply it by itself), and average the value over all pixels. Mathematically, this is given by the following formula (where <span class="math notranslate nohighlight">\(n\)</span> is the total number of pixels):</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+MSE = \frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
+\]</div>
+</div>
+<p>For these images, you can think of this as comparing every pixel in the original X-ray with the corresponding pixel in the reconstruction. The closer the pixel values are, the lower the MSE. A perfect reconstruction would have an MSE equal to zero. You can see some example images and their reconstructions below.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="../../_images/session2_reconstructions.png"><img alt="../../_images/session2_reconstructions.png" src="../../_images/session2_reconstructions.png" style="width: 85%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Example original X-rays and their autoencoder reconstructions. This lets us compare the model’s pixel-level reconstruction quality with the structure visible in the original images.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition-exercise exercise important admonition" id="exercise-0">
+<p class="admonition-title">Exercise</p>
+<p>Take a <span class="math notranslate nohighlight">\(2 \times 2\)</span> “image” with true pixel values <span class="math notranslate nohighlight">\([[1.0, 0.0], [0.0, 1.0]]\)</span> and a reconstruction <span class="math notranslate nohighlight">\([[0.8, 0.1], [0.2, 0.9]]\)</span>. What is the MSE?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<p>Errors for each pixel are 0.2, 0.1, 0.2, 0.1. Squared they are 0.04, 0.01, 0.04, 0.01, summing to 0.10. Dividing by <span class="math notranslate nohighlight">\(n=4\)</span> pixels gives MSE = 0.025.</p>
+</div>
+</div>
+</section>
+<section id="latent-spaces">
+<h2>Latent Spaces<a class="headerlink" href="#latent-spaces" title="Link to this heading">¶</a></h2>
+<p>Many neural networks do not only produce final predictions. Inside the model, they build intermediate representations of the input. A <strong>latent representation</strong> is one of these compressed internal descriptions, and a <strong>latent space</strong> is the coordinate system formed by all possible latent representations.</p>
+<p>The latent space is where the model organises what it has learned. If two X-rays are visually similar, their latent representations should lie close to each other in the latent space. If pneumonia creates consistent image features, those features may appear as clusters in the latent space.</p>
+<p>You can think of the latent representation as a compressed coordinate system. Instead of describing an X-ray with 784 pixel values, the autoencoder tries to describe it with just two values. Those two values will not have obvious meanings at first, but by plotting them and decoding points from the space, we can start to probe what they represent.</p>
+<p>In the following notebook, we’ll compress our entire test image dataset into the 2D latent space below. Every blue point you see here represents a “normal” chest X-ray, and every red point represents a “pneumonia” chest X-ray. Despite not telling our model anything about the image classes, it seems our autoencoder has learned to partially separate the classes in the latent space. This suggests that we’re encoding image features which contain important information relevant to the image class.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="../../_images/session2_latent_space.png"><img alt="../../_images/session2_latent_space.png" src="../../_images/session2_latent_space.png" style="width: 70%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A scatter plot of the 2D latent space. Each point is one test X-ray, coloured by class label, showing normal and pneumonia samples occupying different regions.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="classifying-directly-from-the-latent-space">
+<h2>Classifying Directly from the Latent Space<a class="headerlink" href="#classifying-directly-from-the-latent-space" title="Link to this heading">¶</a></h2>
+<p>Once the latent space is structured, we can train a classifier on the latent vectors.</p>
+<p>The classifier in the notebook is a small MLP. It takes the two latent values as input and predicts whether an image belongs to the “normal” class or the “pneumonia” class.</p>
+<p>In the code, our classifier looks something like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here, we create a small MLP that classifies latent vectors as "Normal" or "Pneumonia"</span>
+<span class="c1"># This is just another neural network, with some simple fully-connected layers.</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LatentMLP</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="c1"># Define the important variables (latent dimension, hidden dimension, number of classes)</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent_dim</span><span class="p">,</span> <span class="n">hidden</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">n_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="c1"># This is a two-layer MLP with dropout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">net</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">latent_dim</span><span class="p">,</span> <span class="n">hidden</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden</span><span class="p">,</span> <span class="n">n_classes</span><span class="p">),</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Forward pass returns the logits for each class</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You’ll notice that we include a <strong>Dropout</strong> layer here - this isn’t a different layer type, it just randomly switches off 20% of the neurons from the previous layer. This may seem counter-intuitive, but it actually helps the network generalise.</p>
+<p>Ultimately, the network outputs a <strong>logit</strong> for each class - this is basically a score which represents how much the latent vector seems to belong to each class.</p>
+<p>Logits are <strong>unbounded</strong>, meaning they can theoretically be arbitrarily large. To account for this, we typically apply a <strong>softmax</strong> function, which essentially converts all logits into a probability distribution. The formula for softmax is</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+p_i = \frac{e^{logit_i}}{\sum_j e^{logit_j}}
+\]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(p_i\)</span> is the probability of picking class <span class="math notranslate nohighlight">\(i\)</span> - this is equivalent to the exponent of the <span class="math notranslate nohighlight">\(i^{th}\)</span> logit divided by the sum of the exponents of all logits. All you really need to know is that this maps every logit to a value between 0 and 1 (with 0 being 0% chance and 1 being 100% chance).</p>
+<p>This tells us what the probability of the latent vector belonging to each class is. Typically, we take the class with highest probability to be the model’s prediction.</p>
+<p>Since the classifier MLP is also a neural network, it requires its own loss term. For this, we use cross-entropy loss. This loss is minimised when the MLP correctly predicts the true class of every latent vector with 100% certainty.</p>
+<div class="admonition-discussion discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discussion</p>
+<p>Why do we train the latent classifier after the autoencoder has finished training rather than at the same time?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Solution</p>
+<p>The classifier learns a mapping from the latent space, so that space needs to be fixed. If it were still moving (as it does during training), the classifier would be chasing a moving target.</p>
+</div>
+</div>
+<p>We can get an estimate of how well our classifier is performing using the <strong>accuracy</strong>. This represents the percentage of correct predictions made by the model.</p>
+<p>However, since biological datasets can be imbalanced, accuracy alone can be misleading. If one class is much larger, a model can get decent accuracy by mostly predicting the majority class. Just to be sure, we’ll also plot a <strong>confusion matrix</strong>, which shows us the number of images in each class and their predicted labels.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="../../_images/session2_confusion_matrix.png"><img alt="../../_images/session2_confusion_matrix.png" src="../../_images/session2_confusion_matrix.png" style="width: 65%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A confusion matrix for classification from latent vectors, showing true positives, false positives, true negatives and false negatives.</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition-discussion discussion important admonition" id="discussion-1">
+<p class="admonition-title">Discussion</p>
+<p>A test set has 900 normal and 100 pneumonia X-rays. A trained model always predicts “normal” for every image. Why might this happen? What is this model’s accuracy?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-2">
+<p class="admonition-title">Solution</p>
+<p>Why might this happen? - It could be because the training set was heavily imbalanced, with very few pneumonia cases. The model learns that the easiest way to ensure high accuracy is to treat all images as “normal”.</p>
+<p>What is this model’s accuracy? - 90%. It misses every single pneumonia case while looking great on accuracy. A confusion matrix helps to expose this issue.</p>
+</div>
+</div>
+</section>
+<section id="from-reconstruction-to-generation">
+<h2>From Reconstruction to Generation<a class="headerlink" href="#from-reconstruction-to-generation" title="Link to this heading">¶</a></h2>
+<p>Once the autoencoder is trained, the decoder acts as a function from latent coordinates to images. That means we can make up latent vectors and ask the decoder to turn them into X-rays. By doing this, we’re generating entirely synthetic images - this is a primitive version of how modern AI image generators work.</p>
+<p>At the end of the notebook, we’ll create a grid of entirely synthetic X-rays, sampled at various points across the latent space. Some of these X-rays seem realistic, others just look like noise, but none of them are actually real.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="../../_images/session2_decoder_sweep.png"><img alt="../../_images/session2_decoder_sweep.png" src="../../_images/session2_decoder_sweep.png" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A grid of decoded synthetic X-rays across the 2D latent plane.</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="interpreting-the-latent-space">
+<h2>Interpreting the Latent Space<a class="headerlink" href="#interpreting-the-latent-space" title="Link to this heading">¶</a></h2>
+<p>You may have heard neural networks described as “black box” approaches - this means we don’t really have an intuitive understanding of what the model is learning. Indeed, when our model is made up of billions of different weight and bias parameters, it becomes difficult to discern what any of them actually mean. In life science, this can be problematic, because we usually want to understand <em>why</em> a model produced a certain output, especially when that output may influence clinical or biological decisions.</p>
+<p>For this reason, we may use methods from <strong>interpretable AI</strong>. The latent space gives us one route to interpretation - if the latent representation corresponds to a visible feature such as object size, texture, brightness, or morphology, then we can begin to connect the model’s internal representation to real biological features. This is not the same as proof, but it gives us an intuition of which image features actually matter, and could be used for <strong>hypothesis generation</strong>.</p>
+<p>In the plot below, you can see our grid of synthetic lungs overlaid with the latent space. We can see that images generated near the space where pneumonia X-rays are encoded share similar image features (namely, they are much hazier and show larger white patches). This is inline with what we already know about how pneumonia manifests in X-rays.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="../../_images/session2_decoder_sweep_with_latents.png"><img alt="../../_images/session2_decoder_sweep_with_latents.png" src="../../_images/session2_decoder_sweep_with_latents.png" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Our grid of decoded synthetic X-rays, overlaid with the test latent space.</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="overview-of-the-next-notebook">
+<h2>Overview of the Next Notebook<a class="headerlink" href="#overview-of-the-next-notebook" title="Link to this heading">¶</a></h2>
+<p>In the next notebook, we’ll put these ideas into code. The current notebook uses <strong>PneumoniaMNIST</strong> chest X-ray images, but you could theoretically use any binary-class image dataset (as long as you adjust the input size accordingly). We’ll load image data, convert the images to tensors, train a compact autoencoder and inspect what the latent space has learned.</p>
+<p>By the end of the practical, the model compresses each 28 by 28 image into just <strong>two numbers</strong>, then reconstructs the image from those two numbers alone.</p>
+<p>Working through the notebook, we will:</p>
+<ol class="arabic simple">
+<li><p>Set up the environment.</p></li>
+<li><p>Download the dataset.</p></li>
+<li><p>Train a simple autoencoder.</p></li>
+<li><p>Investigate the test latent space.</p></li>
+<li><p>Build an MLP to classify images from the latent space.</p></li>
+<li><p>Feed the decoder made-up latent vectors and see what it generates.</p></li>
+</ol>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          <a class="next-page" href="../protein-language-models/">
+              <div class="page-info">
+                <div class="context">
+                  <span>Next</span>
+                </div>
+                <div class="title">3. Protein Language Models</div>
+              </div>
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+            </a>
+          <a class="prev-page" href="../intro-to-dl/">
+              <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
+              <div class="page-info">
+                <div class="context">
+                  <span>Previous</span>
+                </div>
+                
+                <div class="title">1. The Foundations of Deep Learning and Generative AI</div>
+                
+              </div>
+            </a>
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2026, Sweden AI Factory, Luca Panconi, Ashwin Mohanan, Fatemeh Rahimian, António Brito. 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/sweden-ai-factory/gen-ai-for-life-science" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <ul>
+<li><a class="reference internal" href="#">2. Interpretable Autoencoders for Image Classification</a><ul>
+<li><a class="reference internal" href="#a-clinical-application">A Clinical Application</a></li>
+<li><a class="reference internal" href="#images-as-tensors">Images as Tensors</a></li>
+<li><a class="reference internal" href="#what-is-an-autoencoder">What is an Autoencoder?</a></li>
+<li><a class="reference internal" href="#latent-spaces">Latent Spaces</a></li>
+<li><a class="reference internal" href="#classifying-directly-from-the-latent-space">Classifying Directly from the Latent Space</a></li>
+<li><a class="reference internal" href="#from-reconstruction-to-generation">From Reconstruction to Generation</a></li>
+<li><a class="reference internal" href="#interpreting-the-latent-space">Interpreting the Latent Space</a></li>
+<li><a class="reference internal" href="#overview-of-the-next-notebook">Overview of the Next Notebook</a></li>
+</ul>
+</li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="../../_static/documentation_options.js?v=187304be"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=35a8b989"></script>
+    <script src="../../_static/minipres.js?v=a0d29692"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script data-domain="learn.swedenaifactory.se/gen-ai-for-life-science" defer="defer" src="https://plausible.io/js/script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,1786 @@
+<!doctype html>
+<html class="no-js" lang="en" data-content_root="./">
+  <head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="index" title="Index" href="genindex.html"><link rel="search" title="Search" href="search.html">
+        <link rel="prefetch" href="_static/SEAIF_favicon_black.png" as="image">
+        <link rel="prefetch" href="_static/SEAIF_favicon_white.png" as="image">
+
+    <link rel="shortcut icon" href="_static/favicon.png"><!-- Generated with Sphinx 8.2.3 and Furo 2025.12.19 -->
+        <title>Generative AI for Life Science</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d111a655" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=7bdb33bb" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx_lesson.css?v=e9df6548" />
+    <link rel="stylesheet" type="text/css" href="_static/term_role_formatting.css?v=4194e21c" />
+    <link rel="stylesheet" type="text/css" href="_static/furo_ext_lesson.css?v=6c0cde2e" />
+    <link rel="stylesheet" type="text/css" href="_static/EN_Co-funded.css?v=bf081b0b" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=a5c4661c" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=8dab3a3b" />
+    <link rel="stylesheet" type="text/css" href="_static/overrides.css?v=1c72d2de" />
+    
+    
+
+
+<style>
+  body {
+    --color-code-background: #f2f2f2;
+  --color-code-foreground: #1e1e1e;
+  
+  }
+  @media not print {
+    body[data-theme="dark"] {
+      --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+    }
+    @media (prefers-color-scheme: dark) {
+      body:not([data-theme="light"]) {
+        --color-code-background: #202020;
+  --color-code-foreground: #d0d0d0;
+  
+      }
+    }
+  }
+</style></head>
+  <body>
+    
+    <script>
+      document.body.dataset.theme = localStorage.getItem("theme") || "auto";
+    </script>
+    
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="svg-toc" viewBox="0 0 24 24">
+    <title>Contents</title>
+    <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 1024 1024">
+      <path d="M408 442h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8zm-8 204c0 4.4 3.6 8 8 8h480c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8H408c-4.4 0-8 3.6-8 8v56zm504-486H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zm0 632H120c-4.4 0-8 3.6-8 8v56c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-56c0-4.4-3.6-8-8-8zM115.4 518.9L271.7 642c5.8 4.6 14.4.5 14.4-6.9V388.9c0-7.4-8.5-11.5-14.4-6.9L115.4 505.1a8.74 8.74 0 0 0 0 13.8z"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-menu" viewBox="0 0 24 24">
+    <title>Menu</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-menu">
+      <line x1="3" y1="12" x2="21" y2="12"></line>
+      <line x1="3" y1="6" x2="21" y2="6"></line>
+      <line x1="3" y1="18" x2="21" y2="18"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-arrow-right" viewBox="0 0 24 24">
+    <title>Expand</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather-chevron-right">
+      <polyline points="9 18 15 12 9 6"></polyline>
+    </svg>
+  </symbol>
+  <symbol id="svg-sun" viewBox="0 0 24 24">
+    <title>Light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather-sun">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon" viewBox="0 0 24 24">
+    <title>Dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-moon">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+    </svg>
+  </symbol>
+  <symbol id="svg-sun-with-moon" viewBox="0 0 24 24">
+    <title>Auto light/dark, in light mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path style="opacity: 50%" d="M 5.411 14.504 C 5.471 14.504 5.532 14.504 5.591 14.504 C 3.639 16.319 4.383 19.569 6.931 20.352 C 7.693 20.586 8.512 20.551 9.25 20.252 C 8.023 23.207 4.056 23.725 2.11 21.184 C 0.166 18.642 1.702 14.949 4.874 14.536 C 5.051 14.512 5.231 14.5 5.411 14.5 L 5.411 14.504 Z"/>
+      <line x1="14.5" y1="3.25" x2="14.5" y2="1.25"/>
+      <line x1="14.5" y1="15.85" x2="14.5" y2="17.85"/>
+      <line x1="10.044" y1="5.094" x2="8.63" y2="3.68"/>
+      <line x1="19" y1="14.05" x2="20.414" y2="15.464"/>
+      <line x1="8.2" y1="9.55" x2="6.2" y2="9.55"/>
+      <line x1="20.8" y1="9.55" x2="22.8" y2="9.55"/>
+      <line x1="10.044" y1="14.006" x2="8.63" y2="15.42"/>
+      <line x1="19" y1="5.05" x2="20.414" y2="3.636"/>
+      <circle cx="14.5" cy="9.55" r="3.6"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-moon-with-sun" viewBox="0 0 24 24">
+    <title>Auto light/dark, in dark mode</title>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round"
+      class="icon-custom-derived-from-feather-sun-and-tabler-moon">
+      <path d="M 8.282 7.007 C 8.385 7.007 8.494 7.007 8.595 7.007 C 5.18 10.184 6.481 15.869 10.942 17.24 C 12.275 17.648 13.706 17.589 15 17.066 C 12.851 22.236 5.91 23.143 2.505 18.696 C -0.897 14.249 1.791 7.786 7.342 7.063 C 7.652 7.021 7.965 7 8.282 7 L 8.282 7.007 Z"/>
+      <line style="opacity: 50%" x1="18" y1="3.705" x2="18" y2="2.5"/>
+      <line style="opacity: 50%" x1="18" y1="11.295" x2="18" y2="12.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="4.816" x2="14.464" y2="3.964"/>
+      <line style="opacity: 50%" x1="20.711" y1="10.212" x2="21.563" y2="11.063"/>
+      <line style="opacity: 50%" x1="14.205" y1="7.5" x2="13.001" y2="7.5"/>
+      <line style="opacity: 50%" x1="21.795" y1="7.5" x2="23" y2="7.5"/>
+      <line style="opacity: 50%" x1="15.316" y1="10.184" x2="14.464" y2="11.036"/>
+      <line style="opacity: 50%" x1="20.711" y1="4.789" x2="21.563" y2="3.937"/>
+      <circle style="opacity: 50%" cx="18" cy="7.5" r="2.169"/>
+    </svg>
+  </symbol>
+  <symbol id="svg-pencil" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-pencil-code">
+      <path d="M4 20h4l10.5 -10.5a2.828 2.828 0 1 0 -4 -4l-10.5 10.5v4" />
+      <path d="M13.5 6.5l4 4" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+  <symbol id="svg-eye" viewBox="0 0 24 24">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+      stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="icon-tabler-eye-code">
+      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+      <path
+        d="M11.11 17.958c-3.209 -.307 -5.91 -2.293 -8.11 -5.958c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6c-.21 .352 -.427 .688 -.647 1.008" />
+      <path d="M20 21l2 -2l-2 -2" />
+      <path d="M17 17l-2 2l2 2" />
+    </svg>
+  </symbol>
+</svg>
+
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle site navigation sidebar">
+<input type="checkbox" class="sidebar-toggle" name="__toc" id="__toc" aria-label="Toggle table of contents sidebar">
+<label class="overlay sidebar-overlay" for="__navigation"></label>
+<label class="overlay toc-overlay" for="__toc"></label>
+
+<a class="skip-to-content muted-link" href="#furo-main-content">Skip to content</a>
+
+
+
+<div class="page">
+  <header class="mobile-header">
+    <div class="header-left">
+      <label class="nav-overlay-icon" for="__navigation">
+        <span class="icon"><svg><use href="#svg-menu"></use></svg></span>
+      </label>
+    </div>
+    <div class="header-center">
+      <a href="#"><div class="brand">Generative AI for Life Science</div></a>
+    </div>
+    <div class="header-right">
+      <div class="theme-toggle-container theme-toggle-header">
+        <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+          <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+          <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+          <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+          <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+        </button>
+      </div>
+      <label class="toc-overlay-icon toc-header-icon" for="__toc">
+        <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+      </label>
+    </div>
+  </header>
+  <aside class="sidebar-drawer">
+    <div class="sidebar-container">
+      
+      <div class="sidebar-sticky"><a class="sidebar-brand" href="#">
+  <div class="sidebar-logo-container">
+    <img class="sidebar-logo only-light" src="_static/SEAIF_favicon_black.png" alt="Light Logo"/>
+    <img class="sidebar-logo only-dark" src="_static/SEAIF_favicon_white.png" alt="Dark Logo"/>
+  </div>
+  
+  <span class="sidebar-brand-text">Generative AI for Life Science</span>
+  
+</a><form class="sidebar-search-container" method="get" action="search.html" role="search">
+  <input class="sidebar-search" placeholder="Search" name="q" aria-label="Search">
+  <input type="hidden" name="check_keywords" value="yes">
+  <input type="hidden" name="area" value="default">
+</form>
+<div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
+  <p class="caption" role="heading"><span class="caption-text">Setup</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="#document-setup">Setup</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">The lesson</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="#document-episodes/intro-to-dl">1. The Foundations of Deep Learning and Generative AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-episodes/interpretable-autoencoder">2. Interpretable Autoencoders for Image Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-episodes/protein-language-models">3. Protein Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-episodes/drug-discovery-codon-prediction">4. Drug Discovery Application - Translating Proteins Back to DNA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-episodes/concluding-remarks">5. Concluding Remarks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="#document-quick-reference">Quick Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-guide">Instructor’s guide</a></li>
+</ul>
+
+</div>
+</div>
+
+      </div>
+      
+    </div>
+  </aside>
+  <div class="main">
+    <div class="content">
+      <div class="article-container">
+        <a href="#" class="back-to-top muted-link">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"></path>
+          </svg>
+          <span>Back to top</span>
+        </a>
+        <div class="content-icon-container">
+          <div class="theme-toggle-container theme-toggle-content">
+            <button class="theme-toggle" aria-label="Toggle Light / Dark / Auto color theme">
+              <svg class="theme-icon-when-auto-light"><use href="#svg-sun-with-moon"></use></svg>
+              <svg class="theme-icon-when-auto-dark"><use href="#svg-moon-with-sun"></use></svg>
+              <svg class="theme-icon-when-dark"><use href="#svg-moon"></use></svg>
+              <svg class="theme-icon-when-light"><use href="#svg-sun"></use></svg>
+            </button>
+          </div>
+          <label class="toc-overlay-icon toc-content-icon" for="__toc">
+            <span class="icon"><svg><use href="#svg-toc"></use></svg></span>
+          </label>
+        </div>
+        <article role="main" id="furo-main-content">
+          <section class="tex2jax_ignore mathjax_ignore" id="generative-ai-for-life-science">
+<h1>Generative AI for Life Science<a class="headerlink" href="#generative-ai-for-life-science" title="Link to this heading">¶</a></h1>
+<p>Generative AI has become both highly prevalent and highly divisive. While public opinion varies, rapid advancement in GenAI is transforming the life sciences, enabling new approaches to understand biological systems, predict molecular structures and advance clinical diagnostics.</p>
+<p>In this workshop, we will demonstrate how GenAI is applied across key life science domains through four interactive sessions. Participants will train models, explore biological datasets and generate real outputs such as synthetic cell images, protein structure predictions, and mRNA sequences for vaccines. By the end of the workshop, you will have hands-on experience in developing GenAI techniques and applying them to solve real-world life science problems.</p>
+<div class="admonition-prerequisites prerequisites admonition" id="prerequisites-0">
+<p class="admonition-title">Prerequisites</p>
+<ul class="simple">
+<li><p>Basic understanding of Python programming</p></li>
+<li><p>Familiarity with machine learning concepts</p></li>
+<li><p>Interest in life science applications</p></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<span id="document-setup"></span><section class="tex2jax_ignore mathjax_ignore" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading">¶</a></h2>
+<p><a class="reference external" href="https://python.org">Python</a> is a popular language for scientific computing, and a frequent choice for machine learning as well.</p>
+<p>This workshop will use a Python environment containing <strong>JupyterLab</strong> and the necessary dependencies as the primary interface for all practical sessions. You are encouraged to follow the <a class="reference internal" href="#local-installation">local installation</a> option. <a class="reference internal" href="#colab-fallback">Google Colab</a> will be available as a fallback option if needed.</p>
+<p>Please set up your Python environment at least a day in advance of the workshop.
+If you encounter problems with the installation procedure, attend the pre-workshop setup session for assistance, so that you are ready to go as soon as the workshop begins.</p>
+<section id="local-installation">
+<span id="id1"></span><h3>Local installation<a class="headerlink" href="#local-installation" title="Link to this heading">¶</a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>You have different options:</p>
+<ul class="simple">
+<li><p>Use <a class="reference internal" href="#pip">pip</a> and virtual environments: If you have <code class="docutils literal notranslate"><span class="pre">git</span></code> in your terminal and are
+comfortable using virtual environments and have a working Python interpreter
+(at least version 3.10 or above), or</p></li>
+<li><p>Use <a class="reference internal" href="#miniforge">Miniforge</a> / <a class="reference internal" href="#pixi">pixi</a> and conda environments: Recommended for Windows users,
+and users who don’t have tools like a Python interpreter, <code class="docutils literal notranslate"><span class="pre">git</span></code> in their devices.</p></li>
+</ul>
+<p>Once you have done either, proceed to getting the <a class="reference internal" href="#notebooks">notebooks</a>. Finally download the <a class="reference internal" href="#datasets">datasets</a></p>
+</div>
+<section id="using-pip">
+<span id="pip"></span><h4>Using pip<a class="headerlink" href="#using-pip" title="Link to this heading">¶</a></h4>
+<p>Open a terminal (Mac/Linux) or Command Prompt (Windows) and run the following commands.</p>
+<ol class="arabic simple">
+<li><p>Create a <a class="reference external" href="https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/#create-and-use-virtual-environments">virtual environment</a> called <code class="docutils literal notranslate"><span class="pre">workshop</span></code>:</p></li>
+</ol>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-T24gTGludXgvbWFjT1M=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-T24gTGludXgvbWFjT1M=" name="T24gTGludXgvbWFjT1M=" role="tab" tabindex="0">On Linux/macOS</button><button aria-controls="panel-0-T24gV2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-T24gV2luZG93cw==" name="T24gV2luZG93cw==" role="tab" tabindex="-1">On Windows</button></div><div aria-labelledby="tab-0-T24gTGludXgvbWFjT1M=" class="sphinx-tabs-panel group-tab" id="panel-0-T24gTGludXgvbWFjT1M=" name="T24gTGludXgvbWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>workshop
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-T24gV2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-T24gV2luZG93cw==" name="T24gV2luZG93cw==" role="tabpanel" tabindex="0"><div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>For Windows consider using <a class="reference internal" href="#miniforge">Miniforge</a> or <a class="reference internal" href="#pixi">pixi</a> instead</p>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>py<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>workshop
+</pre></div>
+</div>
+</div></div>
+<ol class="arabic simple" start="2">
+<li><p>Activate the newly created virtual environment:</p></li>
+</ol>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-T24gTGludXgvbWFjT1M=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-T24gTGludXgvbWFjT1M=" name="T24gTGludXgvbWFjT1M=" role="tab" tabindex="0">On Linux/macOS</button><button aria-controls="panel-1-T24gV2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-T24gV2luZG93cw==" name="T24gV2luZG93cw==" role="tab" tabindex="-1">On Windows</button></div><div aria-labelledby="tab-1-T24gTGludXgvbWFjT1M=" class="sphinx-tabs-panel group-tab" id="panel-1-T24gTGludXgvbWFjT1M=" name="T24gTGludXgvbWFjT1M=" role="tabpanel" tabindex="0"><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>workshop/bin/activate
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-T24gV2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-T24gV2luZG93cw==" name="T24gV2luZG93cw==" role="tabpanel" tabindex="0"><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>workshop<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+</pre></div>
+</div>
+</div></div>
+<p>Remember that you need to activate your environment every time you restart your terminal!</p>
+<ol class="arabic simple" start="3">
+<li><p>Install the required packages:</p></li>
+</ol>
+<p>Once you have activated your environment, you can install all the required packages for this workshop using the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>https://raw.githubusercontent.com/sweden-ai-factory/gen-ai-for-life-science/refs/heads/main/requirements.txt
+</pre></div>
+</div>
+</section>
+<section id="using-miniforge">
+<span id="miniforge"></span><h4>Using Miniforge<a class="headerlink" href="#using-miniforge" title="Link to this heading">¶</a></h4>
+<p>In this page, we give indications about how to install Miniforge and use conda/mamba.</p>
+<ol class="arabic simple">
+<li><p>The first step is to install <a class="reference external" href="https://conda-forge.org/download/">Miniforge</a>, which is a modified version of
+<em>Miniconda</em> using by default the
+community driven <a class="reference external" href="https://conda-forge.org/">conda-forge</a> channel.</p></li>
+</ol>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-T24gTGludXgvbWFjT1M=" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-2-T24gTGludXgvbWFjT1M=" name="T24gTGludXgvbWFjT1M=" role="tab" tabindex="0">On Linux/macOS</button><button aria-controls="panel-2-T24gV2luZG93cw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-T24gV2luZG93cw==" name="T24gV2luZG93cw==" role="tab" tabindex="-1">On Windows</button></div><div aria-labelledby="tab-2-T24gTGludXgvbWFjT1M=" class="sphinx-tabs-panel group-tab" id="panel-2-T24gTGludXgvbWFjT1M=" name="T24gTGludXgvbWFjT1M=" role="tabpanel" tabindex="0"><p>Download the installer using curl or wget or your favorite program. For eg:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span><span class="s2">"https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-</span><span class="k">$(</span>uname<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname<span class="w"> </span>-m<span class="k">)</span><span class="s2">.sh"</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>curl<span class="w"> </span>-L<span class="w"> </span>-O<span class="w"> </span><span class="s2">"https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-</span><span class="k">$(</span>uname<span class="k">)</span><span class="s2">-</span><span class="k">$(</span>uname<span class="w"> </span>-m<span class="k">)</span><span class="s2">.sh"</span>
+</pre></div>
+</div>
+<p>Execute the installer and initialize conda:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>bash<span class="w"> </span>Miniforge3-<span class="k">$(</span>uname<span class="k">)</span>-<span class="k">$(</span>uname<span class="w"> </span>-m<span class="k">)</span>.sh<span class="w"> </span>-b
+<span class="nv">$HOME</span>/miniforge3/bin/conda<span class="w"> </span>init<span class="w"> </span>--all
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-T24gV2luZG93cw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-2-T24gV2luZG93cw==" name="T24gV2luZG93cw==" role="tabpanel" tabindex="0"><p>On Windows, download
+<a class="reference external" href="https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Windows-x86_64.exe">the Windows installer</a>
+and follow the instructions given in <a class="reference external" href="https://github.com/conda-forge/miniforge">https://github.com/conda-forge/miniforge</a>.</p>
+<p>Open an Anaconda Prompt and run <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">init</span> <span class="pre">--all</span></code>.</p>
+</div></div>
+<p>When it’s done, open a new terminal (click on <code class="docutils literal notranslate"><span class="pre">ctrl-alt-t</span></code>) and check that the
+line in the new terminal starts with <code class="docutils literal notranslate"><span class="pre">(base)</span></code>. The indication <code class="docutils literal notranslate"><span class="pre">(base)</span></code> means
+that you use the base “environment”.</p>
+<p>However, working in the <code class="docutils literal notranslate"><span class="pre">base</span></code> environment is not a good practice and it is
+better to disable the auto activation with:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>config<span class="w"> </span>--set<span class="w"> </span>auto_activate_base<span class="w"> </span><span class="nb">false</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>Download <a class="reference external" href="https://raw.githubusercontent.com/sweden-ai-factory/gen-ai-for-life-science/refs/heads/main/environment.yaml">https://raw.githubusercontent.com/sweden-ai-factory/gen-ai-for-life-science/refs/heads/main/environment.yaml</a></p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you have a GPU, you might want to comment <code class="docutils literal notranslate"><span class="pre">pytorch</span></code> and uncomment <code class="docutils literal notranslate"><span class="pre">pytorch-gpu</span></code> in the
+<code class="docutils literal notranslate"><span class="pre">environment.yaml</span></code> file.</p>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Create an environment called <code class="docutils literal notranslate"><span class="pre">workshop</span></code>:</p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>--yes<span class="w"> </span>-f<span class="w"> </span>environment.yaml
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Activate the environment:</p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>activate<span class="w"> </span>workshop
+</pre></div>
+</div>
+</section>
+<section id="using-pixi">
+<span id="pixi"></span><h4>Using pixi<a class="headerlink" href="#using-pixi" title="Link to this heading">¶</a></h4>
+<ol class="arabic simple">
+<li><p>Install Pixi by following the <a class="reference external" href="https://pixi.sh/latest/#installation">installation instructions</a>.</p></li>
+</ol>
+<!--2. From an empty directory, initialize a Pixi project and add Python:
+
+```shell
+pixi init
+```-->
+<ol class="arabic simple" start="2">
+<li><p>Download <a class="reference external" href="https://raw.githubusercontent.com/sweden-ai-factory/gen-ai-for-life-science/refs/heads/main/pixi.toml">https://raw.githubusercontent.com/sweden-ai-factory/gen-ai-for-life-science/refs/heads/main/pixi.toml</a>, and use one the below commands</p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>pixi<span class="w"> </span>shell<span class="w">         </span><span class="c1"># If you don't have a GPU</span>
+pixi<span class="w"> </span>shell<span class="w"> </span>-e<span class="w"> </span>gpu<span class="w">  </span><span class="c1"># If you have a GPU</span>
+</pre></div>
+</div>
+<!--pixi import --feature=default environment.yaml-->
+<!--pixi import --feature=default requirements.txt-->
+<p>Use either <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">shell</span></code> to enter the environment,
+or prefix commands with <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">run</span></code>.</p>
+</section>
+<section id="getting-the-notebooks">
+<span id="notebooks"></span><h4>Getting the Notebooks<a class="headerlink" href="#getting-the-notebooks" title="Link to this heading">¶</a></h4>
+<p>Once you have git installed, enter the following command into your terminal:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/sweden-ai-factory/gen-ai-for-life-science
+</pre></div>
+</div>
+<p>The repository will be cloned to a directory named <code class="docutils literal notranslate"><span class="pre">gen-ai-for-life-science</span></code>
+which will also contain the notebooks. If you want to get the latest copy,
+you update this repository by using</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>gen-ai-for-life-science
+git<span class="w"> </span>pull
+</pre></div>
+</div>
+</section>
+<section id="launch-jupyterlab">
+<h4>Launch JupyterLab<a class="headerlink" href="#launch-jupyterlab" title="Link to this heading">¶</a></h4>
+<p>From within your virtual environment (using <code class="docutils literal notranslate"><span class="pre">activate</span></code> script) or conda
+environment (using <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">activate</span> <span class="pre">workshop</span></code> / <code class="docutils literal notranslate"><span class="pre">pixi</span> <span class="pre">shell</span></code>) navigate to the
+notebooks directory and launch JupyterLab</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>gen-ai-for-life-science/notebooks
+jupyter-lab
+</pre></div>
+</div>
+<p>which should also open JupyterLab.</p>
+</section>
+</section>
+<section id="fallback-option-google-colab">
+<span id="colab-fallback"></span><h3>Fallback option: Google colab<a class="headerlink" href="#fallback-option-google-colab" title="Link to this heading">¶</a></h3>
+<p><strong>Alternatively</strong> you can use <a class="reference external" href="https://colab.research.google.com/">Google colab</a>.</p>
+<p>If you open a Jupyter notebook here, most of the required packages are already pre-installed. Data will be downloaded/streamed automatically. Make sure that under Runtime &gt; Change runtime type, your “Hardware accelerator” is set to T4 GPU or equivalent (you may need to do this for each notebook).</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://colab.research.google.com/drive/1e6GhTPrmN7-rVMpQmXMj7r-RQ55Dh5Sq?usp=sharing">Session 1 Notebook</a></p></li>
+<li><p><a class="reference external" href="https://colab.research.google.com/drive/1u-ln7tlSkF86DsICCU-YDfHlyaCt95Vb?usp=sharing">Session 2 Notebook</a></p></li>
+<li><p><a class="reference external" href="https://colab.research.google.com/drive/1Ce4nzXpj_NHAXm4fZlI9dv1zK0HrdsGD?usp=sharing">Session 3 Notebook</a></p></li>
+<li><p><a class="reference external" href="https://colab.research.google.com/drive/14pTu8dZJvE67CjEj5UU9lp2-29RFrr5r?usp=sharing">Session 4 Notebook</a></p></li>
+</ul>
+</section>
+<section id="downloading-the-required-datasets">
+<h3>Downloading the required datasets<a class="headerlink" href="#downloading-the-required-datasets" title="Link to this heading">¶</a></h3>
+<p>Download the datasets for this workshop <a class="reference external" href="https://drive.google.com/file/d/1gebRwvpcPmftuhgJEAy8Jftijgbcm18K/view?usp=sharing">here</a>.</p>
+<p>Unzip these file and place them in your repository.</p>
+</section>
+<section id="checking-your-environment">
+<h3>Checking Your Environment<a class="headerlink" href="#checking-your-environment" title="Link to this heading">¶</a></h3>
+<p>Once in, you can verify your setup by running:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"CUDA available:"</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"GPU device:"</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_name</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">"None"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"PyTorch version:"</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="datasets">
+<span id="id2"></span><h3>Downloading the required datasets<a class="headerlink" href="#datasets" title="Link to this heading">¶</a></h3>
+<p>Download the datasets for this workshop <a class="reference external" href="https://drive.google.com/file/d/1gebRwvpcPmftuhgJEAy8Jftijgbcm18K/view?usp=sharing">here</a>.</p>
+<p>Unzip these file and place them in your repository.</p>
+<!--
+### Protein Structure Prediction
+
+For Session 3, we'll use online tools:
+- [ESMFold](https://esmatlas.com/resources?action=fold) - For protein structure prediction
+- [ColabFold](https://github.com/sokrypton/ColabFold) - Alternative protein folding tool
+
+### Medical Imaging Datasets
+
+For Session 4, we'll work with:
+- [IU X-ray dataset](https://www.kaggle.com/datasets/raddar/chest-xrays-indiana-university) - Chest X-rays with radiology reports via [OpenI](https://openi.nlm.nih.gov/)
+
+-->
+</section>
+</section>
+</div>
+<div class="toctree-wrapper compound">
+<span id="document-episodes/intro-to-dl"></span><section class="tex2jax_ignore mathjax_ignore" id="the-foundations-of-deep-learning-and-generative-ai">
+<h2>1. The Foundations of Deep Learning and Generative AI<a class="headerlink" href="#the-foundations-of-deep-learning-and-generative-ai" title="Link to this heading">¶</a></h2>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Explain the distinctions between artificial intelligence, machine learning and deep learning, and what makes a model generative</p></li>
+<li><p>Describe how neural networks learn, from single neurons and MLPs to loss functions, backpropagation and optimisation</p></li>
+<li><p>Justify splitting data into training, validation and test sets to detect overfitting</p></li>
+<li><p>Recognise which generative model families (autoencoders, diffusion models, LLMs, vision-language models) are used for which life-science applications</p></li>
+</ul>
+</div>
+<p>The following notes support <code class="docutils literal notranslate"><span class="pre">Session1_Intro_to_DL_Workshop.ipynb</span></code>.</p>
+<section id="deep-learning-machine-learning-and-ai">
+<h3>Deep Learning, Machine Learning and AI<a class="headerlink" href="#deep-learning-machine-learning-and-ai" title="Link to this heading">¶</a></h3>
+<p>The terms <strong>deep learning</strong>, <strong>machine learning</strong> and <strong>artifical intelligence</strong> are often used interchangeably, but they are not actually the same.</p>
+<p><strong>Artificial intelligence</strong> (AI) refers to any system capable of mimicking human intelligence - depending on your definition of “human intelligence”, a pocket calculator could be classed as AI. <strong>Machine learning</strong> refers to techniques where a computer learns patterns and behaviour from data rather than being explicitly programmed with every rule. <strong>Deep learning</strong> is the subset of machine learning which deals with <strong>neural networks</strong> specifically.</p>
+<p>So deep learning is one part of machine learning, and machine learning is one part of artificial intelligence. When you hear people talk about state-of-the-art AI (especially <strong>generative AI</strong>), they usually mean deep learning. This doesn’t mean that all deep learning is generative, or that all generative AI is deep learning - but for this workshop, we’ll focus our discussion on deep learning and applications of generative neural networks to the life sciences.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/session1_ai_ml_dl.png"><img alt="_images/session1_ai_ml_dl.png" src="_images/session1_ai_ml_dl.png" style="width: 70%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A diagram showing artificial intelligence as the broadest circle, machine learning as a subset inside it, and deep learning as a subset inside machine learning.</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>The useful thing about neural networks is that they are <strong>universal function approximators</strong>. In plain English, this means that a large enough neural network can learn to approximate almost any relationship between an input and an output, as long as we give it enough data and train it properly. The network may never learn the true underlying relationship, but it can learn a useful numerical approximation.</p>
+<p>For example, if the input is an X-ray of the lungs and the output is a diagnosis, the network could learn a function which maps from image pixels to a class label (e.g. “healthy” or “diseased”). The task of mapping input data to a categorical label is known as classification - we’ll see an example of this in Session 2.</p>
+</section>
+<section id="what-is-generative-ai">
+<h3>What is Generative AI?<a class="headerlink" href="#what-is-generative-ai" title="Link to this heading">¶</a></h3>
+<p><strong>Generative AI</strong> refers to any kind of AI that can learn the patterns in data well enough to create or complete new examples. The output may be text, an image, a protein molecule, or any other quantifiable object. State-of-the-art generative AI relies almost exclusively on complex neural networks - we’ll discuss some examples in the following sections.</p>
+<p>By now, most people have heard of GenAI systems such as <strong>ChatGPT</strong>, <strong>Claude</strong> and <strong>Gemini</strong>, which can produce fluent text and images from prompts. These commercial systems often get a bad reputation because public examples can feel gimmicky, unreliable or disconnected from real-world needs.</p>
+<p>However, the same ideas that let models generate text, images or video also underpin scientifically valuable models with real clinical and biological applications, such as exploring disease features, helping researchers reason about complex data, and predicting protein structures or behaviour. In this workshop, we’ll see how to adapt concepts from generative AI to further meaningful research.</p>
+</section>
+<section id="why-generative-ai-matters-for-life-science">
+<h3>Why Generative AI Matters for Life Science<a class="headerlink" href="#why-generative-ai-matters-for-life-science" title="Link to this heading">¶</a></h3>
+<p>Life-science data are often high-dimensional, noisy, expensive to collect and difficult to label. Generative models are useful because they can learn patterns from the data, which can then be used for reconstruction, simulation, and interpretation.</p>
+<p>Some examples include:</p>
+<ul class="simple">
+<li><p><strong>Image restoration and inpainting:</strong> improving resolution, denoising microscopy or medical images, and filling in missing image regions while preserving plausible biological structure.</p></li>
+<li><p><strong>Protein structure prediction:</strong> models such as <strong>AlphaFold3</strong> use deep learning to predict protein structures from amino acid sequence information, which offers new insights into protein function and interactions.</p></li>
+<li><p><strong>Drug discovery:</strong> generative models can propose candidate molecules, optimise molecular properties and help explore chemical spaces too large to search manually.</p></li>
+</ul>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/session1_genai_life_science_applications.png"><img alt="_images/session1_genai_life_science_applications.png" src="_images/session1_genai_life_science_applications.png" style="width: 95%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Applications of generative AI in life science.</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Generative models are not automatically correct, but they can learn useful representations of biological variation and help researchers explore hypotheses that would otherwise be too large or expensive to test directly.</p>
+</section>
+<section id="types-of-generative-models-used-in-life-science">
+<h3>Types of Generative Models Used in Life Science<a class="headerlink" href="#types-of-generative-models-used-in-life-science" title="Link to this heading">¶</a></h3>
+<p>Several families of generative models appear repeatedly in life-science applications. We will not implement all of them in this workshop, but it is useful to know what they are and how they differ.</p>
+<p><strong>Autoencoders</strong> (AEs) learn to compress an input into a smaller representation (called a <strong>latent representation</strong>) and then reconstruct the original input. This forces the network to learn important features of the data. AEs are useful for denoising, dimensionality reduction, and learning interpretable latent spaces. In the first notebook, we’ll see how to implement a simple autoencoder and generate our own synthetic images.</p>
+<p><strong>Diffusion models</strong> generate clean data from noise. During training, real data are corrupted step by step with noise -  the model then learns how to remove that noise. At generation time, the model starts from a pure noise distribution and reverses the “noising” steps back into a clean sample. Diffusion models are important in image generation and are increasingly used for molecular and protein design.</p>
+<p><strong>Large language models</strong> (LLMs) generate and reason over text, code and structured language-like data. Commercial models like ChatGPT and Claude are examples of LLMs. In biomedical settings, they can help with literature search, report drafting, and clinical evaluation. However, they require careful validation because fluent text is not the same as correct text.</p>
+<p><strong>Vision language models</strong> learn information from images, including microscopy, histopathology, and radiology data, then output a text description. State-of-the-art research in generative AI looks to creating “virtual doctors”, which can automatically describe symptoms, diagnoses and treatment options from images.</p>
+</section>
+<section id="a-single-neuron">
+<h3>A Single Neuron<a class="headerlink" href="#a-single-neuron" title="Link to this heading">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Maths Warning
+The following sections contain some mathematics, which I’m using here only for technical accuracy and completeness. Our main focus, however, isn’t in the theory behind deep learning, but in the applications to generative AI, so don’t worry if it doesn’t all make sense at first glance.</p>
+</div>
+<p>Neural networks are made up of computational units called <strong>neurons</strong>. State-of-the-art neural networks can contain millions, if not billions, of individual neurons. Each neuron is essentially a tiny calculator, which performs some simple multiplication and addition.</p>
+<p>The input to a neural network is usually a list of numbers. These numbers could represent, for example, the RGB colour values of pixels in an image.</p>
+<p>These numbers travel through neural networks via <strong>channels</strong>, which connect adjacent neurons. Each channel has an associated <strong>channel weight</strong> and each neuron has an associated <strong>bias</strong>. The weights and biases are just numbers, usually picked randomly at first, but the network adjusts them during <strong>training</strong>. We refer to the weights and biases collectively as the <strong>model parameters</strong>.</p>
+<p>Each neuron will typically have multiple channels going out and multiple channels coming in. This means the neuron will take multiple inputs. Each input is multiplied by its corresponding channel weight, then all values are summed, and bias is added on top.</p>
+<p>Finally, the total sum is put through an <strong>activation function</strong>. These are usually quite simple functions, which transform the sum in some way (you can find more information on activation functions in the sections below). This gives us our output, which can then be passed to the next neuron.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/session1_single_neuron.png"><img alt="_images/session1_single_neuron.png" src="_images/session1_single_neuron.png" style="width: 85%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A schematic of a simple neural network. Inputs are multiplied by weights, a bias is added, and the result is passed through an activation function to produce an output.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>To summarise, an artificial neuron takes numbers as inputs, multiplies them by learned <strong>weights</strong>, sums them, adds a <strong>bias</strong>, applies an <strong>activation function</strong>, and returns an output. We usually represent this in equation form as:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+y = f\left(\sum_i \left(x_i \times w_i\right) + b\right)
+\]</div>
+</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(y\)</span> is the output of the neuron.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f\)</span> is the activation function (you can find more information on activation functions below).</p></li>
+<li><p><span class="math notranslate nohighlight">\(x_i\)</span> is an input (neurons usually take multiple inputs, e.g. <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, <span class="math notranslate nohighlight">\(x_3\)</span>, …). The input to one neuron is usually the output of a previous neuron.</p></li>
+<li><p><span class="math notranslate nohighlight">\(w_i\)</span> is the weight associated with a channel (e.g. for inputs <span class="math notranslate nohighlight">\(x_1\)</span>, <span class="math notranslate nohighlight">\(x_2\)</span>, <span class="math notranslate nohighlight">\(x_3\)</span>, we would have channel weights <span class="math notranslate nohighlight">\(w_1\)</span>, <span class="math notranslate nohighlight">\(w_2\)</span>, <span class="math notranslate nohighlight">\(w_3\)</span>).</p></li>
+<li><p><span class="math notranslate nohighlight">\(b\)</span> is the bias associated with the neuron.</p></li>
+</ul>
+<p>Let’s imagine a very simple case: suppose I have a neural network with just one neuron, and I want my network to learn to multiply every number I give it by 2. Since I have just one neuron, I would have just one weight (<span class="math notranslate nohighlight">\(w\)</span>) and one bias (<span class="math notranslate nohighlight">\(b\)</span>). Then, I could pick an activation function which does absolutely nothing (just outputs whatever input it was given). Ideally, once the network is trained, I should end up with something like <span class="math notranslate nohighlight">\(w = 2\)</span> and <span class="math notranslate nohighlight">\(b = 0\)</span>, so for any input <span class="math notranslate nohighlight">\(x\)</span>, I get an output of
+$<span class="math notranslate nohighlight">\(
+y = f(x \times w + b) = x \times w + b = 2 \times x
+\)</span>$</p>
+<p>That may not look impressive. It is just multiply, add, transform. But now imagine doing that not once, but millions or billions of times. Suddenly the network can learn very complex relationships.</p>
+<div class="admonition-exercise exercise important admonition" id="exercise-0">
+<p class="admonition-title">Exercise</p>
+<p>A neuron with weights <span class="math notranslate nohighlight">\(w_1=0.5\)</span>, <span class="math notranslate nohighlight">\(w_2=1.0\)</span> and bias <span class="math notranslate nohighlight">\(b=1\)</span> receives inputs <span class="math notranslate nohighlight">\(x_1=2\)</span>, <span class="math notranslate nohighlight">\(x_2=3\)</span>. The neuron’s activation function is <span class="math notranslate nohighlight">\(f(x) = x\)</span>. What is the neuron’s output?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<p>First, we calculate the weighted sum inside the neuron <span class="math notranslate nohighlight">\(0.5 * 2 + 1.0 * 3 + 1 = 5\)</span>. Passing this through the activation function gives us the output <span class="math notranslate nohighlight">\(f(5) = 5\)</span>.</p>
+</div>
+</div>
+<p>We could define a single neuron in Python like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a single neuron</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">neuron</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">bias</span><span class="p">,</span> <span class="n">activation</span><span class="p">):</span>
+    <span class="c1"># Multiply every input by its own channel weight, sum the results, then add the neuron's bias</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">inputs</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">weights</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> <span class="n">bias</span>
+    <span class="c1"># Feed the total through the activation function to get the neuron's output</span>
+    <span class="k">return</span> <span class="n">activation</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+
+<span class="c1"># The identity activation function - returns whatever it was given</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">identity</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span>
+</pre></div>
+</div>
+</section>
+<section id="from-neurons-to-an-mlp">
+<h3>From Neurons to an MLP<a class="headerlink" href="#from-neurons-to-an-mlp" title="Link to this heading">¶</a></h3>
+<p>Neurons are typically stacked in layers, as you can see in the figure below. A <strong>multilayer perceptron</strong>, or <strong>MLP</strong>, is the simplest kind of neural network we normally train. It is made from the following layers of neurons:</p>
+<ul class="simple">
+<li><p>The <strong>input layer</strong> - Takes in the input data.</p></li>
+<li><p>The <strong>hidden layers</strong> - Sit between the input and output. These layers learn <strong>intermediate representations</strong> of the data.</p></li>
+<li><p>The <strong>output layer</strong> - Produces the final output.</p></li>
+</ul>
+<p>MLPs are usually made up of <strong>fully-connected layers</strong> - this means every neuron in one layer is connected to every neuron in the next layer. Each connection (channel) has a weight, and each neuron has a bias. Training is the process of finding useful values for all of those weights and biases.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/session1_mlp_layers.png"><img alt="_images/session1_mlp_layers.png" src="_images/session1_mlp_layers.png" style="width: 90%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A simple multilayer perceptron with an input layer, hidden layers and an output layer. <a class="reference external" href="https://cs231n.github.io/neural-networks-1/">Image source</a>.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition-exercise exercise important admonition" id="exercise-1">
+<p class="admonition-title">Exercise</p>
+<p>In an MLP, a fully-connected layer maps 3 inputs to 4 neurons. How many trainable parameters does that layer have?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Solution</p>
+<p>There are <span class="math notranslate nohighlight">\(3 * 4 = 12\)</span> weights (one for each channel) and <span class="math notranslate nohighlight">\(4\)</span> biases (one for each neuron). This gives <span class="math notranslate nohighlight">\(16\)</span> parameters altogether.</p>
+</div>
+</div>
+<p>This is what a simple MLP written in PyTorch looks like:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Building a small MLP</span>
+<span class="c1"># We can use the nn.Sequential container from PyTorch to apply each layer in the order we list them</span>
+<span class="c1"># Each call to nn.Linear adds a new, fully-connected layer to the network</span>
+<span class="c1"># We can also add an activation function after each layer</span>
+<span class="n">mlp</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+    <span class="c1"># Input layer to first hidden layer (3 inputs -&gt; 5 neurons)</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="c1"># Activation function, applied to every neuron in the hidden layer</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+    <span class="c1"># First hidden layer to second hidden layer (5 inputs -&gt; 5 neurons)</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
+    <span class="c1"># Another activation function</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+    <span class="c1"># Second hidden layer to output layer (5 inputs -&gt; 2 neurons)</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="activation-functions">
+<h3>Activation Functions<a class="headerlink" href="#activation-functions" title="Link to this heading">¶</a></h3>
+<p>Activation functions are what stop a neural network from creating just one big linear equation. They introduce <strong>non-linearity</strong>, which lets the network learn curved, irregular and highly complicated relationships.</p>
+<p>Here is an example of two common activation functions:</p>
+<ul class="simple">
+<li><p><strong>ReLU</strong>, short for Rectified Linear Unit, returns zero for negative values and returns the input itself for positive values: <span class="math notranslate nohighlight">\(f(x)=max(0,x)\)</span>.</p></li>
+<li><p><strong>Sigmoid</strong> squashes values into the range 0 to 1: <span class="math notranslate nohighlight">\(f(x)=1/(1+e^{-x})\)</span>. This is good for the output layer, which may need to return binary values or probabilities, or for ensuring neuron outputs stay within a fixed range.</p></li>
+</ul>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/session1_activation_functions.png"><img alt="_images/session1_activation_functions.png" src="_images/session1_activation_functions.png" style="width: 90%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The ReLU and sigmoid activation functions.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Without activation functions, adding more layers would not really help. A stack of linear transformations is still just another linear transformation. ReLU, sigmoid and other activation functions let networks build non-linear curves, boundaries and representations.</p>
+<p>In the first notebook, we’ll see the effect first-hand of adding activation functions to a neural network.</p>
+</section>
+<section id="how-neural-networks-learn">
+<h3>How Neural Networks Learn<a class="headerlink" href="#how-neural-networks-learn" title="Link to this heading">¶</a></h3>
+<p>Training means finding the model parameters (the weights and biases) that make the model’s output as close as possible to what we want. This means we need a training dataset, for which we have known input-output pairs.</p>
+<p>Going back to our simple one-neuron example, the training dataset could contain the pairs
+$<span class="math notranslate nohighlight">\((x=1, y=2), (x=3, y=6), (x=124, y=248), etc.\)</span>$
+The amount of training data you need depends heavily on the model you use, but is usually in the order of 100s to 1000s of data points.</p>
+<p>We measure “how wrong” the model is with a <strong>loss function</strong> and gradually update the model’s parameters to minimise this loss function. To do this, we must first pass our input training data through the network to get an output - this process is known as the <strong>forward pass</strong>.</p>
+<p>The model does not know what a “good” output means, it only knows the loss we define. Typically, the loss function cannot take a negative value and has a minimum value at 0, which represents a perfect performance on the training data.</p>
+<p>Going back to our simple one-neuron example, the loss function could be the <strong>squared error</strong> between the expected output and the output the model gave us. So, if I input the number <span class="math notranslate nohighlight">\(1\)</span>, then my expected output is <span class="math notranslate nohighlight">\(2\)</span>. Let’s say I perform a forward pass, but the model outputs <span class="math notranslate nohighlight">\(3\)</span>. Then my loss is <span class="math notranslate nohighlight">\((3-2)^{2} = 1\)</span>. This is obviously not <span class="math notranslate nohighlight">\(0\)</span>, so my model still has some learning to do.</p>
+<p>Once we have a loss, we need an <strong>optimiser</strong>. Optimisation is the process of adjusting the model parameters to reduce the loss. The basic idea is to work out the effect that changing the parameter (e.g. weight or bias) will have on the loss. In mathematical terms, we call this the <strong>gradient</strong> of the loss with respect to the parameters. The process of calculating the gradient of the loss with respect to the model parameters is called <strong>backpropagation</strong>.</p>
+<p>We use a process called <strong>gradient descent</strong> to determine which direction makes the loss go up, then push the parameters in the opposite direction (i.e. to make the loss go <strong>down</strong>).</p>
+<p>For example, in my single-neuron network, the weight of my single channel could be <span class="math notranslate nohighlight">\(3\)</span> and the bias could be <span class="math notranslate nohighlight">\(0\)</span>. I can easily work out that increasing the weight will make my output larger, pushing it further away from the expected output of <span class="math notranslate nohighlight">\(2\)</span> (for an input of <span class="math notranslate nohighlight">\(1\)</span>). So, I need to make the weight smaller to make the loss smaller.</p>
+<p>The optimiser’s <strong>learning rate</strong> controls the size of each update step. If the learning rate is too small, training may be painfully slow. If it is too large, the model may jump over good solutions and become unstable.</p>
+<p><strong>Adam</strong> (adaptive moment estimation) is a very popular optimiser because it takes account of how each parameter has changed over time. We won’t go into too much detail here, but it’s a strong default for many neural networks.</p>
+<p>A <strong>batch</strong> is a small group of training data processed together. Instead of calculating the loss over the entire training set before every update, we calculate it over one batch at a time. This is faster and reduces the amount of RAM (random access memory) your computer needs to use during training. One full pass through all batches in the training data is called an <strong>epoch</strong>.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/session1_training_loop.png"><img alt="_images/session1_training_loop.png" src="_images/session1_training_loop.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">The basic neural network training loop: take a batch, run a forward pass, calculate the loss, backpropagate gradients, update weights with an optimiser such as Adam, then repeat. You’ll notice there’s a seventh step, “Evaluate” - we’ll discuss that in the next section.</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition-exercise exercise important admonition" id="exercise-2">
+<p class="admonition-title">Exercise</p>
+<p>Which of these do we learn during training and which do we choose ourselves?</p>
+<ol class="arabic simple">
+<li><p>Number of channels.</p></li>
+<li><p>Channel weights.</p></li>
+<li><p>Biases.</p></li>
+<li><p>Learning rate.</p></li>
+<li><p>Batch size.</p></li>
+<li><p>Number of layers.</p></li>
+</ol>
+<div class="admonition-solution solution important dropdown admonition" id="solution-2">
+<p class="admonition-title">Solution</p>
+<p>We choose the number of channels, learning rate, batch size and number of layers ourselves. The only learnable parameters are the weights and biases.</p>
+</div>
+</div>
+</section>
+<section id="train-validation-and-test-sets">
+<h3>Train, Validation and Test Sets<a class="headerlink" href="#train-validation-and-test-sets" title="Link to this heading">¶</a></h3>
+<p>During training, our model learns how to map the input data we provide to the expected output. However, this does not guarantee the model is learning a relationship between the input and output. A sufficiently complex model might just memorise every possible input and output pair, and completely fail on new data. This phenomenon is known as <strong>overfitting</strong>.</p>
+<p>To mitigate this, we split our data into the following subsets:</p>
+<ul class="simple">
+<li><p>The <strong>training set</strong> - This data is used to actually update the model parameters.</p></li>
+<li><p>The <strong>validation set</strong> - This data is used during training to check whether the model is improving on unseen data. We usually pass this data through the model at the end of every epoch and record the loss. Note that this data is <strong>never</strong> used to update the model parameters.</p></li>
+<li><p>The <strong>test set</strong> - This data is kept untouched until the end, giving the cleanest estimate of final performance.</p></li>
+</ul>
+<p>If the training loss keeps decreasing but the validation loss increases, the model may be overfitting. It has learned the training examples too specifically and is no longer generalising well.</p>
+<div class="admonition-discussion discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discussion</p>
+<p>Why do we use a test set if we already have a validation set that the model never trains on?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-3">
+<p class="admonition-title">Solution</p>
+<p>We use the validation loss to make decisions (when to stop training, which architecture to use), so the validation set can bias our choices. That means validation loss becomes an optimistic estimate of model performance on unseen data. The untouched test set gives the honest estimate of performance on genuinely unseen data.</p>
+</div>
+</div>
+</section>
+<section id="a-quick-word-on-tensors">
+<h3>A Quick Word on Tensors<a class="headerlink" href="#a-quick-word-on-tensors" title="Link to this heading">¶</a></h3>
+<p>Before a neural network can learn anything, we need somewhere to put the data. Deep learning libraries, like <a class="reference external" href="https://pytorch.org/">PyTorch</a>, store data in <strong>tensors</strong>.</p>
+<p>A tensor is just a container of numbers arranged in a grid. The <strong>dimension</strong> of a tensor controls how the numbers are organised:</p>
+<ul class="simple">
+<li><p><strong>1 dimension</strong> - a list of numbers (a vector).</p></li>
+<li><p><strong>2 dimensions</strong> - a table of numbers (a matrix).</p></li>
+<li><p><strong>3+ dimensions</strong> - a higher-dimensional array (like a stack of matrices)</p></li>
+</ul>
+<p>We describe a tensor by its <strong>shape</strong>, which is simply the size along each dimension. By convention, the first dimension in a tensor represents the batch number. For example, the tensor <span class="math notranslate nohighlight">\([a,b,c]\)</span> has dimension 1 (its a vector) and shape <span class="math notranslate nohighlight">\(3\)</span> (or <span class="math notranslate nohighlight">\((1, 3)\)</span> if we consider this to be a batch containing 1 vector).</p>
+<p>There are two main reasons why we use tensors:</p>
+<ul class="simple">
+<li><p><strong>Speed.</strong> CPUs and GPUs are designed to work with grid-like data. We can multiply, add or transform every number in a tensor in one operation, rather than looping over them one at a time. This makes calculation much faster.</p></li>
+<li><p><strong>Gradients.</strong> PyTorch quietly tracks the graph of computations that led to each tensor’s calculation (which makes backpropagation much easier). Without this, we would have to differentiate the loss by hand for every parameter in the network.</p></li>
+</ul>
+</section>
+<section id="a-word-on-computation">
+<h3>A Word on Computation<a class="headerlink" href="#a-word-on-computation" title="Link to this heading">¶</a></h3>
+<p>Training a large neural network can require billions, if not trillions of parameter updates, which each require several multiplication and addition calculations of their own. As you can probably guess, this might take a very long time.</p>
+<p>Computers typically have their own <strong>processing units</strong>, which are responsible for performing these calculations. Traditionally, abstract calculations and data processing were performed on <strong>central processing units</strong> (CPUs). CPUs are designed to handle large, complex tasks, rather than perform several small operations in parallel.</p>
+<p>As such, training large models efficiently usually requires <strong>graphics processing units</strong> (GPUs). A GPU can perform many numerical operations in parallel, which is exactly what deep-learning workloads need. <strong>CUDA</strong> is NVIDIA’s computing platform for running general-purpose computations on NVIDIA GPUs. In practice, frameworks such as PyTorch use CUDA behind the scenes so that tensor operations, backpropagation and optimisation can run much faster than on a CPU. So, if you see “CUDA” written anywhere in the notebooks, that’s just us telling the program to run calculations on the GPU rather than CPU.</p>
+</section>
+<section id="overview-of-the-first-notebook">
+<h3>Overview of the First Notebook<a class="headerlink" href="#overview-of-the-first-notebook" title="Link to this heading">¶</a></h3>
+<p>In the first notebook, we’ll put the fundamental concepts we’ve introduced into practice. Working through the notebook, we will:</p>
+<ol class="arabic simple">
+<li><p>Set up our Python environment.</p></li>
+<li><p>Explicitly define a single neuron.</p></li>
+<li><p>Stack neurons into a multilayer perceptron (MLP).</p></li>
+<li><p>Test a simple network with and without activation functions.</p></li>
+<li><p>Train a network on a simple task.</p></li>
+<li><p>Split data into training, validation and test sets, and force a model to overfit.</p></li>
+</ol>
+</section>
+</section>
+<span id="document-episodes/interpretable-autoencoder"></span><section class="tex2jax_ignore mathjax_ignore" id="interpretable-autoencoders-for-image-classification">
+<h2>2. Interpretable Autoencoders for Image Classification<a class="headerlink" href="#interpretable-autoencoders-for-image-classification" title="Link to this heading">¶</a></h2>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Describe autoencoder architecture and how it compresses images into latent representations</p></li>
+<li><p>Train an autoencoder on the PneumoniaMNIST dataset to reconstruct and generate synthetic X-rays</p></li>
+<li><p>Classify images directly from their latent vectors, assessing performance with accuracy and confusion matrices</p></li>
+<li><p>Interpret the latent space to connect model representations to meaningful image features</p></li>
+</ul>
+</div>
+<p>The following notes support <code class="docutils literal notranslate"><span class="pre">Session2_Autoencoder_PneumoniaMNIST_Workshop.ipynb</span></code>.</p>
+<section id="a-clinical-application">
+<h3>A Clinical Application<a class="headerlink" href="#a-clinical-application" title="Link to this heading">¶</a></h3>
+<p>In Session 1, we explored some of the fundamental concepts behind deep learning and generative AI. In this session, we’ll put those ideas towards a simple clinical application and build our first generative model.</p>
+<p>We’re going to be using the an X-ray image dataset called PneumoniaMNIST, which contains images from two classes:</p>
+<ul class="simple">
+<li><p><strong>Class 1:</strong> healthy patients.</p></li>
+<li><p><strong>Class 2:</strong> patients with pneumonia.</p></li>
+</ul>
+<p>Our aim is to create an autoencoder, which we will then use to:</p>
+<ol class="arabic simple">
+<li><p>Generate new images.</p></li>
+<li><p>Predict whether a given image represents a healthy or diseased patient.</p></li>
+<li><p>Identify which visual or morphological features change between healthy patients and patients with disease.</p></li>
+</ol>
+</section>
+<section id="images-as-tensors">
+<h3>Images as Tensors<a class="headerlink" href="#images-as-tensors" title="Link to this heading">¶</a></h3>
+<p>Image data is one of the most common and easily-accessible data types in the life sciences.</p>
+<p>An image, fundamentally, is just a grid of numbers (usually a matrix, or a stack of matrices). In a greyscale image, each number represents pixel brightness. In a colour image, we usually have three grids stacked together: red, green and blue <strong>channels</strong>.</p>
+<p>We can represent images as tensors. For example, a 256 by 256 pixel greyscale image can be represented as a 2D tensor of 256 by 256 numbers, with each number defined between 0 and 1 (where 0 is total darkness and 1 is absolute brightness).</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/session1_image_tensor_channels.png"><img alt="_images/session1_image_tensor_channels.png" src="_images/session1_image_tensor_channels.png" style="width: 90%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Images represented as arrays and tensors. A greyscale image can be represented as a matrix or tensor of numbers, with pixel brightness intensities defined between 0 and 1. In this figure, we extract a <span class="math notranslate nohighlight">\(4 \times 4\)</span> pixel segment of the image and view its matrix representation (to 1 decimal place).</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p><strong>PneumoniaMNIST</strong> is part of the <a class="reference external" href="https://medmnist.com/">MedMNIST</a> dataset and contains images of chest X-rays on patients with and without pneumonia. In PneumoniaMNIST, each image is 28 by 28 pixels with one greyscale channel.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/session1_pneumoniamnist_examples.png"><img alt="_images/session1_pneumoniamnist_examples.png" src="_images/session1_pneumoniamnist_examples.png" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A 2 by 6 grid of example PneumoniaMNIST X-rays. The top row shows healthy patients (classified here as “Normal”) and the bottom row shows patients with pneumonia (classified here as “Pneumonia”). In X-rays, pneumonia manifests as cloudier white patches.</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Always look at the data
+Before training anything, it’s best practice to visualise your data. In PneumoniaMNIST, normal lungs tend to appear darker and clearer, while pneumonia often appears as hazier or whiter regions. The model will only learn from the pixel patterns it sees, so we need to know what those patterns look like.</p>
+</div>
+</section>
+<section id="what-is-an-autoencoder">
+<h3>What is an Autoencoder?<a class="headerlink" href="#what-is-an-autoencoder" title="Link to this heading">¶</a></h3>
+<p>As we discussed in the last session, an <strong>autoencoder</strong> (AE) is a type of neural network that learns to compress an input into a smaller representation and then reconstruct the original input. This forces the network to learn only the most important features of the data. The compressed representation is called the <strong>latent representation</strong>, and the space of all possible latent representations is the <strong>latent space</strong>.</p>
+<p>In practice, an AE is made up of two halves:</p>
+<ul class="simple">
+<li><p>An <strong>encoder</strong> - which compresses the input into a latent representation.</p></li>
+<li><p>A <strong>decoder</strong> - which reconstructs the input from that representation.</p></li>
+</ul>
+<p>In the next notebook, we’ll learn to compress our PneumoniaMNIST images into the latent space and then reconstruct them. The input image has <span class="math notranslate nohighlight">\(28 \times 28 = 784\)</span> pixel values, while the latent representation has only 2 values. This means the model is forced to squeeze the image through a tiny bottleneck, then reconstruct it. If it succeeds, those two numbers must carry useful information about the original X-ray.</p>
+<p>In this case, our encoder and decoder will be built from fully-connected layers.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/session2_autoencoder.png"><img alt="_images/session2_autoencoder.png" src="_images/session2_autoencoder.png" style="width: 85%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A diagram of an autoencoder. On the left, a 28 by 2 pixel X-ray enters the encoder. In the middle, it is compressed into a 2D latent vector. On the right, the decoder reconstructs the X-ray.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>This is what our autoencoder looks like in PyTorch:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here's where we define the autoencoder using PyTorch</span>
+<span class="c1"># We use the subclass nn.Module to let Python know we're defining a new neural network</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SimpleAutoencoder</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""One-block fully-connected autoencoder with a 2D latent space."""</span>
+
+    <span class="c1"># These scary lines of code basically just set some important default numbers the network needs to remember,</span>
+    <span class="c1"># e.g. the size of the input image, the size of the hidden layer, and the size of the latent space.</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">28</span> <span class="o">*</span> <span class="mi">28</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">128</span><span class="p">,</span> <span class="n">latent_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="c1"># Store the size of our input image. Our network requires a vector input, so instead of passing an entire</span>
+        <span class="c1"># 28 by 28 pixel image, we pass a flattened vector of 28*28 pixels.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">input_dim</span> <span class="o">=</span> <span class="n">input_dim</span>
+        <span class="c1"># Here we define the encoder layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="c1"># Project the flattened image down to the hidden width</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">input_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">),</span>
+            <span class="c1"># Use a ReLU activation function between layers (we set inplace=True to save memory)</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="c1"># Project hidden representation down to the 2D latent space</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">latent_dim</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="c1"># And here are the decoder layers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="c1"># Expand the latent vector back up to the hidden width</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">latent_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">),</span>
+            <span class="c1"># Use a ReLU activation function between layers</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="c1"># Project hidden representation back up to pixel space (original image size)</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">input_dim</span><span class="p">),</span>
+            <span class="c1"># Use a sigmoid activation function to map pixels back to [0, 1] range</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Sigmoid</span><span class="p">(),</span>
+        <span class="p">)</span>
+
+    <span class="c1"># This function encodes the input image into a 2D latent space by calling the encoder layers</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="c1"># Flatten image batch from (N,1,28,28) to (N,784), then run through the encoder</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+    <span class="c1"># This function decodes the latent space back into an image by calling the decoder layers</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="c1"># Run the latent through the decoder and reshape back to image dimensions</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">decoder</span><span class="p">(</span><span class="n">z</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">)</span>
+
+    <span class="c1"># This function puts the encoder and decoder together and returns the encoded image and the latent space</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="c1"># Encode the input batch into a latent vector (here, z represents two numbers)</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="c1"># Decode the latent vector back into a reconstructed image (x_hat is our reconstruction)</span>
+        <span class="n">x_hat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+        <span class="c1"># Return both reconstruction and latent representation</span>
+        <span class="k">return</span> <span class="n">x_hat</span><span class="p">,</span> <span class="n">z</span>
+</pre></div>
+</div>
+<p>The model output is a reconstructed image, and the target is the original image. We need a loss term which compares how closely our output matches our input - here, we can again use the <strong>mean squared error</strong> (MSE). To calculate this, we subtract the value of each pixel in the reconstruction (<span class="math notranslate nohighlight">\(\hat{y}_i\)</span>) from the same pixel in the original image <span class="math notranslate nohighlight">\(y_i\)</span>, square it (multiply it by itself), and average the value over all pixels. Mathematically, this is given by the following formula (where <span class="math notranslate nohighlight">\(n\)</span> is the total number of pixels):</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+MSE = \frac{1}{n}\sum_{i=1}^{n}(y_i-\hat{y}_i)^2
+\]</div>
+</div>
+<p>For these images, you can think of this as comparing every pixel in the original X-ray with the corresponding pixel in the reconstruction. The closer the pixel values are, the lower the MSE. A perfect reconstruction would have an MSE equal to zero. You can see some example images and their reconstructions below.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/session2_reconstructions.png"><img alt="_images/session2_reconstructions.png" src="_images/session2_reconstructions.png" style="width: 85%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Example original X-rays and their autoencoder reconstructions. This lets us compare the model’s pixel-level reconstruction quality with the structure visible in the original images.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition-exercise exercise important admonition" id="exercise-0">
+<p class="admonition-title">Exercise</p>
+<p>Take a <span class="math notranslate nohighlight">\(2 \times 2\)</span> “image” with true pixel values <span class="math notranslate nohighlight">\([[1.0, 0.0], [0.0, 1.0]]\)</span> and a reconstruction <span class="math notranslate nohighlight">\([[0.8, 0.1], [0.2, 0.9]]\)</span>. What is the MSE?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<p>Errors for each pixel are 0.2, 0.1, 0.2, 0.1. Squared they are 0.04, 0.01, 0.04, 0.01, summing to 0.10. Dividing by <span class="math notranslate nohighlight">\(n=4\)</span> pixels gives MSE = 0.025.</p>
+</div>
+</div>
+</section>
+<section id="latent-spaces">
+<h3>Latent Spaces<a class="headerlink" href="#latent-spaces" title="Link to this heading">¶</a></h3>
+<p>Many neural networks do not only produce final predictions. Inside the model, they build intermediate representations of the input. A <strong>latent representation</strong> is one of these compressed internal descriptions, and a <strong>latent space</strong> is the coordinate system formed by all possible latent representations.</p>
+<p>The latent space is where the model organises what it has learned. If two X-rays are visually similar, their latent representations should lie close to each other in the latent space. If pneumonia creates consistent image features, those features may appear as clusters in the latent space.</p>
+<p>You can think of the latent representation as a compressed coordinate system. Instead of describing an X-ray with 784 pixel values, the autoencoder tries to describe it with just two values. Those two values will not have obvious meanings at first, but by plotting them and decoding points from the space, we can start to probe what they represent.</p>
+<p>In the following notebook, we’ll compress our entire test image dataset into the 2D latent space below. Every blue point you see here represents a “normal” chest X-ray, and every red point represents a “pneumonia” chest X-ray. Despite not telling our model anything about the image classes, it seems our autoencoder has learned to partially separate the classes in the latent space. This suggests that we’re encoding image features which contain important information relevant to the image class.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/session2_latent_space.png"><img alt="_images/session2_latent_space.png" src="_images/session2_latent_space.png" style="width: 70%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A scatter plot of the 2D latent space. Each point is one test X-ray, coloured by class label, showing normal and pneumonia samples occupying different regions.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="classifying-directly-from-the-latent-space">
+<h3>Classifying Directly from the Latent Space<a class="headerlink" href="#classifying-directly-from-the-latent-space" title="Link to this heading">¶</a></h3>
+<p>Once the latent space is structured, we can train a classifier on the latent vectors.</p>
+<p>The classifier in the notebook is a small MLP. It takes the two latent values as input and predicts whether an image belongs to the “normal” class or the “pneumonia” class.</p>
+<p>In the code, our classifier looks something like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here, we create a small MLP that classifies latent vectors as "Normal" or "Pneumonia"</span>
+<span class="c1"># This is just another neural network, with some simple fully-connected layers.</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LatentMLP</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="c1"># Define the important variables (latent dimension, hidden dimension, number of classes)</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">latent_dim</span><span class="p">,</span> <span class="n">hidden</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">n_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="c1"># This is a two-layer MLP with dropout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">net</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">latent_dim</span><span class="p">,</span> <span class="n">hidden</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden</span><span class="p">,</span> <span class="n">n_classes</span><span class="p">),</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Forward pass returns the logits for each class</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>You’ll notice that we include a <strong>Dropout</strong> layer here - this isn’t a different layer type, it just randomly switches off 20% of the neurons from the previous layer. This may seem counter-intuitive, but it actually helps the network generalise.</p>
+<p>Ultimately, the network outputs a <strong>logit</strong> for each class - this is basically a score which represents how much the latent vector seems to belong to each class.</p>
+<p>Logits are <strong>unbounded</strong>, meaning they can theoretically be arbitrarily large. To account for this, we typically apply a <strong>softmax</strong> function, which essentially converts all logits into a probability distribution. The formula for softmax is</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+p_i = \frac{e^{logit_i}}{\sum_j e^{logit_j}}
+\]</div>
+</div>
+<p>where <span class="math notranslate nohighlight">\(p_i\)</span> is the probability of picking class <span class="math notranslate nohighlight">\(i\)</span> - this is equivalent to the exponent of the <span class="math notranslate nohighlight">\(i^{th}\)</span> logit divided by the sum of the exponents of all logits. All you really need to know is that this maps every logit to a value between 0 and 1 (with 0 being 0% chance and 1 being 100% chance).</p>
+<p>This tells us what the probability of the latent vector belonging to each class is. Typically, we take the class with highest probability to be the model’s prediction.</p>
+<p>Since the classifier MLP is also a neural network, it requires its own loss term. For this, we use cross-entropy loss. This loss is minimised when the MLP correctly predicts the true class of every latent vector with 100% certainty.</p>
+<div class="admonition-discussion discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discussion</p>
+<p>Why do we train the latent classifier after the autoencoder has finished training rather than at the same time?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Solution</p>
+<p>The classifier learns a mapping from the latent space, so that space needs to be fixed. If it were still moving (as it does during training), the classifier would be chasing a moving target.</p>
+</div>
+</div>
+<p>We can get an estimate of how well our classifier is performing using the <strong>accuracy</strong>. This represents the percentage of correct predictions made by the model.</p>
+<p>However, since biological datasets can be imbalanced, accuracy alone can be misleading. If one class is much larger, a model can get decent accuracy by mostly predicting the majority class. Just to be sure, we’ll also plot a <strong>confusion matrix</strong>, which shows us the number of images in each class and their predicted labels.</p>
+<figure class="align-center" id="id6">
+<a class="reference internal image-reference" href="_images/session2_confusion_matrix.png"><img alt="_images/session2_confusion_matrix.png" src="_images/session2_confusion_matrix.png" style="width: 65%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A confusion matrix for classification from latent vectors, showing true positives, false positives, true negatives and false negatives.</span><a class="headerlink" href="#id6" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition-discussion discussion important admonition" id="discussion-1">
+<p class="admonition-title">Discussion</p>
+<p>A test set has 900 normal and 100 pneumonia X-rays. A trained model always predicts “normal” for every image. Why might this happen? What is this model’s accuracy?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-2">
+<p class="admonition-title">Solution</p>
+<p>Why might this happen? - It could be because the training set was heavily imbalanced, with very few pneumonia cases. The model learns that the easiest way to ensure high accuracy is to treat all images as “normal”.</p>
+<p>What is this model’s accuracy? - 90%. It misses every single pneumonia case while looking great on accuracy. A confusion matrix helps to expose this issue.</p>
+</div>
+</div>
+</section>
+<section id="from-reconstruction-to-generation">
+<h3>From Reconstruction to Generation<a class="headerlink" href="#from-reconstruction-to-generation" title="Link to this heading">¶</a></h3>
+<p>Once the autoencoder is trained, the decoder acts as a function from latent coordinates to images. That means we can make up latent vectors and ask the decoder to turn them into X-rays. By doing this, we’re generating entirely synthetic images - this is a primitive version of how modern AI image generators work.</p>
+<p>At the end of the notebook, we’ll create a grid of entirely synthetic X-rays, sampled at various points across the latent space. Some of these X-rays seem realistic, others just look like noise, but none of them are actually real.</p>
+<figure class="align-center" id="id7">
+<a class="reference internal image-reference" href="_images/session2_decoder_sweep.png"><img alt="_images/session2_decoder_sweep.png" src="_images/session2_decoder_sweep.png" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A grid of decoded synthetic X-rays across the 2D latent plane.</span><a class="headerlink" href="#id7" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="interpreting-the-latent-space">
+<h3>Interpreting the Latent Space<a class="headerlink" href="#interpreting-the-latent-space" title="Link to this heading">¶</a></h3>
+<p>You may have heard neural networks described as “black box” approaches - this means we don’t really have an intuitive understanding of what the model is learning. Indeed, when our model is made up of billions of different weight and bias parameters, it becomes difficult to discern what any of them actually mean. In life science, this can be problematic, because we usually want to understand <em>why</em> a model produced a certain output, especially when that output may influence clinical or biological decisions.</p>
+<p>For this reason, we may use methods from <strong>interpretable AI</strong>. The latent space gives us one route to interpretation - if the latent representation corresponds to a visible feature such as object size, texture, brightness, or morphology, then we can begin to connect the model’s internal representation to real biological features. This is not the same as proof, but it gives us an intuition of which image features actually matter, and could be used for <strong>hypothesis generation</strong>.</p>
+<p>In the plot below, you can see our grid of synthetic lungs overlaid with the latent space. We can see that images generated near the space where pneumonia X-rays are encoded share similar image features (namely, they are much hazier and show larger white patches). This is inline with what we already know about how pneumonia manifests in X-rays.</p>
+<figure class="align-center" id="id8">
+<a class="reference internal image-reference" href="_images/session2_decoder_sweep_with_latents.png"><img alt="_images/session2_decoder_sweep_with_latents.png" src="_images/session2_decoder_sweep_with_latents.png" style="width: 80%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Our grid of decoded synthetic X-rays, overlaid with the test latent space.</span><a class="headerlink" href="#id8" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="overview-of-the-next-notebook">
+<h3>Overview of the Next Notebook<a class="headerlink" href="#overview-of-the-next-notebook" title="Link to this heading">¶</a></h3>
+<p>In the next notebook, we’ll put these ideas into code. The current notebook uses <strong>PneumoniaMNIST</strong> chest X-ray images, but you could theoretically use any binary-class image dataset (as long as you adjust the input size accordingly). We’ll load image data, convert the images to tensors, train a compact autoencoder and inspect what the latent space has learned.</p>
+<p>By the end of the practical, the model compresses each 28 by 28 image into just <strong>two numbers</strong>, then reconstructs the image from those two numbers alone.</p>
+<p>Working through the notebook, we will:</p>
+<ol class="arabic simple">
+<li><p>Set up the environment.</p></li>
+<li><p>Download the dataset.</p></li>
+<li><p>Train a simple autoencoder.</p></li>
+<li><p>Investigate the test latent space.</p></li>
+<li><p>Build an MLP to classify images from the latent space.</p></li>
+<li><p>Feed the decoder made-up latent vectors and see what it generates.</p></li>
+</ol>
+</section>
+</section>
+<span id="document-episodes/protein-language-models"></span><section class="tex2jax_ignore mathjax_ignore" id="protein-language-models">
+<h2>3. Protein Language Models<a class="headerlink" href="#protein-language-models" title="Link to this heading">¶</a></h2>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Explain how transformers and attention mechanisms process amino acid sequences as biological language</p></li>
+<li><p>Tokenise protein sequences and extract per-residue ESM2 embeddings for downstream tasks</p></li>
+<li><p>Train a classifier on pooled protein embeddings to predict solubility of <em>E. coli</em> proteins</p></li>
+<li><p>Visualise high-dimensional embeddings with t-SNE to reveal class structure</p></li>
+</ul>
+</div>
+<p>These notes support <code class="docutils literal notranslate"><span class="pre">Session3_Protein_Language_Models_Workshop.ipynb</span></code>.</p>
+<section id="recap-of-session-2">
+<h3>Recap of Session 2<a class="headerlink" href="#recap-of-session-2" title="Link to this heading">¶</a></h3>
+<p>In the previous session, we built a plain autoencoder for encoding and decoding image data. The encoder compressed each image into a <strong>2-dimensional latent representation</strong>, and the decoder then tried to reconstruct the original image from those two numbers alone.</p>
+<p>Once the decoder has learned to map latent coordinates back to images, we can sample a fake latent representation, pass it through the decoder and generate a synthetic image. This is a primitive version of how many image-generation models work: learn a useful latent or noise space, then decode points from that space into plausible data.</p>
+<p>By performing a latent space traversal, we could identify which image features may correspond with pneumonia. The key idea was that generative models are not only for making synthetic examples. They can also help us learn compact, interpretable representations for prediction and hypothesis generation.</p>
+</section>
+<section id="from-image-data-to-sequence-data">
+<h3>From Image Data to Sequence Data<a class="headerlink" href="#from-image-data-to-sequence-data" title="Link to this heading">¶</a></h3>
+<p>So far, we have only worked with toy data and images, but commercial generative AI relies on a very different data type: <strong>sequences</strong> - specifically, sequences of text. Models like ChatGPT and Claude are designed to take in sequences of text data and output more text data as an answer, typically in such a way that provides a realistic response to the input.</p>
+<p>In this session, we’ll also move to sequence data - but we’ll see examples which are more biologically-relevant: <strong>proteins</strong>. A protein is made up of a chain of amino acids, and we can treat that chain as a kind of biological language.</p>
+<p>Sequence data is first broken into <strong>tokens</strong> - these are small pieces of the data. In text, a model receives tokens such as words, subwords or characters. In proteins, each amino acid might be a token.</p>
+<p>We’ll use a model called <strong>Evolutionary Scale Modelling-2</strong> (ESM2), a pre-trained protein language model which converts amino acid sequences into numerical representations called <strong>embeddings</strong> - kind of like how our autoencoder converts images into a latent representation. We then train a small classifier to predict a whether or not the given amino acid sequence is <strong>soluble</strong>.</p>
+</section>
+<section id="proteins-as-biological-language">
+<h3>Proteins as Biological Language<a class="headerlink" href="#proteins-as-biological-language" title="Link to this heading">¶</a></h3>
+<p>There are 20 standard amino acids, commonly represented with one-letter codes such as <code class="docutils literal notranslate"><span class="pre">A</span></code> for alanine, <code class="docutils literal notranslate"><span class="pre">G</span></code> for glycine and <code class="docutils literal notranslate"><span class="pre">W</span></code> for tryptophan. Since each amino acid can be represented by a letter, a protein sequence can be represented as a string:</p>
+<p><code class="docutils literal notranslate"><span class="pre">MKPVTLYDVAEYAGVSYQTVSRVVNQHISENKASRA…</span></code></p>
+<p>The same deep-learning ideas used for text can be adapted to biological sequences. This applies beyond proteins too. Similar logic appears in genomics, transcriptomics and any domain where biological information is stored in ordered strings.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/session3_protein_aa_chain.png"><img alt="_images/session3_protein_aa_chain.png" src="_images/session3_protein_aa_chain.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text"><em>E. coli</em> lac repressor protein. Proteins are usually visualised through ribbon diagrams (left). Each protein is composed of amino acid chains (top right), which are sequences of amino acid molecules. These sequences can be recorded in string or text format (bottom right).</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="transformers">
+<h3>Transformers<a class="headerlink" href="#transformers" title="Link to this heading">¶</a></h3>
+<p>ESM2 is a transformer-based model. A <strong>transformer</strong> is a type of neural network designed to process sequences.</p>
+<p>Traditional sequence models, such as recurrent neural networks, processed tokens one after another. This made it harder for the model to preserve information across long sequences. Transformers overcome this problem with <strong>attention mechanisms</strong>, which lets the model compare between all positions in the sequence in a way that is computationally-efficient.</p>
+<p>Fundamentally, attention is just another form of matrix multiplication which is very effective at recognising both local and global relationships between elements in the sequence. In a sentence, attention can connect a pronoun to the noun it refers to. For a protein, attention can connect amino acids that are far apart in sequence but important for the same structure or function.</p>
+<p>A transformer first converts each token into an embedding and adds information about its position in the sequence. The attention layers then calculate how strongly each token “relates” to every other token and combine information from the most relevant positions. If you’d like to learn more about attention mechanisms in transformers, I would recommend <a class="reference external" href="https://www.youtube.com/watch?v=eMlx5fFNoYc">this video</a>.</p>
+</section>
+<section id="what-are-protein-language-models">
+<h3>What are Protein Language Models?<a class="headerlink" href="#what-are-protein-language-models" title="Link to this heading">¶</a></h3>
+<p>Protein language models adapt transformer ideas from natural language processing to amino acid sequences. The details differ between models, but they usually learn by predicting masked amino acids or predicting the next amino acid in an incomplete sequence.</p>
+<p>Protein language models are typically used for:</p>
+<ul class="simple">
+<li><p><strong>Regression of protein properties:</strong> Predict continuous properties such as stability or binding affinity.</p></li>
+<li><p><strong>Classification:</strong> Predict discrete labels such as functional class or subcellular localisation.</p></li>
+<li><p><strong>Protein design:</strong> Generate or rank candidate sequences with desired biochemical properties.</p></li>
+<li><p><strong>Protein structure prediction:</strong> Use sequence representations to help infer sequence context and ultimately generate 3D structure.</p></li>
+</ul>
+<p>Clinical applications include drug discovery, antibody design, enzyme optimisation, and prioritising candidate proteins for experimental screening.</p>
+<p>ESM2 is a <strong>pre-trained</strong> protein language model - this means it was already trained on many protein sequences, with the task of predicting missing or masked amino acids in a given sequence. In order to do this, the model has to learn contextual embeddings for each amino acid. These embeddings can then be used for downstream tasks through feature extraction.</p>
+<p>In machine learning, the term for re-using a pre-trained model on a separate task is called <strong>transfer learning</strong>. In our case, we’re using a specific form of transfer learning called <strong>feature extraction</strong>, where we take the output of one network (ESM2) as input to another.</p>
+</section>
+<section id="fasta-and-biological-identifiers">
+<h3>FASTA and Biological Identifiers<a class="headerlink" href="#fasta-and-biological-identifiers" title="Link to this heading">¶</a></h3>
+<p>Protein sequences are commonly accessed through databases such as <strong>UniProt</strong>, which provides curated protein sequences, annotations, identifiers, organism information, functional descriptions and links to other biological resources.</p>
+<p>Protein sequence data is often stored in <strong>FASTA</strong> format. A FASTA file has a header line, starting with <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, followed by sequence metadata, with the sequence itself just underneath. For example:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>&gt;sp|P0A7V8|RS4_ECOLI 30S ribosomal protein S4 OS=Escherichia coli
+MARIAGINIPDHKHPIIVVNDTLTERLKK...
+</pre></div>
+</div>
+<p>In the next notebook, we’ll be classifying proteins from the bacterium <em>E. coli</em> into one of two classes: soluble or insoluble. We’ll download the sequence data directly from UniProt in FASTA format.</p>
+</section>
+<section id="tokenisation">
+<h3>Tokenisation<a class="headerlink" href="#tokenisation" title="Link to this heading">¶</a></h3>
+<p>For a protein language model, <strong>tokens</strong> are usually amino acid letters plus special tokens for padding, sequence start, sequence end or masking. Tokenised data is usually represented as a sequence of numbers, for example, I may assign the integers 1, 2 and 3 to the amino acids <code class="docutils literal notranslate"><span class="pre">A</span></code>, <code class="docutils literal notranslate"><span class="pre">G</span></code> and <code class="docutils literal notranslate"><span class="pre">W</span></code>. This would convert the amino acid sequence <code class="docutils literal notranslate"><span class="pre">AWGWAG</span></code> into the sequence of numbers <span class="math notranslate nohighlight">\([1, 3, 2, 3, 1, 2]\)</span>.</p>
+<p>The input layer of a neural network is of fixed size, which means that each model has a maximum input size. We usually make this much larger than necessary and fill in the empty space with special <strong>pad</strong> tokens. Padding is important because batches need tensors with consistent shapes. If one protein has 80 residues and another has 500, we pad the shorter one so the batch can be stacked.</p>
+<p>ESM2 also has a maximum context length of 1024 - this means we can only process proteins with at most 1022 amino acids (excluding start and stop tokens). In the notebook, sequences which are longer than the context length are truncated - this is fine for the purpose of demonstration, but in practice we’d use a model with a larger context window.</p>
+<p>In the plot below, you can see how the class distribution varies with sequence length and amino acid frequency over our <em>E. coli</em> data. The red line marks the context window of ESM-2, so any amino acid beyond this point is truncated.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/session3_sequence_lengths.png"><img alt="_images/session3_sequence_lengths.png" src="_images/session3_sequence_lengths.png" style="width: 85%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Sequence length distributions for the protein dataset, including the ESM2 context limit. This shows how many proteins fit directly into the model and where truncation begins to matter.</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>In the notebook, we’ll use ESM2’s built-in tokeniser. Here’s an example of what tokenising the gene <code class="docutils literal notranslate"><span class="pre">yaaX</span></code> looks like.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import ESM</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">esm</span>
+
+<span class="c1"># Grab the sequence of yaaX - here, "gene_to_sequence" is a mapping from the gene name to its amino acid sequence</span>
+<span class="n">test_seq</span> <span class="o">=</span> <span class="n">gene_to_sequence</span><span class="p">[</span><span class="s1">'yaaX'</span><span class="p">]</span>
+<span class="c1"># Here, alphabet is ESM's built-in tokeniser - it converts amino acids to numbers</span>
+<span class="n">model</span><span class="p">,</span> <span class="n">alphabet</span> <span class="o">=</span> <span class="n">esm</span><span class="o">.</span><span class="n">pretrained</span><span class="o">.</span><span class="n">esm2_t12_35M_UR50D</span><span class="p">()</span>
+<span class="c1"># Get our tokens out: get_batch_converter() returns a callable, which we then call with the batch</span>
+<span class="n">batch_converter</span> <span class="o">=</span> <span class="n">alphabet</span><span class="o">.</span><span class="n">get_batch_converter</span><span class="p">()</span>
+<span class="c1"># Convert our test sequence into a tensor of numeric tokens (we include the string "test" here because batch_converter expects a label)</span>
+<span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">tokens</span> <span class="o">=</span> <span class="n">batch_converter</span><span class="p">([(</span><span class="s1">'test'</span><span class="p">,</span> <span class="n">test_seq</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Shape of token vector: </span><span class="si">{</span><span class="n">tokens</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Tokens: </span><span class="si">{</span><span class="n">tokens</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># Print the tokens - there are 98 residues in this sequence, so we get 98 tokens + 2 for start and end tokens</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Shape of token vector: torch.Size([1, 100])
+Tokens: tensor([[ 0, 20, 15, 15, 20, 16,  8, 12,  7,  4,  5,  4,  8,  4,  7,  4,  7,  5,
+         14, 20,  5,  5, 16,  5,  5,  9, 12, 11,  4,  7, 14,  8,  7, 15,  4, 16,
+         12,  6, 13, 10, 13, 17, 10,  6, 19, 19, 22, 13,  6,  6, 21, 22, 10, 13,
+         21,  6, 22, 22, 15, 16, 21, 19,  9, 22, 10,  6, 17, 10, 22, 21,  4, 21,
+          6, 14, 14, 14, 14, 14, 10, 21, 21, 15, 15,  5, 14, 21, 13, 21, 21,  6,
+          6, 21,  6, 14,  6, 15, 21, 21, 10,  2]])
+</pre></div>
+</div>
+<p>After tokenisation, the model also needs a way to know where each amino acid appears in the sequence. Transformer models therefore add positional information. Some models use learned <strong>positional embeddings</strong>, where each position also gets its own embedding. In the notebook, ESM-2 takes account of this automatically. We’ll learn more about positional embeddings in Session 4.</p>
+</section>
+<section id="embeddings">
+<h3>Embeddings<a class="headerlink" href="#embeddings" title="Link to this heading">¶</a></h3>
+<p>An <strong>embedding</strong> is a numerical representation of a token or sequence which is <strong>learned by the model</strong>. For protein language models, each amino acid token becomes a vector. Instead of representing alanine as just <code class="docutils literal notranslate"><span class="pre">A</span></code> or a single integer, the model represents it as hundreds of numbers that encode what it has learned about alanine in the sequence context.</p>
+<p>The values in the embedding depend on the <strong>token itself</strong>, its <strong>position</strong> in the sequence, and its learned <strong>relationship</strong> with other tokens in the sequence.</p>
+<p>Let’s take our example of the gene <code class="docutils literal notranslate"><span class="pre">yaaX</span></code> and embed it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import PyTorch to use the model</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="c1"># Set device, we'll use CPU for simplicity</span>
+<span class="n">device</span> <span class="o">=</span> <span class="s2">"cpu"</span>
+
+<span class="c1"># Let's put the model in evaluation mode, since we aren't training</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span class="c1"># Turn off autograd</span>
+<span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+    <span class="c1"># Run ESM2 and ask it to return the activations from the final layer (layer 12)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">tokens</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">),</span> <span class="n">repr_layers</span><span class="o">=</span><span class="p">[</span><span class="mi">12</span><span class="p">])</span>
+<span class="c1"># Slice out the per-residue features, ignoring the start/end tokens</span>
+<span class="n">per_residue</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s1">'representations'</span><span class="p">][</span><span class="mi">12</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">test_seq</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+<span class="c1"># Print the shape of the embedding - 98 residues, 480 dimensions</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Shape of embedding vector: </span><span class="si">{</span><span class="n">per_residue</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="c1"># Print the first residue's embedding - total nonsense to you and me, but very informative to a computer</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"First residue's embedding: </span><span class="si">{</span><span class="n">per_residue</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Shape of embedding vector: torch.Size([98, 480])
+First residue's embedding: tensor([-0.4646, -0.0841, -0.4610,  1.0782,  0.0641,  0.6295, -0.6128, -0.2486,
+         0.1890,  0.0380,  0.0659, -0.2056,  0.6324,  0.3972,  0.0196,  0.2712,
+         0.3757, -0.1252, -0.2027,  0.3060,  0.5739,  0.1633,  0.4924,  0.2532,
+         0.1815,  0.0940,  0.2281,  0.0185,  0.0910, -0.0648, -0.1777, -0.1487,
+        -0.1957, -0.1399,  0.1900, -0.1346,  0.2999,  0.5514,  0.0151, -0.2056,
+         0.0989, -0.1515,  0.2039, -0.0189, -0.0779, -0.2880,  3.2604, -0.0529,
+         0.0190, -0.1259, -0.1437,  0.1137, -0.2329, -0.2209,  0.7912, -0.0659,
+        -0.4655,  0.4740, -0.1308,  0.0656, -0.2505,  0.3856,  0.1642, -0.1358,
+        -0.4534, -0.0281,  0.0931,  1.3549, -0.1039, -0.2717, -0.3297,  0.4221,
+         0.5507, -0.1143, -0.0274,  0.2313, -0.2394, -0.3397, -0.0679,  0.0518,
+        -0.4177,  0.1395, -0.0789, -0.5254, -0.4698,  0.3896, -0.0812, -0.1291,
+         0.0917,  0.4713,  0.4210,  0.1720, -0.3084, -0.0209, -0.1416, -0.1696,
+        -0.4613,  0.3837,  0.1994,  0.2933,  0.0112, -0.2773, -0.3507, -0.2033,
+         0.0896,  0.0306,  0.8030,  0.5707, -0.1570,  0.2573, -0.3110,  0.1959,
+         0.0894, -0.0173, -0.1128, -0.4319, -0.1277, -0.0948,  0.1615, -0.1806,
+         0.3106,  0.0556,  0.6020,  0.2232, -0.5044,  0.2405, -0.1008,  0.1601,
+         0.6195,  0.0818, -0.7296, -0.1366,  0.5512,  0.2645, -0.5792,  0.4861,
+...
+         0.2016,  0.0941, -0.2674,  0.5243,  0.1993,  0.4398,  0.0228, -0.3249,
+        -0.3815, -0.1317, -0.3887, -0.3381,  0.2735,  0.3801,  0.1457, -0.2235,
+         0.4011, -0.4918,  0.2274,  0.1585,  0.2206,  0.4126,  0.0261,  0.5850,
+         0.4103,  0.7095, -0.4415,  0.3491, -0.4087, -0.1106,  0.1180, -0.4492])
+</pre></div>
+</div>
+<div class="admonition-discussion discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discussion</p>
+<p>Why do we use embeddings if tokenisation has already converted our sequence into numeric format?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<p>Token IDs are arbitrary labels with no meaningful numerical relationships between them. Embeddings map those IDs to learned vectors that capture biochemical properties and sequence context.</p>
+</div>
+</div>
+<p>ESM2 produces <strong>per-residue embeddings</strong>, meaning each amino acid in the protein gets its own vector. Each vector is of length 480 (but this differs between models). We may then want to summarise these vectors to extract meaningful information - in our notebook, we’ll be converting the entire sequence into one value: the probability of being soluble.</p>
+<p>An easy way to do this is to average across all residues to get one 480-dimensional vector per protein. To do this, we use an operation called <strong>mean pooling</strong>, which just averages each position in each embedding. Since we’re just averaging the information, all protein sequences end up exactly the same size.</p>
+<div class="admonition-exercise exercise important admonition" id="exercise-0">
+<p class="admonition-title">Exercise</p>
+<p>ESM2 returns per-residue embeddings for a 350-residue protein. What is the shape of that output and what shape does mean pooling produce?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Solution</p>
+<p><span class="math notranslate nohighlight">\((350, 480)\)</span> before pooling, <span class="math notranslate nohighlight">\((480,)\)</span> after.</p>
+</div>
+</div>
+<p>A diagram of the full embedding workflow is given here.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/session3_embedding.png"><img alt="_images/session3_embedding.png" src="_images/session3_embedding.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A diagram showing an amino acid sequence being tokenised, passed through ESM2, converted into per-residue embedding vectors, and averaged into one protein-level embedding.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="visualising-embeddings">
+<h3>Visualising Embeddings<a class="headerlink" href="#visualising-embeddings" title="Link to this heading">¶</a></h3>
+<p>Each embedding is a vector of 480 numbers. This can make them quite difficult to visualise, but by using dimensionality reduction techniques like <strong>t-SNE</strong>, we can compress each vector into 2D while trying to preserve local neighbourhoods. This means that points that are close in high-dimensional space should remain close in the 2D visualisation.</p>
+<p>In the plot below, we can see the result of applying t-SNE to the embeddings of our <em>E. coli</em> proteome, coloured by protein solubility class. Obviously we lose a lot of information when we compress our data, but the fact that we can still see some clustering of soluble and insoluble points is encouraging.</p>
+<p>This suggests that our embedding contains enough contextual information about the protein to make an assessment on its solubility class.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/session3_tsne.png"><img alt="_images/session3_tsne.png" src="_images/session3_tsne.png" style="width: 75%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A t-SNE scatter plot of ESM2 protein embeddings, with points coloured by soluble or insoluble label. We have reduced the dimension of each data point from 480 to 2.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="the-mlp-classifier">
+<h3>The MLP Classifier<a class="headerlink" href="#the-mlp-classifier" title="Link to this heading">¶</a></h3>
+<p>After embedding, each protein is represented by 480 numbers, and the label is binary: soluble or insoluble. In the notebook, we’ll train a small MLP again using the Adam optimiser and cross-entropy loss. This is very similar to what we did in Session 2, but now our MLP takes an input of 480 numbers, rather than just 2.</p>
+<p>This is computationally very efficient because ESM2 has already done the hard work of learning general protein representations. Our MLP only has to learn the final mapping from embedding to soluble/insoluble.</p>
+<p>As we’ll see in the notebook, we’re able to use the embeddings to train our model to classify amino acid sequences to a relatively-high accuracy (~80% on validation data). We observe some slight overfitting from around epoch 15 (the training loss continues to decrease, while validation loss begins to rise), so we can stop training at around that point.</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/session3_training_curves.png"><img alt="_images/session3_training_curves.png" src="_images/session3_training_curves.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Validation curves for the solubility classifier. Left: training and validation loss (cross entropy). Right: training and validation accuracy (percentage of correctly classified sequences).</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition-discussion discussion important admonition" id="discussion-1">
+<p class="admonition-title">Discussion</p>
+<p>Why is it computationally-efficient to extract embeddings from ESM, then train an MLP on those embeddings?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-2">
+<p class="admonition-title">Solution</p>
+<p>Sequences pass through ESM2 exactly once with no backpropagation. Only the tiny MLP needs to be trained. Since the embeddings never change, you can compute them once and save them, after which every training run is near-instant.</p>
+</div>
+</div>
+<p>As in Session 2, we can also plot the confusion matrix to check how well our model is assigning classes. But I’ll leave that up to you.</p>
+</section>
+<section id="overview-of-the-next-notebook">
+<h3>Overview of the Next Notebook<a class="headerlink" href="#overview-of-the-next-notebook" title="Link to this heading">¶</a></h3>
+<p>To summarise, we will set up a simple protein language model pipeline to predict a discrete property of each protein from its amino acid sequence. We’ll use ESM-2 embeddings and train a small MLP to predict whether <em>E. coli</em> proteins are soluble or insoluble.</p>
+<section id="protein-structure-prediction">
+<h4>Protein Structure Prediction<a class="headerlink" href="#protein-structure-prediction" title="Link to this heading">¶</a></h4>
+<p>Full protein structure prediction is much harder than predicting a binary property. Instead of just identifying one label per sequence, a structure model must predict the 3D coordinates of each atom in the molecule along with measures of confidence for each.</p>
+<p>Just running one of these structure prediction models locally can take hours, but we can use online tools such as <strong>ESMFold</strong> and <strong>ColabFold</strong> to predict structure without needing to train or run the model on our own devices. If you’ve finished with the practical, check out <a class="reference external" href="https://esmatlas.com/resources?action=fold">ESMFold</a>. Try predicting some of the example protein sequences they provide. Play around with the sequences and see what effect that has the output.</p>
+</section>
+</section>
+</section>
+<span id="document-episodes/drug-discovery-codon-prediction"></span><section class="tex2jax_ignore mathjax_ignore" id="drug-discovery-application-translating-proteins-back-to-dna">
+<h2>4. Drug Discovery Application - Translating Proteins Back to DNA<a class="headerlink" href="#drug-discovery-application-translating-proteins-back-to-dna" title="Link to this heading">¶</a></h2>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Explain how sequence-to-sequence models and codon degeneracy motivate protein-to-DNA prediction for mRNA vaccine design</p></li>
+<li><p>Build a transformer prediction head with positional embeddings on top of frozen ESM2 features</p></li>
+<li><p>Apply codon validity constraints so predicted DNA sequences encode the correct amino acids</p></li>
+<li><p>Evaluate the codon predictor against a highest-frequency-codon baseline</p></li>
+</ul>
+</div>
+<p>These notes support <code class="docutils literal notranslate"><span class="pre">Session4_An_Application_to_Drug_Discovery_Workshop.ipynb</span></code>.</p>
+<section id="recap-of-session-3">
+<h3>Recap of Session 3<a class="headerlink" href="#recap-of-session-3" title="Link to this heading">¶</a></h3>
+<p>In the last session, we moved from image data to sequence data. We talked about protein language models, including how amino acid sequences are tokenised, encoded into embeddings, and how these embeddings could be used for downstream tasks.</p>
+<p>So far, most of this workshop has been exploratory. We used autoencoders to learn latent spaces, used those latent spaces for interpretation and classification, and used a pre-trained protein language model as a feature extractor. In this final session, we move toward a practical application in drug discovery.</p>
+</section>
+<section id="sequence-to-sequence-learning">
+<h3>Sequence-to-Sequence Learning<a class="headerlink" href="#sequence-to-sequence-learning" title="Link to this heading">¶</a></h3>
+<p>Large language models, including commercial models like ChatGPT and Claude, take a sequence of text as input (e.g. a question) and output another sequence of text (e.g. an answer). These models are <strong>autoregressive</strong>, which means they continuously add tokens (e.g. words) onto the input sequence until a special stop token is added.</p>
+<p>How does the model “add tokens”? Well, each model has its own <strong>vocabulary</strong> - this is the full set of tokens that a model knows. For example, ChatGPT has a vocabulary of just over 100000 tokens. In language models, tokens can be whole words, parts of words, individual letters (e.g. in acronyms), and punctuation.</p>
+<p>So, at each step of the autoregressive process, the model is selecting one token from its vocabulary to be appended to the sequence. It does this by assigning each token a probability and then either selecting the token with highest probability or sampling the token from the resulting probability distribution. You can think of this like performing “classification” at each step, but instead of predicting classes, we’re picking tokens.</p>
+<p>Putting this all together, we end up with a model which can take one sequence as input and give another sequence as output.</p>
+<figure class="align-center" id="id1">
+<a class="reference internal image-reference" href="_images/session4_llm_conceptual_overview.png"><img alt="_images/session4_llm_conceptual_overview.png" src="_images/session4_llm_conceptual_overview.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">A conceptual overview of language-model generation: text is tokenised, combined with positional information, processed by transformer self-attention layers, converted into logits over a vocabulary, transformed into token probabilities and used to select the next token in the output sequence.</span><a class="headerlink" href="#id1" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="a-drug-discovery-problem-mapping-protein-to-dna">
+<h3>A Drug Discovery Problem: Mapping Protein to DNA<a class="headerlink" href="#a-drug-discovery-problem-mapping-protein-to-dna" title="Link to this heading">¶</a></h3>
+<p>So, how could we adapt this for drug discovery? Let’s consider one of the most well-known sequences in biology: DNA.</p>
+<p>A DNA sequence is made up of four different nucleotide bases: A, C, G and T. The sequence of these bases encodes the “recipes” for making different proteins. A DNA molecule is first <strong>transcribed</strong> into single-strand messenger RNA (<strong>mRNA</strong>), which is then <strong>translated</strong> into an amino acid sequence.</p>
+<p>However, genetic code is what we call <strong>degenerate</strong>, which means that many different sequences can encode for the same protein. What matters is that the codons, which are triplets of nucleotide bases, must be in order. Each codon encodes for one amino acid, but several codons can encode the same amino acid. For example, the amino acid proline can be encoded by four different codons.</p>
+<p>So, in theory, if I have proline in my amino acid sequence, I could swap out whichever codon I have with one of the other three. The issue, is that codon placement can affect things like expression level, molecular stability, secondary structure. So, if I was trying to recreate this protein, I’d like to get as close to the true DNA sequence as possible.</p>
+<p>If you’re wondering how this is applicable to drug discovery, imagine that the protein we’re interested in is a <strong>spike protein</strong> from a virus, like SARS-CoV-2.</p>
+<p>Spike proteins are expressed on the surface of viral particles, so they’re highly exposed to the immune system. In order to create a vaccine for that virus, we could inject the body with mRNA which encodes for that spike protein. The body’s cells would then synthesise harmless versions of that protein, and the immune system would create antibodies, and build a long-term memory to fight off that virus in future.</p>
+<p>We can’t do any of that, if we don’t know the mRNA sequence, but we can infer it from the DNA sequence, which we could predict from the protein itself. We could just randomly pick codons which correspond to the amino acids we need, but that can make the mRNA unstable or impact the overall expression level, so perhaps there is a way to learn the true sequence from context instead.</p>
+<p>In this final session, we’ll try to predict DNA sequences from amino acid sequences using parallel sequence-to-sequence generation. Our input is still amino acid sequences, so we can get an embedding from ESM-2 again. Then, we’ll build our own transformer as a prediction head to assign probabilities over possible codon tokens at each position in the sequence.</p>
+<figure class="align-center" id="id2">
+<a class="reference internal image-reference" href="_images/session4_dna_mrna_translation_overview.png"><img alt="_images/session4_dna_mrna_translation_overview.png" src="_images/session4_dna_mrna_translation_overview.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">DNA bases are transcribed into mRNA, and mRNA codons (triplets of bases) are translated into an amino acid sequence.</span><a class="headerlink" href="#id2" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="vocabulary-amino-acids-and-codons">
+<h3>Vocabulary: Amino Acids and Codons<a class="headerlink" href="#vocabulary-amino-acids-and-codons" title="Link to this heading">¶</a></h3>
+<p>As we’ve discussed, language models work with a vocabulary. In human language, the vocabulary might be word pieces. In the next notebook, our vocabulary is made up of two parts:</p>
+<ul class="simple">
+<li><p>An amino acid vocabulary: 20 standard amino acids plus a pad and stop token.</p></li>
+<li><p>A codon vocabulary: 64 possible DNA triplets plus a pad and mask token.</p></li>
+</ul>
+<p>The padding tokens are again used to fill in the empty space in sequences, so we can feed multiple sequences through in batches. The stop token tells the model when we have reached the end of our amino acid sequence. The mask tokens are what initially fill the codon sequence, our model learns to replace each mask token with a real codon token.</p>
+<p>The prediction head sees a masked codon sequence which looks like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">[MASK,</span> <span class="pre">MASK,</span> <span class="pre">MASK,</span> <span class="pre">...,</span> <span class="pre">PAD,</span> <span class="pre">PAD]</span></code></p>
+<p>It’s the predictor’s job to predict the true codon at each mask position using the ESM-2 protein features, amino acid identity and positional information. The result should look something like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">[ATG,</span> <span class="pre">CGA,</span> <span class="pre">ATT,</span> <span class="pre">...,</span> <span class="pre">PAD,</span> <span class="pre">PAD]</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>DNA vs RNA
+During transcription, when DNA is converted to RNA, the nucleotide base uracil (U) replaces thymine (T). Since we can infer the intended RNA sequence from DNA and vice versa, we will treat them as the same (e.g. we will use U and T interchangeably throughout this session).</p>
+</div>
+<p>This is what our vocabulary looks like in Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define our amino acid vocabulary</span>
+<span class="c1"># First, we define the 20 standard amino acid one-letter codes as a hard-coded string</span>
+<span class="n">STD_AA</span> <span class="o">=</span> <span class="s1">'ACDEFGHIKLMNPQRSTVWY'</span>
+<span class="c1"># Special tokens: PAD fills empty space, MASK is what we feed in for "unknown" positions</span>
+<span class="n">PAD</span><span class="p">,</span> <span class="n">MASK</span> <span class="o">=</span> <span class="s1">'&lt;pad&gt;'</span><span class="p">,</span> <span class="s1">'&lt;mask&gt;'</span>
+<span class="c1"># Full list of amino acid tokens, starting with PAD</span>
+<span class="n">AA_TOKENS</span> <span class="o">=</span> <span class="p">[</span><span class="n">PAD</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">STD_AA</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="s1">'_'</span><span class="p">]</span>
+<span class="c1"># Create look-up dictionaries for mapping from amino acid string to integer and vice versa</span>
+<span class="n">aa2id</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">AA_TOKENS</span><span class="p">)};</span> <span class="n">PAD_S</span> <span class="o">=</span> <span class="n">aa2id</span><span class="p">[</span><span class="n">PAD</span><span class="p">]</span>
+<span class="n">id2aa</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">t</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">aa2id</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+
+<span class="c1"># Define our codon vocabulary</span>
+<span class="c1"># This creates a list of all 64 possible three-letter DNA combinations</span>
+<span class="n">CODONS</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="n">c</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="s1">'ACGT'</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="s1">'ACGT'</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="s1">'ACGT'</span><span class="p">]</span>
+<span class="c1"># Now we add pad and mask</span>
+<span class="n">CODON_TOKENS</span> <span class="o">=</span> <span class="p">[</span><span class="n">PAD</span><span class="p">,</span> <span class="n">MASK</span><span class="p">]</span> <span class="o">+</span> <span class="n">CODONS</span>
+<span class="c1"># Create look-up dictionaries for mapping from codon string to integer and vice versa</span>
+<span class="n">cd2id</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">CODON_TOKENS</span><span class="p">)}</span>
+<span class="n">id2cd</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">t</span> <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">cd2id</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</pre></div>
+</div>
+</section>
+<section id="valid-codon-constraints">
+<h3>Valid Codon Constraints<a class="headerlink" href="#valid-codon-constraints" title="Link to this heading">¶</a></h3>
+<p>Not every codon can encode every amino acid, so to make sure the codon accounts for this constraint we’ll use a <strong>validity matrix</strong>, showing which codons are possible for each amino acid. This matrix has 22 rows (one for each amino acid token) and 66 columns (one for each codon token). The value in row <span class="math notranslate nohighlight">\(i\)</span>, column <span class="math notranslate nohighlight">\(j\)</span> is <code class="docutils literal notranslate"><span class="pre">True</span></code> if amino acid <span class="math notranslate nohighlight">\(i\)</span> can be encoded by codon <span class="math notranslate nohighlight">\(j\)</span>, and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+<p>We could omit this step and just hope the model learns to reproduce valid codon sequences, which isn’t guaranteed, and even then, the model has to spend its capacity on learning synonymous codons rather than predicting a useful sequence. A validity matrix guarantees our sequence will be valid at the amino-acid level and reduces the number of choices the model has to learn.</p>
+<p>During prediction, each codon (even impossible codons) gets assigned a logit, which should eventually become a probability. Impossible codons can be hidden by automatically setting their logits to negative infinity - after softmax, this becomes 0, which essentially removes all chance of them being selected.</p>
+<figure class="align-center" id="id3">
+<a class="reference internal image-reference" href="_images/session4_codon_validity_mask_softmax.png"><img alt="_images/session4_codon_validity_mask_softmax.png" src="_images/session4_codon_validity_mask_softmax.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Applying a codon validity matrix before softmax: invalid codons are assigned logits of negative infinity, so their probabilities become zero and only biologically valid codons can be selected.</span><a class="headerlink" href="#id3" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<p>Here is what the validity matrix looks like in Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
+
+<span class="c1"># Here, we define the complete codon to amino acid map - this shows the exact amino acid each codon encodes</span>
+<span class="n">TRANSL</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">'TTT'</span><span class="p">:</span><span class="s1">'F'</span><span class="p">,</span><span class="s1">'TTC'</span><span class="p">:</span><span class="s1">'F'</span><span class="p">,</span><span class="s1">'TTA'</span><span class="p">:</span><span class="s1">'L'</span><span class="p">,</span><span class="s1">'TTG'</span><span class="p">:</span><span class="s1">'L'</span><span class="p">,</span><span class="s1">'CTT'</span><span class="p">:</span><span class="s1">'L'</span><span class="p">,</span><span class="s1">'CTC'</span><span class="p">:</span><span class="s1">'L'</span><span class="p">,</span><span class="s1">'CTA'</span><span class="p">:</span><span class="s1">'L'</span><span class="p">,</span><span class="s1">'CTG'</span><span class="p">:</span><span class="s1">'L'</span><span class="p">,</span>
+    <span class="s1">'ATT'</span><span class="p">:</span><span class="s1">'I'</span><span class="p">,</span><span class="s1">'ATC'</span><span class="p">:</span><span class="s1">'I'</span><span class="p">,</span><span class="s1">'ATA'</span><span class="p">:</span><span class="s1">'I'</span><span class="p">,</span><span class="s1">'ATG'</span><span class="p">:</span><span class="s1">'M'</span><span class="p">,</span><span class="s1">'GTT'</span><span class="p">:</span><span class="s1">'V'</span><span class="p">,</span><span class="s1">'GTC'</span><span class="p">:</span><span class="s1">'V'</span><span class="p">,</span><span class="s1">'GTA'</span><span class="p">:</span><span class="s1">'V'</span><span class="p">,</span><span class="s1">'GTG'</span><span class="p">:</span><span class="s1">'V'</span><span class="p">,</span>
+    <span class="s1">'TCT'</span><span class="p">:</span><span class="s1">'S'</span><span class="p">,</span><span class="s1">'TCC'</span><span class="p">:</span><span class="s1">'S'</span><span class="p">,</span><span class="s1">'TCA'</span><span class="p">:</span><span class="s1">'S'</span><span class="p">,</span><span class="s1">'TCG'</span><span class="p">:</span><span class="s1">'S'</span><span class="p">,</span><span class="s1">'AGT'</span><span class="p">:</span><span class="s1">'S'</span><span class="p">,</span><span class="s1">'AGC'</span><span class="p">:</span><span class="s1">'S'</span><span class="p">,</span>
+    <span class="s1">'CCT'</span><span class="p">:</span><span class="s1">'P'</span><span class="p">,</span><span class="s1">'CCC'</span><span class="p">:</span><span class="s1">'P'</span><span class="p">,</span><span class="s1">'CCA'</span><span class="p">:</span><span class="s1">'P'</span><span class="p">,</span><span class="s1">'CCG'</span><span class="p">:</span><span class="s1">'P'</span><span class="p">,</span><span class="s1">'ACT'</span><span class="p">:</span><span class="s1">'T'</span><span class="p">,</span><span class="s1">'ACC'</span><span class="p">:</span><span class="s1">'T'</span><span class="p">,</span><span class="s1">'ACA'</span><span class="p">:</span><span class="s1">'T'</span><span class="p">,</span><span class="s1">'ACG'</span><span class="p">:</span><span class="s1">'T'</span><span class="p">,</span>
+    <span class="s1">'GCT'</span><span class="p">:</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'GCC'</span><span class="p">:</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'GCA'</span><span class="p">:</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'GCG'</span><span class="p">:</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'TAT'</span><span class="p">:</span><span class="s1">'Y'</span><span class="p">,</span><span class="s1">'TAC'</span><span class="p">:</span><span class="s1">'Y'</span><span class="p">,</span>
+    <span class="s1">'TAA'</span><span class="p">:</span><span class="s1">'_'</span><span class="p">,</span><span class="s1">'TAG'</span><span class="p">:</span><span class="s1">'_'</span><span class="p">,</span><span class="s1">'TGA'</span><span class="p">:</span><span class="s1">'_'</span><span class="p">,</span>
+    <span class="s1">'CAT'</span><span class="p">:</span><span class="s1">'H'</span><span class="p">,</span><span class="s1">'CAC'</span><span class="p">:</span><span class="s1">'H'</span><span class="p">,</span><span class="s1">'CAA'</span><span class="p">:</span><span class="s1">'Q'</span><span class="p">,</span><span class="s1">'CAG'</span><span class="p">:</span><span class="s1">'Q'</span><span class="p">,</span><span class="s1">'AAT'</span><span class="p">:</span><span class="s1">'N'</span><span class="p">,</span><span class="s1">'AAC'</span><span class="p">:</span><span class="s1">'N'</span><span class="p">,</span><span class="s1">'AAA'</span><span class="p">:</span><span class="s1">'K'</span><span class="p">,</span><span class="s1">'AAG'</span><span class="p">:</span><span class="s1">'K'</span><span class="p">,</span>
+    <span class="s1">'GAT'</span><span class="p">:</span><span class="s1">'D'</span><span class="p">,</span><span class="s1">'GAC'</span><span class="p">:</span><span class="s1">'D'</span><span class="p">,</span><span class="s1">'GAA'</span><span class="p">:</span><span class="s1">'E'</span><span class="p">,</span><span class="s1">'GAG'</span><span class="p">:</span><span class="s1">'E'</span><span class="p">,</span><span class="s1">'TGT'</span><span class="p">:</span><span class="s1">'C'</span><span class="p">,</span><span class="s1">'TGC'</span><span class="p">:</span><span class="s1">'C'</span><span class="p">,</span><span class="s1">'TGG'</span><span class="p">:</span><span class="s1">'W'</span><span class="p">,</span>
+    <span class="s1">'CGT'</span><span class="p">:</span><span class="s1">'R'</span><span class="p">,</span><span class="s1">'CGC'</span><span class="p">:</span><span class="s1">'R'</span><span class="p">,</span><span class="s1">'CGA'</span><span class="p">:</span><span class="s1">'R'</span><span class="p">,</span><span class="s1">'CGG'</span><span class="p">:</span><span class="s1">'R'</span><span class="p">,</span><span class="s1">'AGA'</span><span class="p">:</span><span class="s1">'R'</span><span class="p">,</span><span class="s1">'AGG'</span><span class="p">:</span><span class="s1">'R'</span><span class="p">,</span>
+    <span class="s1">'GGT'</span><span class="p">:</span><span class="s1">'G'</span><span class="p">,</span><span class="s1">'GGC'</span><span class="p">:</span><span class="s1">'G'</span><span class="p">,</span><span class="s1">'GGA'</span><span class="p">:</span><span class="s1">'G'</span><span class="p">,</span><span class="s1">'GGG'</span><span class="p">:</span><span class="s1">'G'</span><span class="p">,</span>
+<span class="p">}</span>
+
+<span class="c1"># Create the validity matrix</span>
+<span class="c1"># Map each amino acid to the list of codon IDs that code for it (this basically creates the inverse of TRANSL above)</span>
+<span class="n">AA_TO_VALID</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">cd</span><span class="p">,</span> <span class="n">aa</span> <span class="ow">in</span> <span class="n">TRANSL</span><span class="o">.</span><span class="n">items</span><span class="p">():</span> <span class="n">AA_TO_VALID</span><span class="p">[</span><span class="n">aa</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">cd2id</span><span class="p">[</span><span class="n">cd</span><span class="p">])</span>
+<span class="c1"># Create the Boolean validity matrix - VALID[a, c] is True if codon c codes for amino acid a</span>
+<span class="n">VALID</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">SRC_VOCAB</span><span class="p">,</span> <span class="n">TGT_VOCAB</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">aa</span><span class="p">,</span> <span class="n">codon_ids</span> <span class="ow">in</span> <span class="n">AA_TO_VALID</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">VALID</span><span class="p">[</span><span class="n">aa2id</span><span class="p">[</span><span class="n">aa</span><span class="p">],</span> <span class="n">codon_ids</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</section>
+<section id="why-use-transformers">
+<h3>Why Use Transformers<a class="headerlink" href="#why-use-transformers" title="Link to this heading">¶</a></h3>
+<p>As in Session 3, ESM-2 is used as a frozen feature extractor. This time we keep <strong>per-residue</strong> features rather than mean pooling them into one protein-level vector. Remember that ESM-2 is a transformer-based network. Transformers are good at sequence modelling because they use <strong>attention</strong>, which lets each position in the sequence look at other positions and decide which ones matter for the current prediction.</p>
+<p>For codon prediction, the best codon for one amino acid may depend on neighbouring amino acids, local sequence composition, or organism-specific codon usage. The context really matters.</p>
+<p>In our notebook, we’ll build a small transformer prediction head on top of the ESM2 features. This is useful for codon prediction because the best codon at one position may depend on other positions in the same gene. A transformer can learn these dependencies more flexibly than a model that looks only at a small local window.</p>
+<p>In practice, we provide the amino acid embedding from ESM-2, a custom codon embedding using PyTorch’s built-in embedding layer (the same for all masked codons), and a positional embedding which records amino/codon position in sequence. For each masked entry in the codon embedding, the model outputs logits for the codon vocabulary. We then apply the validity constraint and select the highest-probability codon.</p>
+<figure class="align-center" id="id4">
+<a class="reference internal image-reference" href="_images/session4_transformer_predictor.png"><img alt="_images/session4_transformer_predictor.png" src="_images/session4_transformer_predictor.png" style="width: 90%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">An architecture diagram showing amino acid sequence input, ESM2 per-residue features, codon mask embeddings, positional embeddings, a transformer encoder, and output logits over the codon vocabulary at each position.</span><a class="headerlink" href="#id4" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+<div class="admonition-discussion discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discussion</p>
+<p>In Session 3 we mean-pooled ESM2’s embeddings, but here we keep them per amino acid. Why the difference?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<p>In Session 3, we predicted one label for the whole protein, so one vector per protein was enough. Here the output is one codon per amino acid, so we need a distinct feature vector at every position, and pooling would destroy exactly the information we need.</p>
+</div>
+</div>
+</section>
+<section id="positional-embeddings">
+<h3>Positional Embeddings<a class="headerlink" href="#positional-embeddings" title="Link to this heading">¶</a></h3>
+<p>Transformers do not account for sequence order on their own. This is obviously undesirable for codon prediction, so, we’ll add positional information through a <strong>positional embedding</strong>.</p>
+<p>This assigns a numeric representation to each position in the sequence. For example, a simple positional embedding could be to number the amino acids by the order they appear, so that a sequence like <code class="docutils literal notranslate"><span class="pre">AWGWAG</span></code> becomes <span class="math notranslate nohighlight">\([1, 2, 3, 4, 5, 6]\)</span>.</p>
+<p>In practice, we may use <strong>sinusoidal embeddings</strong>, which encode position through a more complex mathematical transformation. The result is a vector of numbers for each position which informs the model that each position is different. This tells the model that the first <code class="docutils literal notranslate"><span class="pre">A</span></code> in a sequence is not necessarily equivalent to the hundredth <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
+<p>In a sinusoidal positional embedding, each position is represented by a pattern of sine and cosine values. These vectors are added to the token representations so the model can distinguish positions.</p>
+<p>Why sine and cosine? - They have useful mathematical properties such as being continuous functions and are easy to differentiate during backpropagation.</p>
+<p>Sinusoidal positional embeddings use waves of different frequencies, represented by the following formulas:</p>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+PE(pos, 2i) = \sin\left(\frac{pos}{10000^{2i/d}}\right)
+\]</div>
+</div>
+<div class="math-wrapper docutils container">
+<div class="math notranslate nohighlight">
+\[
+PE(pos, 2i+1) = \cos\left(\frac{pos}{10000^{2i/d}}\right)
+\]</div>
+</div>
+<p>Here, <span class="math notranslate nohighlight">\(pos\)</span> is the sequence position, <span class="math notranslate nohighlight">\(i\)</span> is any index of the embedding vector, and <span class="math notranslate nohighlight">\(d\)</span> is the size of the embedding (length of the vector). You’ll find more information about sinusoidal embeddings in the notebook.</p>
+<p>You don’t need to memorise the formula, just remember that each position receives a unique, smooth pattern that the transformer can use to recover sequence order.</p>
+<p>In the notebooks, we represent our sinusoidal positional embedding as follows:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the sinusoidal position embedding, which encodes each token's position in the sequence</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SinusoidalPosEnc</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="c1"># Pass in the important arguments the class needs - the dimension of our embedding and the max sequence length</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="n">max_len</span><span class="o">=</span><span class="n">MAX_LEN</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="c1"># Take our token positions and encode them as a vector of sine and cosine terms</span>
+        <span class="c1"># Here, we define an empty table that will hold one row per position</span>
+        <span class="n">pe</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">max_len</span><span class="p">,</span> <span class="n">d_model</span><span class="p">)</span>
+        <span class="c1"># Create a vector of position indices (0, 1, 2, ...)</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_len</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># Now we calculate the denominator</span>
+        <span class="n">div</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">10000.0</span> <span class="o">**</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">d_model</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">)</span> <span class="o">/</span> <span class="n">d_model</span><span class="p">))</span>
+        <span class="c1"># Then even dimensions get sines</span>
+        <span class="n">pe</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">pos</span> <span class="o">*</span> <span class="n">div</span><span class="p">)</span>
+        <span class="c1"># And odd dimensions get cosines</span>
+        <span class="n">pe</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">pos</span> <span class="o">*</span> <span class="n">div</span><span class="p">)</span>
+        <span class="c1"># Save the table as a buffer (this is a tensor which the model sees, but doesn't train)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s1">'pe'</span><span class="p">,</span> <span class="n">pe</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+    <span class="c1"># We add the position encoding directly to the token embeddings</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span> <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pe</span><span class="p">[:,</span> <span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+</div>
+<div class="admonition-discussion discussion important admonition" id="discussion-1">
+<p class="admonition-title">Discussion</p>
+<p>Why use sinusoidal embeddings rather than simply numbering the positions 1, 2, 3, …?</p>
+<div class="admonition-solution solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Solution</p>
+<p>Integers are unbounded, so position 1000 would dominate the token representation numerically, and the scale would differ wildly between short and long sequences. Sine and cosine values stay bounded in <span class="math notranslate nohighlight">\([-1, 1]\)</span>, give every position a unique smooth pattern, are continuous and easily differentiable, and extend naturally to positions longer than those seen in training.</p>
+</div>
+</div>
+</section>
+<section id="cross-entropy-loss-and-accuracy">
+<h3>Cross-Entropy Loss and Accuracy<a class="headerlink" href="#cross-entropy-loss-and-accuracy" title="Link to this heading">¶</a></h3>
+<p>At every real sequence position, the model produces logits over the codon vocabulary. Since this is essentially the same task as classification, we can use the same loss term, cross-entropy, to compare each predicted codon token with the true codon token.</p>
+<p>We can also calculate the accuracy as the percentage of correctly predicted codons. In the next notebook, we’ll build a network that trains to a relatively high accuracy, in a relatively short number of epochs (as seen below).</p>
+<figure class="align-center" id="id5">
+<a class="reference internal image-reference" href="_images/session4_training_curves.png"><img alt="_images/session4_training_curves.png" src="_images/session4_training_curves.png" style="width: 85%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Training loss, validation loss and masked validation accuracy for the codon predictor.</span><a class="headerlink" href="#id5" title="Link to this image">¶</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="baselines">
+<h3>Baselines<a class="headerlink" href="#baselines" title="Link to this heading">¶</a></h3>
+<p>In order to determine just how well our model is performing, we’ll compare its predictions to a baseline. A good baseline provides a simple, easy-to-compute best guess for each codon.</p>
+<p>In this case, we’ll use the <strong>highest-frequency codons</strong> (HFC) as a baseline - this means that for each amino acid, the baseline always picks the most common codon seen in the training data.</p>
+<p>If our transformer can’t beat this baseline, then the model may not be learning sequence context at all. It may just be learning to pick the most common codon for each amino acid.</p>
+<p>I’ll leave it up to you to work through the notebook and see just how well our model performs in practice.</p>
+</section>
+<section id="overview-of-the-final-practical-session">
+<h3>Overview of the Final Practical Session<a class="headerlink" href="#overview-of-the-final-practical-session" title="Link to this heading">¶</a></h3>
+<p>In the final practical session, we will build a small sequence-to-sequence model for codon prediction.</p>
+<p>The workflow is:</p>
+<ol class="arabic simple">
+<li><p>Load amino acid-DNA sequence pairs from the <strong>CodonTransformer</strong> dataset - this provides pairs of amino acids and the DNA sequences which encode them. We’ll again restrict our analysis to <em>E. coli</em> proteins for brevity.</p></li>
+<li><p>Tokenise amino acid sequences and codon sequences.</p></li>
+<li><p>Extract amino acid sequence features from ESM-2 (this time keeping per-residue representations).</p></li>
+<li><p>Append a small transformer model onto the end of ESM-2.</p></li>
+<li><p>Add sinusoidal positional embeddings so the transformer can understand sequence order.</p></li>
+<li><p>Train the transformer head to predict a codon for each amino acid position.</p></li>
+<li><p>Apply the validity constraint so predicted codons encode the correct amino acids.</p></li>
+<li><p>Evaluate whether the predicted DNA sequences are accurate reconstructions (especially when compared to the HFC baseline).</p></li>
+</ol>
+</section>
+</section>
+<span id="document-episodes/concluding-remarks"></span><section class="tex2jax_ignore mathjax_ignore" id="concluding-remarks">
+<h2>5. Concluding Remarks<a class="headerlink" href="#concluding-remarks" title="Link to this heading">¶</a></h2>
+<p>Across the four sessions, we’ve seen an introduction to generative AI concepts and their practical applications to the life sciences.</p>
+<section id="what-we-covered">
+<h3>What We Covered<a class="headerlink" href="#what-we-covered" title="Link to this heading">¶</a></h3>
+<p>In <strong>Session 1</strong>, we introduced the fundamental concepts underpinning deep learning and built some primitive neural networks.</p>
+<p>In <strong>Session 2</strong>, we built a simple image generator using an autoencoder. We compressed image data into a low-dimensional latent space, reconstructed the input image and decoded new latent points into synthetic images. This gave us the first version of a generative model and showed why latent spaces can be useful for interpretation.</p>
+<p>In <strong>Session 3</strong>, we moved from image data to sequence data. We introduced protein language models and ubiquitous techniques used in genAI, such as tokenisation, embedding, attention and transfer learning. We used ESM2 as a frozen encoder and trained a smaller model on top to predict a discrete protein property.</p>
+<p>Finally, in <strong>Session 4</strong>, we connected sequence modelling to a drug-discovery application. We learned about autoregressive models, vocabularies, positional embeddings and the advantages of using transformers. We built a transformer-based codon predictor, which reconstructed plausible codon sequences from amino acid sequences.</p>
+</section>
+<section id="other-applications-of-generative-ai-to-life-sciences">
+<h3>Other Applications of Generative AI to Life Sciences<a class="headerlink" href="#other-applications-of-generative-ai-to-life-sciences" title="Link to this heading">¶</a></h3>
+<p>The models in this workshop are small and simple teaching examples, but GenAI for LS extends much further.</p>
+<p>For example, generative AI is being used in:</p>
+<ul class="simple">
+<li><p><strong>Inpainting microscopy data:</strong> This involves learning synthetic image segments to remove artefacts, restore missing optical sections and potentially reduce imaging time or photodamage.</p></li>
+<li><p><strong>Vision-language models for medical imaging:</strong> Vision language models (VLMs) are an extension of large language models which produce text data conditioned on image data. In medical imaging, VLMs are used to automatically generate diagnoses and reports in radiology, pathology or microscopy images.</p></li>
+<li><p><strong>Diffusion models for image segmentation with uncertainty:</strong> Diffusion models, which are known primarily for image generation, can be used to create image masks of segmentation candidates. By running these models multiple times, it is possible to track segmentation uncertainty.</p></li>
+</ul>
+<p>As generative models become increasingly capable, we’re uncovering new and profound applications to the life sciences. Used carefully, generative AI gives life scientists a practical way to learn from complex data and build interpretable tools that can support real biological and clinical discovery.</p>
+</section>
+<section id="tips-for-using-generative-ai-in-life-science">
+<h3>Tips for Using Generative AI in Life Science<a class="headerlink" href="#tips-for-using-generative-ai-in-life-science" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p>Set random seeds and document everything you do so experiments are easy to reproduce.</p></li>
+<li><p>Clean the data before modelling: check labels, identifiers, duplicates, missing values and leakage between train and test splits.</p></li>
+<li><p>Make data <strong>FAIR</strong> where possible (findable, accessible, interoperable and reusable). Open-source your data and put it on a repository like <a class="reference external" href="https://zenodo.org/">Zenodo</a>.</p></li>
+<li><p>Watch for hallucinations and plausible-looking nonsense, especially when models generate text, images, structures or sequences. Always evaluate your outputs.</p></li>
+<li><p>Keep simple baselines. A complex model should beat a simple method for the right reasons.</p></li>
+<li><p>Always treat generated outputs as hypotheses until they are validated experimentally or clinically.</p></li>
+</ul>
+</section>
+<section id="how-sweden-ai-factory-can-help">
+<h3>How Sweden AI Factory Can Help<a class="headerlink" href="#how-sweden-ai-factory-can-help" title="Link to this heading">¶</a></h3>
+<p>Sweden AI Factory supports start-ups, small-to-medium enterprises, academics, and public sector workers who want to use AI. Our services are fully-subsidised by the Horizon Europe EuroHPC JU initiative, the SRC and Vinnova.</p>
+<p>We can help identify opportunities to use AI, design workflows, build prototypes, scale models to high-performance computers (which we also help you access), and evaluate model behaviour.</p>
+<p>Sweden AI Factory has its own Life Science team, but we accept projects from <strong>any discipline</strong>. You can learn more and get in touch through the <a class="reference external" href="https://swedenaifactory.se/">Sweden AI Factory website</a>.</p>
+</section>
+</section>
+</div>
+<div class="toctree-wrapper compound">
+<span id="document-quick-reference"></span><section class="tex2jax_ignore mathjax_ignore" id="quick-reference">
+<h2>Quick Reference<a class="headerlink" href="#quick-reference" title="Link to this heading">¶</a></h2>
+<section id="glossary">
+<h3>Glossary<a class="headerlink" href="#glossary" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://glosario.carpentries.org/en/#artificial_intelligence">artificial intelligence</a></p></li>
+<li><p><a class="reference external" href="https://glosario.carpentries.org/en/#machine_learning">machine learning</a></p></li>
+<li><p><a class="reference external" href="https://glosario.carpentries.org/en/#deep_learning">deep learning</a></p></li>
+<li><p><a class="reference external" href="https://glosario.carpentries.org/en/#neural_network">neural network</a></p></li>
+<li><p><a class="reference external" href="https://glosario.carpentries.org/en/#cnn">convolutional neural network (CNN)</a></p></li>
+<li><p><a class="reference external" href="https://glosario.carpentries.org/en/#accuracy">accuracy</a></p></li>
+<li><p><a class="reference external" href="https://glosario.carpentries.org/en/#epoch_dl">epoch</a></p></li>
+<li><p><a class="reference external" href="https://glosario.carpentries.org/en/#learning_rate">learning rate</a></p></li>
+<li><p><a class="reference external" href="https://glosario.carpentries.org/en/#confusion_matrix">confusion matrix</a></p></li>
+<li><p><a class="reference external" href="https://glosario.carpentries.org/en/#class_imbalance">class imbalance</a></p></li>
+<li><p><a class="reference external" href="https://glosario.carpentries.org/en/#overfitting">overfitting</a></p></li>
+<li><p><a class="reference external" href="https://glosario.carpentries.org/en/#hidden_layer">hidden layer</a></p></li>
+<li><p><a class="reference external" href="https://glosario.carpentries.org/en/#transfer_learning">transfer learning</a></p></li>
+</ul>
+</section>
+<section id="external-references">
+<h3>External references<a class="headerlink" href="#external-references" title="Link to this heading">¶</a></h3>
+<p>Here is a (non exhaustive) list of external resources for further study after this lesson:</p>
+<section id="relevant-papers">
+<h4>Relevant papers<a class="headerlink" href="#relevant-papers" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.science.org/doi/10.1126/science.ade2574">original ESM paper</a></p></li>
+<li><p><a class="reference external" href="https://www.nature.com/articles/s41467-025-58588-7">CodonTransformer</a></p></li>
+<li><p><a class="reference external" href="https://arxiv.org/abs/1706.03762">original transformer and positional embedding paper</a>.</p></li>
+</ul>
+</section>
+<section id="miscellaneous-resources">
+<h4>Miscellaneous resources<a class="headerlink" href="#miscellaneous-resources" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://machinelearningmastery.com/difference-test-validation-datasets/">the difference between validation data and test data</a></p></li>
+<li><p><a class="reference external" href="https://machinelearningmastery.com/learning-curves-for-diagnosing-machine-learning-model-performance/">underfitting and overfitting</a></p></li>
+<li><p><a class="reference external" href="https://learn.deeplearning.ai/chatgpt-prompt-eng/lesson/1/lesson_1">ChatGPT prompt engineering course</a></p></li>
+<li><p><a class="reference external" href="https://esmatlas.com/resources?action=fold">ESMFold (online protein structure prediction)</a></p></li>
+</ul>
+</section>
+<section id="some-ml-challenges-or-benchmarks">
+<h4>Some ML challenges or benchmarks<a class="headerlink" href="#some-ml-challenges-or-benchmarks" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://medmnist.com/">MedMNIST</a></p></li>
+<li><p><a class="reference external" href="https://mlcontests.com/">machine learning contests</a></p></li>
+<li><p><a class="reference external" href="https://www.kaggle.com/">Kaggle, machine learning competitions</a></p></li>
+<li><p><a class="reference external" href="https://predictioncenter.org/">protein structure prediction</a></p></li>
+<li><p><a class="reference external" href="https://www.ebi.ac.uk/msd-srv/capri/">prediction of protein-protein interactions</a></p></li>
+</ul>
+</section>
+<section id="some-courses-for-deeper-learning">
+<h4>Some courses for deeper learning:<a class="headerlink" href="#some-courses-for-deeper-learning" title="Link to this heading">¶</a></h4>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.fast.ai/">Fast AI course: making neural nets uncool again</a></p></li>
+<li><p><a class="reference external" href="https://www.udacity.com/course/deep-learning-pytorch--ud188">Intro to Deep Learning with PyTorch</a>, the course is quite intuitive</p></li>
+<li><p>Coursera courses by Andrew Ng:</p>
+<ul>
+<li><p><a class="reference external" href="https://www.coursera.org/learn/ai-for-everyone">AI for everyone</a>, for beginners who won’t do ML projects but are curious about what AI really is and what AI can do</p></li>
+<li><p><a class="reference external" href="https://www.coursera.org/learn/machine-learning">ML course</a> and <a class="reference external" href="https://www.coursera.org/specializations/deep-learning">DL course</a>, quite intensive courses for beginner/intermediate-level researchers who will do ML/DL projects</p></li>
+<li><p><a class="reference external" href="https://www.coursera.org/learn/machine-learning-projects">Structuring Machine Learning Projects</a>, how to conduct ML projects with useful ML engineering strategies</p></li>
+<li><p><a class="reference external" href="https://databricks.com/p/ebook/big-book-of-machine-learning-use-cases?utm_medium=paid+search&amp;utm_source=google&amp;utm_campaign=15631674924&amp;utm_adgroup=130078635494&amp;utm_content=ebook&amp;utm_offer=big-book-of-machine-learning-use-cases&amp;utm_ad=587637991591&amp;utm_term=machine%20learning&amp;gclid=CjwKCAjw9qiTBhBbEiwAp-GE0WaK3IrtfBeDWjb7L2ZDQg5_YgevbwoD288bq0sGgYNhcTlnjZfLaBoCC_EQAvD_BwE">Book on Machine Learning</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference external" href="https://www.deeplearningbook.org/">Book: Ian Goodfellow and Yoshua Bengio and Aaron Courville -  Deep Learning</a>. A really thorough, detailed (though math-heavy) book on everything (for example Generative Adverserial Networks or Autoencoders) you want to know about deep learning</p></li>
+<li><p><a class="reference external" href="https://udlbook.github.io/udlbook/">Book: Simon J.D. Prince - Understanding Deep Learning</a>. A less dense and slightly more modern overview of deep learning with coding examples for each chapter.</p></li>
+<li><p><a class="reference external" href="https://d2l.ai/">Book: Aston Zhang, Zachary C. Lipton, Mu Li and Alexander J. Smola - Dive into Deep Learning</a>. Popular, free resource containing interactive exercises.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<span id="document-guide"></span><section class="tex2jax_ignore mathjax_ignore" id="instructor-s-guide">
+<h2>Instructor’s guide<a class="headerlink" href="#instructor-s-guide" title="Link to this heading">¶</a></h2>
+<section id="why-we-teach-this-lesson">
+<h3>Why we teach this lesson<a class="headerlink" href="#why-we-teach-this-lesson" title="Link to this heading">¶</a></h3>
+</section>
+<section id="intended-learning-outcomes">
+<h3>Intended learning outcomes<a class="headerlink" href="#intended-learning-outcomes" title="Link to this heading">¶</a></h3>
+</section>
+<section id="timing">
+<h3>Timing<a class="headerlink" href="#timing" title="Link to this heading">¶</a></h3>
+</section>
+<section id="preparing-exercises">
+<h3>Preparing exercises<a class="headerlink" href="#preparing-exercises" title="Link to this heading">¶</a></h3>
+<p>e.g. what to do the day before to set up common repositories.</p>
+</section>
+<section id="other-practical-aspects">
+<h3>Other practical aspects<a class="headerlink" href="#other-practical-aspects" title="Link to this heading">¶</a></h3>
+</section>
+<section id="interesting-questions-you-might-get">
+<h3>Interesting questions you might get<a class="headerlink" href="#interesting-questions-you-might-get" title="Link to this heading">¶</a></h3>
+</section>
+<section id="typical-pitfalls">
+<h3>Typical pitfalls<a class="headerlink" href="#typical-pitfalls" title="Link to this heading">¶</a></h3>
+</section>
+</section>
+</div>
+<section id="learning-outcomes">
+<h2>Learning outcomes<a class="headerlink" href="#learning-outcomes" title="Link to this heading">¶</a></h2>
+<p>This material is for researchers and practitioners in life sciences who want to learn about generative AI applications.</p>
+<p>By the end of this module, learners should:</p>
+<ul class="simple">
+<li><p>Understand what generative AI is and how generative models (autoencoders, transformers and multimodal systems) are applied to biological data.</p></li>
+<li><p>Hands-on experience training and using models for:</p>
+<ul>
+<li><p>Image analysis and reconstruction (autoencoders).</p></li>
+<li><p>Protein feature extraction and structure prediction (protein language models).</p></li>
+<li><p>Drug discovery (codon prediction).</p></li>
+</ul>
+</li>
+<li><p>Understand key concepts such as latent space representations, intermediate embeddings and attention mechanisms.</p></li>
+<li><p>Experience with real biomedical datasets including X-ray images and protein sequences.</p></li>
+<li><p>Methods for evaluating models with practical metrics, visualisations and interpretability tools (e.g. saliency maps).</p></li>
+</ul>
+</section>
+<section id="see-also">
+<h2>See also<a class="headerlink" href="#see-also" title="Link to this heading">¶</a></h2>
+<div class="warning admonition">
+<p class="admonition-title">Credit</p>
+<p>This workshop was developed by Sweden AI Factory for life science researchers and practitioners.</p>
+<p>Don’t forget to check out additional course materials from the <a class="reference external" href="https://learn.swedenaifactory.se/lessons/">Sweden AI Factory lesson library</a>.</p>
+</div>
+<div class="attention admonition">
+<p class="admonition-title">License</p>
+<div class="attention dropdown admonition">
+<p class="admonition-title">CC BY-SA for media and pedagogical material</p>
+<p>Copyright © 2026, Sweden AI Factory, Luca Panconi, Ashwin Mohanan, Fatemeh Rahimian, António Brito. . This material is released by Sweden AI Factory under the Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).</p>
+<p><strong>Canonical URL</strong>: <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/">https://creativecommons.org/licenses/by-sa/4.0/</a></p>
+<p><a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/legalcode.en">See the legal code</a></p>
+<p class="rubric" id="you-are-free-to">You are free to</p>
+<ol class="arabic simple">
+<li><p><strong>Share</strong> — copy and redistribute the material in any medium or format for any purpose, even commercially.</p></li>
+<li><p><strong>Adapt</strong> — remix, transform, and build upon the material for any purpose, even commercially.</p></li>
+<li><p>The licensor cannot revoke these freedoms as long as you follow the license terms.</p></li>
+</ol>
+<p class="rubric" id="under-the-following-terms">Under the following terms</p>
+<ol class="arabic simple">
+<li><p><strong>Attribution</strong> — You must give <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/#ref-appropriate-credit">appropriate credit</a> , provide a link to the license, and <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/#ref-indicate-changes">indicate if changes were made</a> . You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.</p></li>
+<li><p><strong>ShareAlike</strong> — If you remix, transform, or build upon the material, you must distribute your contributions under the <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/#ref-same-license">same license</a> as the original.</p></li>
+<li><p><strong>No additional restrictions</strong> — You may not apply legal terms or <a class="reference external" href="https://creativecommons.org/licenses/by-sa/4.0/#ref-technological-measures">technological measures</a> that legally restrict others from doing anything the license permits.</p></li>
+</ol>
+<p class="rubric" id="notices">Notices</p>
+<p>You do not have to comply with the license for elements of the material in the public domain or where your use is permitted by an applicable <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/deed.en#ref-exception-or-limitation">exception or limitation</a> .</p>
+<p>No warranties are given. The license may not give you all of the permissions necessary for your intended use. For example, other rights such as <a class="reference external" href="https://creativecommons.org/licenses/by/4.0/deed.en#ref-publicity-privacy-or-moral-rights">publicity, privacy, or moral rights</a> may limit how you use the material.</p>
+<p>This deed highlights only some of the key features and terms of the actual license. It is not a license and has no legal value. You should carefully review all of the terms and conditions of the actual license before using the licensed material.</p>
+</div>
+<div class="attention dropdown admonition">
+<p class="admonition-title">MIT for source code and code snippets</p>
+<p>MIT License</p>
+<p>Copyright (c) 2026, Sweden AI Factory, Luca Panconi, Ashwin Mohanan, Fatemeh Rahimian, António Brito. </p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the “Software”), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+</div>
+</div>
+</section>
+</section>
+
+        </article>
+      </div>
+      <footer>
+        
+        <div class="related-pages">
+          
+          
+        </div>
+        <div class="bottom-of-page">
+          <div class="left-details">
+            <div class="copyright">
+                Copyright &#169; 2026, Sweden AI Factory, Luca Panconi, Ashwin Mohanan, Fatemeh Rahimian, António Brito. 
+            </div>
+            Made with <a href="https://www.sphinx-doc.org/">Sphinx</a> and <a class="muted-link" href="https://pradyunsg.me">@pradyunsg</a>'s
+            
+            <a href="https://github.com/pradyunsg/furo">Furo</a>
+            
+          </div>
+          <div class="right-details">
+            <div class="icons">
+              <a class="muted-link " href="https://github.com/sweden-ai-factory/gen-ai-for-life-science" aria-label="GitHub">
+                <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
+              
+            </div>
+          </div>
+        </div>
+        
+      </footer>
+    </div>
+    <aside class="toc-drawer">
+      
+      
+      <div class="toc-sticky toc-scroll">
+        <div class="toc-title-container">
+          <span class="toc-title">
+            On this page
+          </span>
+        </div>
+        <div class="toc-tree-container">
+          <div class="toc-tree">
+            <p class="caption" role="heading"><span class="caption-text">Setup</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="#document-setup">Setup</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">The lesson</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="#document-episodes/intro-to-dl">1. The Foundations of Deep Learning and Generative AI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-episodes/interpretable-autoencoder">2. Interpretable Autoencoders for Image Classification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-episodes/protein-language-models">3. Protein Language Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-episodes/drug-discovery-codon-prediction">4. Drug Discovery Application - Translating Proteins Back to DNA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-episodes/concluding-remarks">5. Concluding Remarks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="#document-quick-reference">Quick Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#document-guide">Instructor’s guide</a></li>
+</ul>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </aside>
+  </div>
+</div><script src="_static/documentation_options.js?v=d6d90d09"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/scripts/furo.js?v=46bd48cc"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=35a8b989"></script>
+    <script src="_static/minipres.js?v=a0d29692"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/tabs.js?v=3030b3cb"></script>
+    <script data-domain="learn.swedenaifactory.se/gen-ai-for-life-science" defer="defer" src="https://plausible.io/js/script.js"></script>
+    </body>
+</html>
